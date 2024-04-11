@@ -7,7 +7,11 @@ public class Alumno {
 	private Grupo _grupo;
 	private Curso _curso;
 	
-	public Alumno(String nombre,String[] apellidos) {
-		
+	public Alumno(String nombre,String[] apellidos, String correo, Grupo grupo, Curso curso) {
+		_nombre = nombre;
+		_apellidos = apellidos;
+		_correo = correo + "@universidad.es";
+		_grupo = grupo;
+		_curso = curso;
 	}
 }
