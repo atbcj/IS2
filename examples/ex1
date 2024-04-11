@@ -1,0 +1,65 @@
+{
+  "titulaciones": [
+    {
+      "nombre": "Ingeniería Informática",
+      "cursos": [
+        {
+          "nombre": "Primer Curso",
+          "asignaturas": [
+            {
+              "codigo": "FP1",
+              "nombre": "Programación I",
+              "creditos": 6,
+              "grupos": ["A", "D"]
+            },
+            {
+              "codigo": "MDL1",
+              "nombre": "Matemática Discreta 1",
+              "creditos": 5,
+              "grupos": ["C"]
+            }
+          ]
+        },
+        {
+          "nombre": "Segundo Curso",
+          "asignaturas": [
+            {
+              "codigo": "ED",
+              "nombre": "Estructuras de Datos",
+              "creditos": 6,
+              "grupos": ["A"]
+            },
+            {
+              "codigo": "BDD",
+              "nombre": "Bases de Datos",
+              "creditos": 5,
+              "grupos": ["I", "H"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Administración de Empresas",
+      "cursos": [
+        {
+          "nombre": "Primer Curso",
+          "asignaturas": [
+            {
+              "codigo": "CF",
+              "nombre": "Contabilidad Financiera",
+              "creditos": 6,
+              "grupos": ["J", "I", "H"]
+            },
+            {
+              "codigo": "ECO",
+              "nombre": "Economía",
+              "creditos": 5,
+              "grupos": ["I"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
