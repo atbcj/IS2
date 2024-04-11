@@ -18,7 +18,6 @@ public class Auxiliar {
                     break;
                 }
             }
-
             if (ok) {
                 System.out.println("Introduce un codigo unico de la asignatura: ");
                 String codigo = lectura.next();
@@ -47,13 +46,13 @@ public class Auxiliar {
         	 }
         	if (true) {
         		// COMPROBAR SI LA ASIGNATURA TIENE GRUPOS ASOCIADOS
-        		/*if (this._asignaturas.getAsignaturas().getGrupos().isEmpty()) {
+        		if (this._asignaturas.getAsignaturas().getGrupos().isEmpty()) {
         			this._asignaturas.getAsignaturas().remove(a);
         			return true;
         		} else {
         			System.out.println("No se puede eliminar la asignatura porque tiene grupos asociados");
         			return false;
-        		}*/
+        		}
         	}
         	else {
         		System.out.println("No existe ninguna asignatura con ese codigo");
@@ -62,13 +61,20 @@ public class Auxiliar {
         }
         
     }
-    /*public boolean visualizarAsignaturas(Titulacion titulacion) {
-    	if (titulacion == null) {
-    		throw new IllegalArgumentException("La titulacion no puede ser nula");
+    public boolean visualizarAsignaturas(Titulacion titulacion) {
+    	if (titulacion == null || titulacion.isEmpty()) {
+    		throw new IllegalArgumentException("La titulacion no puede ser nula o ser vacia ");
     	}
     	else {
-    		
+    		Scanner lectura = new Scanner(System.in);
+    		// MOSTRAR LOS CURSOS QUE  TIENE LA TITULACION
+    		for (Curso curso: titulacion.getCursos()) {
+    			// MOSTRAR LOS CURSOS DISPONIBLES
+    			
+    		}
+    		System.out.println("Elige el curso para visualizar el listado de asignaturas: ");
+    		String c = lectura.next();
     	}
     	return false;
-    }*/
+    }
 }
