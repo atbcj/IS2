@@ -15,5 +15,29 @@ public class Profesor {
 		this._DNI = DNI;
 		this._correo = correo;
 	}
-	// dfhsfjdsh
+	
+	// metodos
+	public String get_nombre() {
+		return _nombre;
+	}
+
+	public void set_nombre(String _nombre) {
+		this._nombre = _nombre;
+	}
+
+	public String[] get_apellidos() {
+		return _apellidos;
+	}
+
+	public void set_apellidos(String[] _apellidos) {
+		this._apellidos = _apellidos;
+	}
+
+	public String get_DNI() {
+		return _DNI;
+	}
+
+	public void set_DNI(String _DNI) {
+		this._DNI = _DNI;
+	}
 }
