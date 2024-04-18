@@ -1,18 +1,34 @@
 package Alumnos;
 
+import Grupos.Grupo;
+
 public class Alumno {
-	//atributos
-	private String _nombre;
-	private String[] _apellidos;
-	private String _correo;
-	private Grupo _grupo;
-	private Curso _curso;
 	
-	public Alumno(String nombre,String[] apellidos, String correo, Grupo grupo, Curso curso) {
+	private String[] _nombre;
+	private String[] _apellido1;
+	private String[] _apellido2;
+	private String _correo;
+		
+	public Alumno(String[] nombre,String[] apellido1, String[] apellido2, String correo) {
 		_nombre = nombre;
-		_apellidos = apellidos;
+		_apellido1 = apellido1;
+		_apellido2 = apellido2;
 		_correo = correo + "@universidad.es";
-		_grupo = grupo;
-		_curso = curso;
+	}
+	
+	public String[] getNombre() {
+		return this._nombre;
+	}
+	
+	public String[] get1erApellido() {
+		return this._apellido1;
+	}
+	
+	public String[] get2oApellido() {
+		return this._apellido2;
+	}
+	
+	public String getCorreo() {
+		return this._correo;
 	}
 }
