@@ -8,8 +8,9 @@ public class Alumno {
 	private String[] _apellido1;
 	private String[] _apellido2;
 	private String _correo;
+	private Grupo[] _cursos;
 		
-	public Alumno(String[] nombre,String[] apellido1, String[] apellido2, String correo) {
+	public Alumno(String[] nombre,String[] apellido1, String[] apellido2, String correo, Grupo[] cursos) {
 		_nombre = nombre;
 		_apellido1 = apellido1;
 		_apellido2 = apellido2;
