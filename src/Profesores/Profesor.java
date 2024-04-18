@@ -15,4 +15,5 @@ public class Profesor {
 		this._DNI = DNI;
 		this._correo = correo;
 	}
+	// metodos
 }
