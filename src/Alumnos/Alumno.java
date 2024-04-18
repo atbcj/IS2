@@ -1,6 +1,7 @@
 package Alumnos;
 
 public class Alumno {
+	//atributos
 	private String _nombre;
 	private String[] _apellidos;
 	private String _correo;
