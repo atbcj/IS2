@@ -4,22 +4,31 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Grupos.Grupo;
+
 
 
 public class Asignatura {
 	private String[] _nombre;
+	private List<Grupo> _grupos;
 	private int _creditos;
 	private String _codigo;
+	private Map<Asignatura, List<Grupo>> _map;
 	
-	public Asignatura (String[] nombre, int creditos, String codigo) {
+	public Asignatura (String[] nombre, int creditos, String codigo, List<Grupo> grupos) {
 		this._nombre = nombre;
 		this._creditos = creditos;
 		this._codigo = codigo;
+		this._map = new HashMap<>();
 	}
 	
 	public int getCreditos() {
@@ -32,6 +41,10 @@ public class Asignatura {
 	
 	public String getCodigo() {
 		return this._codigo;
+	}
+	
+	public Grupo[] getGrupos() {
+		return this.grupos;
 	}
 	
 	public void setCreditos(int creditos) {

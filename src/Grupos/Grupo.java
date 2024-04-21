@@ -15,7 +15,7 @@ public class Grupo {
 	private Map<Asignatura, List<Profesor>> _mapa_profesores;
 	private List<Asignatura> lista_asignaturas;
 	
-	Grupo(String nombre){
+	public Grupo(String nombre){
 		_nombre = nombre;
 	}
 	
