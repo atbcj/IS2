@@ -1,49 +1,37 @@
 package Grupos;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import Alumnos.Alumno;
 import Asignaturas.Asignatura;
-import Profesores.Profesor;
 
 public class Grupo {
-	private char _n;
-	private String _nombre;
+	private char _nombre;
 	private Map<Asignatura, List<Alumno>> _mapa_alumnos;
-	private Map<Asignatura, List<Profesor>> _mapa_profesores;
-	private List<Asignatura> lista_asignaturas;
+	private List<Asignatura> _lista_asignaturas;
 	
-	public Grupo(String nombre){
+	public Grupo(char nombre) {
 		_nombre = nombre;
+		_mapa_alumnos = new HashMap<>();
+		_lista_asignaturas = new LinkedList<>();
 	}
 	
-	public void cargaAlumnos(Asignatura a, Alumno al) {
-		if(!_mapa_alumnos.containsKey(a)) {
-			List<Alumno> lista_vacia = new LinkedList<Alumno>();
-			_mapa_alumnos.put(a, lista_vacia);
-		}
-		List<Alumno> lista = _mapa_alumnos.get(a);
-		lista.add(al);
-		_mapa_alumnos.put(a, lista);
-	}
-	
-	public void cargaProfesores(Asignatura a, Profesor p) {
-		if(!_mapa_alumnos.containsKey(a)) {
-			List<Profesor> lista_vacia = new LinkedList<Profesor>();
-			_mapa_profesores.put(a, lista_vacia);
-		}
-		List<Profesor> lista = _mapa_profesores.get(a);
-		lista.add(p);
-		_mapa_profesores.put(a, lista);
-	}
-	
-	public List<Asignatura> getListadoDeAsignaturas(){
-		return lista_asignaturas;
-	}
-	
-	public String getNombre() {
+	public char get_nombre() {
 		return _nombre;
+	}
+	
+	public List<Alumno> get_lista_alumnos(Asignatura a){
+		return _mapa_alumnos.get(a);
+	}
+	
+	public List<Asignatura> get_lista_asignaturas(){
+		return _lista_asignaturas;
+	}
+	
+	public void modifica_nombre(Character nombre) {
+		_nombre = nombre;
 	}
 }
