@@ -4,7 +4,6 @@ package Cursos;
 import java.util.List;
 import java.util.ArrayList;
 
-import Alumnos.Alumno;
 import Asignaturas.Asignatura;
 
 public class Curso {
@@ -17,7 +16,7 @@ public class Curso {
 		_lista_asignaturas = new ArrayList<>();
 	}
 	
-	public char get_anio() {
+	public int get_anio() {
 		return _anio;
 	}
 	
