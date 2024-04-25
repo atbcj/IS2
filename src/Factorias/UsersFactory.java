@@ -17,7 +17,7 @@ public class UsersFactory implements Factory<Usuario> {
 //		JSONObject data = o.optJSONObject("data");
 		switch (tag) {
 		case "Alum": {
-			usuario = new Alumno(null, null, null, "", null);
+			usuario = new Alumno(null, null, null, "");
 			break;
 		}
 		case "Prof": {

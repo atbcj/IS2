@@ -1,10 +1,13 @@
 package Usuarios;
 
+import java.util.List;
+
 public abstract class Usuario {
 	protected String _nombre;
 	protected String[] _apellidos;
 	protected String _DNI;
 	protected String _correo;
+	protected List<Tupla> tupla;
 	
 	public Usuario(String nombre, String[] apellidos, String DNI, String correo) {
 		_nombre = nombre;
@@ -44,4 +47,5 @@ public abstract class Usuario {
 	public void set_DNI(String _DNI) {
 		this._DNI = _DNI;
 	}
+	
 }

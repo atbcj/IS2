@@ -20,6 +20,7 @@ public class AlumnBuilder extends Builder<Usuario>{
 		String[] apellidos = new String[2];
 		String DNI = "";
 		String correo = "";
+		String[] tupla = new String[4];
 		if(data.has("nombre")) {
 			nombre = data.getString("nombre");
 		}
@@ -32,7 +33,8 @@ public class AlumnBuilder extends Builder<Usuario>{
 		if(data.has("correo")) {
 			correo = data.getString("nombre");
 		}
-		return new Alumno(nombre, apellidos, correo, DNI, null);
+		return new Alumno(nombre, apellidos, correo, DNI);
 	}
-
+	
+	
 }
