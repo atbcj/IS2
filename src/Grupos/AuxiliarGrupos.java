@@ -1,10 +1,11 @@
 package Grupos;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
+import Alumnos.Alumno;
 import Asignaturas.Asignatura;
 
-public class Auxiliar {
+public class AuxiliarGrupos {
 	
     List<Grupo> _grupos;
 
@@ -40,7 +41,7 @@ public class Auxiliar {
     		return false;
     }
     
-    public boolean actualizarGrupo(Asignatura a, Character nombre) {
+    public boolean actualizarGrupo(Asignatura a, Character nombre, List<Alumno> alumnos) {
     	if(comprueba_nombre(nombre)) {
     		Grupo grupo = null;
     		for(Grupo g: _grupos)
@@ -49,7 +50,19 @@ public class Auxiliar {
         			break;
         	}
     		if(grupo != null) {
-    			modifica_grupo(grupo, a);
+    			if(a == null && nombre == null && alumnos == null) {
+    				System.out.println("Todos los argumentos son erroneos");
+    				return false;
+    			}
+    			if(nombre != null)
+    				grupo.modifica_nombre(nombre);
+    			if(a != null) {
+    				if(alumnos != null)
+    					for(Alumno al: alumnos)
+    						grupo.añade_alumno(al, a);
+    				else
+    					grupo.añade_asignatura(a);
+    			}
     			return true;
     		}else {
     			System.out.println("No existe un grupo con ese nombre");
@@ -59,7 +72,17 @@ public class Auxiliar {
     		return false;
     }    
 
-	public boolean visualizarGrupos(Asignatura asignatura) {
+	public boolean visualizarGrupos(Asignatura a) {
+		List<Grupo> list = new LinkedList<>();
+		for(Grupo g: _grupos) {
+			if(g.tiene_asignatura(a))
+				list.add(g);
+		}
+		if(list.isEmpty())
+			System.out.println("No existe ningun grupo con la asignatura proporcionada");
+		else
+			for(Grupo g: list)
+				System.out.println(g.get_nombre());	
     	return true;
     }
     
@@ -75,36 +98,4 @@ public class Auxiliar {
     			return false;
     	return true;
     }
-    
-    @SuppressWarnings("resource")
-	private void modifica_grupo(Grupo grupo, Asignatura a) {
-    	boolean completado = false;
-    	Scanner lectura = new Scanner(System.in);
-    	System.out.println("Elige opción:");
-    	System.out.println("\tNombre - Cambia el nombre del grupo seleccionado.");
-    	System.out.println("\tElimina - Elimina la asignatura proporcionada del grupo seleccionado.");
-    	System.out.println("\tAñade - Añade la asignatura proporcionadad al grupo seleccionado.");
-    	String opcion = lectura.next();
-    	switch (opcion.toUpperCase()) {
-    		case "NOMBRE":{
-    			String nombre = lectura.next();
-    			if(nombre.length()==1) {
-    				Character n = nombre.charAt(0);
-    				if(comprueba_nombre(n)) {
-    					grupo.modifica_nombre(n);
-    					completado = true;
-    				}
-    			}
-    			break;
-    		}
-    		case "ELIMINA":{break;}
-    		case "AÑADE":{break;}
-    		default:{System.out.println("La opcion introducida por teclado no es válida"); break;}
-    	}
-    	
-    	if(completado)
-			System.out.println("La operacion ha terminado con exito");
-		else
-			System.out.println("La operacion ha fallado");
-	}
 }

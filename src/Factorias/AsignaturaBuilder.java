@@ -46,7 +46,7 @@ public class AsignaturaBuilder extends Builder{
 	    if (data.has("grupos")) {
 	        JSONArray _grupos = data.getJSONArray("grupos");
 	        for (int i = 0; i < _grupos.length(); i++) {
-	            String nombreGrupo = _grupos.getString(i);
+	            Character nombreGrupo = _grupos.getString(i).charAt(0);
 	            grupos.add(new Grupo(nombreGrupo));
 	        }
 	    }
