@@ -32,6 +32,30 @@ public class Grupo {
 	}
 	
 	public void modifica_nombre(Character nombre) {
-		_nombre = nombre;
+		if(nombre != null)
+			_nombre = nombre;
+	}
+	
+	public void añade_asignatura(Asignatura a) {
+		if(!_mapa_alumnos.containsKey(a)) {
+			_lista_asignaturas.add(a);
+			List<Alumno> lista_vacia = new LinkedList<>();
+			_mapa_alumnos.put(a, lista_vacia);
+		}
+	}
+	
+	public boolean tiene_asignatura(Asignatura a) {
+		return _mapa_alumnos.containsKey(a);
+	}
+	
+	public void añade_alumno(Alumno al, Asignatura a) {
+		if(!_mapa_alumnos.containsKey(a)) {
+			_lista_asignaturas.add(a);
+			List<Alumno> lista_vacia = new LinkedList<>();
+			_mapa_alumnos.put(a, lista_vacia);
+		}
+		List<Alumno> lista = _mapa_alumnos.get(a);
+		lista.add(al);
+		_mapa_alumnos.put(a, lista);
 	}
 }

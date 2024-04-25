@@ -1,0 +1,25 @@
+{
+  "titulaciones":[
+  	{
+  		"nombre": "Ingenieria Informatica",
+  		"cursos": [
+  			{
+  				"nombre": "Primero",
+  				"asignaturas": [
+  					{
+  						"codigo": "FP1",
+  						"nombre": "Fundamentos de Programacion I",
+  						"creditos": 6,
+  						"grupos": [
+  							{
+  								"nombre": "A";
+  								"alumnos": [a1, a2....]
+  							}
+  						]
+  					}
+  				]
+  			}
+  		]
+  	}
+  ]
+}
