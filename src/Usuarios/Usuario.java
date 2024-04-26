@@ -1,5 +1,6 @@
 package Usuarios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Usuario {
@@ -7,13 +8,14 @@ public abstract class Usuario {
 	protected String[] _apellidos;
 	protected String _DNI;
 	protected String _correo;
-	protected List<Tupla> tupla;
+	protected List<Tupla> _tupla;
 	
 	public Usuario(String nombre, String[] apellidos, String DNI, String correo) {
 		_nombre = nombre;
 		_apellidos = apellidos;
 		_DNI = DNI;
 		_correo = correo;
+		_tupla = new ArrayList<Tupla>();
 	}
 	
 	public String getNombre() {
@@ -48,4 +50,11 @@ public abstract class Usuario {
 		this._DNI = _DNI;
 	}
 	
+	public void añadirTupla(Tupla tupla) {
+		_tupla.add(tupla);
+	}
+	
+	public void quitarTupla(Tupla tupla) {
+		_tupla.remove(tupla);
+	}
 }

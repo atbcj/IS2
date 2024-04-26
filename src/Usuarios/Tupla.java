@@ -29,6 +29,22 @@ public class Tupla {
 		return _grupo;
 	}
 	
+	public void setGrado(String grado) {
+		this._grado = grado;
+	}
+	
+	public void setCurso(String curso) {
+		this._curso = curso;
+	}
+	
+	public void setAsignatura(String asignatura) {
+		this._asignatura = asignatura;
+	}
+	
+	public void setGrupo(String grupo) {
+		this._grupo = grupo;
+	}
+	
 	public String toString() {
 		return _grado + " " + _curso + " " + _asignatura + " " + _grupo;
 	}
