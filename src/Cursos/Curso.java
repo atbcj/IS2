@@ -21,9 +21,10 @@ public class Curso {
 	}
 	
 	public void modifica_anio(int nuevo_anio) {
-	    if (nuevo_anio > 0) {
-	        _anio = nuevo_anio;
+		if (nuevo_anio <= 0) {
+	        throw new IllegalArgumentException("El año debe ser mayor que 0.");
 	    }
+	    _anio = nuevo_anio;
 	}
 	
 	public List<Asignatura> get_lista_asignaturas(){
@@ -31,8 +32,13 @@ public class Curso {
 	}
 	
 	public void añade_asignatura(Asignatura a) {
-	    if (a != null && !_lista_asignaturas.contains(a)) {
+	    if (a == null) {
+	        throw new IllegalArgumentException("La asignatura no puede ser nula.");
+	    }
+	    if (!_lista_asignaturas.contains(a)) {
 	        _lista_asignaturas.add(a);
+	    } else {
+	        System.out.println("La asignatura ya está en la lista.");
 	    }
 	}
 	
