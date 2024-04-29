@@ -24,4 +24,18 @@ public class ListadoAsignaturas {
     public void removeAsignatura(Asignatura a) {
     	this._asignaturas.remove(a);
     }
+    
+    public Asignatura BuscarAsignatura(String codigo) {
+    	Asignatura a = null;
+    	boolean encontrada = false;
+        for (Asignatura asignatura : _asignaturas) {
+            if (asignatura.getCodigo().equals(codigo)) {
+            	 a = asignatura;
+            	 encontrada = true;
+                 break;
+            }
+        }
+        if (!encontrada) return null;
+        else return a;
+    }
 }
