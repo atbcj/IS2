@@ -50,6 +50,10 @@ public abstract class Usuario {
 		this._DNI = _DNI;
 	}
 	
+	public List<Tupla> getTupla() {
+		return this._tupla;
+	}
+	
 	public void añadirTupla(Tupla tupla) {
 		_tupla.add(tupla);
 	}

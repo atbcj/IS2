@@ -6,6 +6,7 @@ public class Tupla {
 	private String _curso;
 	private String _asignatura;
 	private String _grupo;
+	
 	public Tupla(String grado, String curso, String asignatura, String grupo) {
 		_grado = grado;
 		_curso = curso;
