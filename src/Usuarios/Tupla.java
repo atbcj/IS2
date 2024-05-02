@@ -18,7 +18,7 @@ public class Tupla {
 		return _grado;
 	}
 	
-	public String getcurso() {
+	public String getCurso() {
 		return _curso;
 	}
 	
