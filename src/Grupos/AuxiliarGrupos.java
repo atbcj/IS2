@@ -1,9 +1,8 @@
 package Grupos;
-import java.util.LinkedList;
+
 import java.util.List;
 
 import Alumnos.Alumno;
-import Asignaturas.Asignatura;
 
 public class AuxiliarGrupos {
 	
@@ -41,7 +40,7 @@ public class AuxiliarGrupos {
     		return false;
     }
     
-    public boolean actualizarGrupo(Asignatura a, Character nombre, List<Alumno> alumnos) {
+    public boolean actualizarGrupo(Character nombre, List<Alumno> alumnos) {
     	if(comprueba_nombre(nombre)) {
     		Grupo grupo = null;
     		for(Grupo g: _grupos)
@@ -50,19 +49,15 @@ public class AuxiliarGrupos {
         			break;
         	}
     		if(grupo != null) {
-    			if(a == null && nombre == null && alumnos == null) {
-    				System.out.println("Todos los argumentos son erroneos");
+    			if(nombre == null && alumnos == null) {
+    				System.out.println("Todos los argumentos son nulos");
     				return false;
     			}
     			if(nombre != null)
     				grupo.modifica_nombre(nombre);
-    			if(a != null) {
-    				if(alumnos != null)
-    					for(Alumno al: alumnos)
-    						grupo.añade_alumno(al, a);
-    				else
-    					grupo.añade_asignatura(a);
-    			}
+    			if(alumnos != null)
+    				for(Alumno a: alumnos)
+    					grupo.añade_alumno(a);
     			return true;
     		}else {
     			System.out.println("No existe un grupo con ese nombre");
@@ -72,17 +67,9 @@ public class AuxiliarGrupos {
     		return false;
     }    
 
-	public boolean visualizarGrupos(Asignatura a) {
-		List<Grupo> list = new LinkedList<>();
-		for(Grupo g: _grupos) {
-			if(g.tiene_asignatura(a))
-				list.add(g);
-		}
-		if(list.isEmpty())
-			System.out.println("No existe ningun grupo con la asignatura proporcionada");
-		else
-			for(Grupo g: list)
-				System.out.println(g.get_nombre());	
+	public boolean visualizarAlumnos(Grupo grupo) {
+		for(Alumno a: grupo.get_lista_alumnos())
+			System.out.println(a);
     	return true;
     }
     
