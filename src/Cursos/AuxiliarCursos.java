@@ -24,13 +24,21 @@ public class AuxiliarCursos {
     
     public boolean bajaCurso(int anio) {
         Curso curso = obtenerCursoPorAnio(anio);
-        if (curso != null) {
-            _cursos.remove(curso);
-            return true;
-        } else {
-            System.out.println("No existe un curso para ese año");
+        if (curso == null) {
+            System.out.println("No existe un curso para ese año.");
             return false;
         }
+
+        // Verificar si el curso está vacío
+        if (!curso.get_lista_asignaturas().isEmpty()) {
+            System.out.println("Imposibilidad de eliminación: El curso tiene asignaturas activas.");
+            return false;
+        }
+
+        // Proceder con la eliminación
+        _cursos.remove(curso);
+        System.out.println("Curso eliminado exitosamente.");
+        return true;
     }
     
     public boolean actualizarCurso(int anio, Integer nuevo_anio, Asignatura nueva_asignatura) {
