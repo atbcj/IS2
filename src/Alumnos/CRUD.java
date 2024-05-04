@@ -24,14 +24,14 @@ public class CRUD {
 	
 	public void mostrarAlumno(Alumno alumno) {
 		if(alumno != null) {
-			mostrar(alumno); //Función de la GUI para mostrar al usuario
+			mostrarAlumno(alumno); //Función de la GUI para mostrar al usuario
 		}
 	}
 	
 	public void mostrarListaAlumnos(Tupla condicion) {
 		for(Alumno a : alumnos) {
 			if(a.getTupla() == condicion){
-				mostrar(a); //Función de la GUI para mostrar al usuario
+				mostrarAlumno(a); //Función de la GUI para mostrar al usuario
 			}
 		}
 	}
@@ -40,11 +40,11 @@ public class CRUD {
 		for(Alumno a : alumnos) {
 			for(Tupla i: a.getTupla()) {
 				if(i.getGrupo() == condicion) {
-					mostrar(a); //Función de la GUI para mostrar al usuario
+					mostrarAlumno(a); //Función de la GUI para mostrar al usuario
 				}else if(i.getCurso() == condicion) {
-					mostrar(a);
+					mostrarAlumno(a);
 				}else if(i.getGrado() == condicion) {
-					mostrar(a);
+					mostrarAlumno(a);
 				}
 			}
 		}
