@@ -4,6 +4,9 @@
  */
 package is2;
 
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
 /**
  *
  * @author stele
@@ -56,7 +59,7 @@ public class NewJFrame extends javax.swing.JFrame {
         botonCerrar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(750, 750));
+        setPreferredSize(new java.awt.Dimension(750, 600));
         setResizable(false);
 
         fieldBuscar.addActionListener(new java.awt.event.ActionListener() {

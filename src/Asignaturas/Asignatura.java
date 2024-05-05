@@ -60,8 +60,4 @@ public class Asignatura {
 		this._codigo = codigo;
 	}
 
-	public void AsociarGrupos(List<Grupo> l) {
-		this._map.put(this, l);
-	}
-
 }
