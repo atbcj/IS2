@@ -15,7 +15,7 @@ public class Controller {
 	
 	List<Titulacion> titulaciones = new LinkedList<>();
 	
-	public void loadData(JSONObject database, Factory<Titulacion> factoria) {
+	public void loadData(JSONObject database, Factory<Titulacion> factoria) throws Exception {
 		JSONArray titulacion = database.getJSONArray("titulacion");
 		
 		if(titulacion != null) {

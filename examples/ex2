@@ -1,25 +1,14 @@
-{
-  "titulaciones":[
-  	{
-  		"nombre": "Ingenieria Informatica",
-  		"cursos": [
-  			{
-  				"nombre": "Primero",
-  				"asignaturas": [
-  					{
-  						"codigo": "FP1",
-  						"nombre": "Fundamentos de Programacion I",
-  						"creditos": 6,
-  						"grupos": [
-  							{
-  								"nombre": "A";
-  								"alumnos": [a1, a2....]
-  							}
-  						]
-  					}
-  				]
-  			}
-  		]
-  	}
-  ]
-}
+CREAR TITULACION:
+
+	1 Alta
+	2 cuando escribes el nombre se te habilita un combobox de 1-4 para seleccionar el numero
+	  de cursos de la titulacion
+	3 guardas y creas la titulacion con el nombre y el numero de cursos del combobox
+	
+CREAR CURSO - ASIGNATURA - GRUPO:
+	
+	1 Alta
+	2 compruebas que los campos anteriores(titulacion para cursos, titulacion y cursos 
+	  para asigantura...)
+	3.1 SI los campos anteriores son nulos o no válidos devolver error
+	3.2 Si se aceptan los campos, añadir el componente asociado a los campos introducidos
