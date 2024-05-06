@@ -14,7 +14,7 @@ public class AlumnBuilder extends Builder<Usuario>{
 	}
 
 	@Override
-	protected Usuario create_instance(JSONObject data) throws JSONException, Exception {
+	protected Alumno create_instance(JSONObject data) throws JSONException, Exception {
 		// TODO Auto-generated method stub
 		String nombre = "";
 		String[] apellidos = new String[2];

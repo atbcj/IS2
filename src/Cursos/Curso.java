@@ -11,9 +11,9 @@ public class Curso {
 	private int _anio;
 	private List<Asignatura> _lista_asignaturas;
 	
-	public Curso(int anio) {
+	public Curso(int anio,List<Asignatura> lista) {
 		_anio = anio;
-		_lista_asignaturas = new ArrayList<>();
+		_lista_asignaturas = lista;
 	}
 	
 	public int get_anio() {
