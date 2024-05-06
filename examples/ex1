@@ -49,7 +49,34 @@
               "codigo": "CF",
               "nombre": "Contabilidad Financiera",
               "creditos": 6,
-              "grupos": ["J", "I", "H"]
+              "grupos": [
+              	{
+              	   "nombre" :"J",
+              	   "Alumnos" : [
+              	   	  {
+              	   	     "nombre" : "Alvaro",
+              	   	     "apellidos" : "Tanarro",
+              	   	     "correo" : "alv@ucm.es",
+              	   	     "DNI" : 12145A
+              	   	  },
+              	   "nombre" :"I",
+              	   "Alumnos" : [
+              	   	  {
+              	   	     "nombre" : "Alvaro",
+              	   	     "apellidos" : "Tanarro",
+              	   	     "correo" : "alv@ucm.es",
+              	   	     "DNI" : 12145A
+              	   	  },
+              	   	  "nombre" :"I",
+              	   "Alumnos" : [
+              	   	  {
+              	   	     "nombre" : "Alvaro",
+              	   	     "apellidos" : "Tanarro",
+              	   	     "correo" : "alv@ucm.es",
+              	   	     "DNI" : 12145A
+              	   	  },
+              	  },
+                ]
             },
             {
               "codigo": "ECO",
