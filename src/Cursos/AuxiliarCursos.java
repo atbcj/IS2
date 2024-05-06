@@ -17,7 +17,7 @@ public class AuxiliarCursos {
             System.out.println("Ya existe un curso para ese año");
             return false;
         } else {
-            _cursos.add(new Curso(anio));
+            _cursos.add(new Curso(anio,null));
             return true;
         }
     }
