@@ -13,15 +13,15 @@ import Titulaciones.Titulacion;
 
 public class TitBuilder extends Builder<Titulacion>{
 
-	private CursoBuilder cursos;
+	private CursoBuilder cursos = new CursoBuilder();
 	
-	public TitBuilder(String type_tag, String desc) {
-		super(type_tag, desc);
-		// TODO Auto-generated constructor stub
+	public TitBuilder() {
+		super(".", ".");
+		
 	}
 
 	@Override
-	protected Titulacion create_instance(JSONObject data) throws JSONException, Exception {
+	public Titulacion create_instance(JSONObject data) throws JSONException, Exception {
 		String nombre = data.getString("nombre");
 		JSONArray array = data.getJSONArray("cursos");
 		List<Curso> lista = new LinkedList();

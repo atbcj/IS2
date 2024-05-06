@@ -1,6 +1,7 @@
 package Factorias;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -8,18 +9,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import Asignaturas.Asignatura;
+import Cursos.Curso;
 import Grupos.Grupo;
 
 public class AsignaturaBuilder extends Builder{
 
-	public AsignaturaBuilder(String type_tag, String desc) {
-		super(type_tag, desc);
+	private GrupoBuilder grupo = new GrupoBuilder();
+	
+	public AsignaturaBuilder() {
+		super(".", ".");
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected Asignatura create_instance(JSONObject data) throws JSONException, Exception {
-		String codigo = null;
+		/*String codigo = null;
 	    String[] nombre = null;
 	    int creditos = 0;
 		if (data.has("codigo")) {
@@ -51,7 +55,17 @@ public class AsignaturaBuilder extends Builder{
 	        }
 	    }
 	    
-	    return new Asignatura(nombre, creditos, codigo, grupos);
+	    return new Asignatura(nombre, creditos, codigo, grupos);*/
+		
+		String codigo = data.getString("codigo");
+		String nombre = data.getString("nombre");
+		int creditos = data.getInt("creditos");
+		JSONArray array = data.getJSONArray("grupos");
+		List<Grupo> lista = new LinkedList();
+		for(int i = 0; i< array.length(); i++) {
+			lista.add(grupo.create_instance(array.getJSONObject(i)));
+		}
+        return new Asignatura(nombre, creditos, codigo, lista);
 	}
 
 

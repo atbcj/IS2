@@ -22,9 +22,7 @@ public class Jsonclass {
 		}
 	}
 	
-	private static JSONObject load_JSON_file(InputStream in) {
-		return new JSONObject(new JSONTokener(in));
-	}
+	
 	
 	
 }

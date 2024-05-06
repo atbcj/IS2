@@ -13,7 +13,7 @@ import Titulaciones.Titulacion;
 
 public class CursoBuilder extends Builder<Curso> {
 	
-	private AsignaturaBuilder asignatura;
+	private AsignaturaBuilder asignatura = new AsignaturaBuilder();
 	
 	public CursoBuilder() {
         super("Curso", "Builder para la clase Curso ");

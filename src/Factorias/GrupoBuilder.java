@@ -14,11 +14,11 @@ import Usuarios.Usuario;
 
 public class GrupoBuilder extends Builder<Grupo>{
 
-	private AlumnBuilder alu;
-	private ProfBuilder prof;
+	private AlumnBuilder alu = new AlumnBuilder();
+	private ProfBuilder prof = new ProfBuilder();
 	
-	public GrupoBuilder(String type_tag, String desc) {
-		super(type_tag, desc);
+	public GrupoBuilder() {
+		super(".", ".");
 	}
 
 	@Override

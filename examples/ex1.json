@@ -4,7 +4,7 @@
       "nombre": "Ingeniería Informática",
       "cursos": [
         {
-          "nombre": "Primer Curso",
+          "anio": 1,
           "asignaturas": [
             {
               "codigo": "FP1",
@@ -21,7 +21,7 @@
           ]
         },
         {
-          "nombre": "Segundo Curso",
+          "anio": 2,
           "asignaturas": [
             {
               "codigo": "ED",
@@ -43,40 +43,47 @@
       "nombre": "Administración de Empresas",
       "cursos": [
         {
-          "nombre": "Primer Curso",
+          "anio": 1,
           "asignaturas": [
             {
               "codigo": "CF",
               "nombre": "Contabilidad Financiera",
               "creditos": 6,
               "grupos": [
-              	{
-              	   "nombre" :"J",
-              	   "Alumnos" : [
-              	   	  {
-              	   	     "nombre" : "Alvaro",
-              	   	     "apellidos" : "Tanarro",
-              	   	     "correo" : "alv@ucm.es",
-              	   	     "DNI" : 12145A
-              	   	  },
-              	   "nombre" :"I",
-              	   "Alumnos" : [
-              	   	  {
-              	   	     "nombre" : "Alvaro",
-              	   	     "apellidos" : "Tanarro",
-              	   	     "correo" : "alv@ucm.es",
-              	   	     "DNI" : 12145A
-              	   	  },
-              	   	  "nombre" :"H",
-              	   "Alumnos" : [
-              	   	  {
-              	   	     "nombre" : "Alvaro",
-              	   	     "apellidos" : "Tanarro",
-              	   	     "correo" : "alv@ucm.es",
-              	   	     "DNI" : 12145A
-              	   	  },
-              	  },
-                ]
+                {
+                  "nombre": "J",
+                  "Alumnos": [
+                    {
+                      "nombre": "Alvaro",
+                      "apellidos": "Tanarro",
+                      "correo": "alv@ucm.es",
+                      "DNI": "12145A"
+                    }
+                  ]
+                },
+                {
+                  "nombre": "I",
+                  "Alumnos": [
+                    {
+                      "nombre": "Alvaro",
+                      "apellidos": "Tanarro",
+                      "correo": "alv@ucm.es",
+                      "DNI": "12145A"
+                    }
+                  ]
+                },
+                {
+                  "nombre": "H",
+                  "Alumnos": [
+                    {
+                      "nombre": "Alvaro",
+                      "apellidos": "Tanarro",
+                      "correo": "alv@ucm.es",
+                      "DNI": "12145A"
+                    }
+                  ]
+                }
+               ]
             },
             {
               "codigo": "ECO",

@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import Factorias.Factory;
+import Factorias.TitBuilder;
 import Titulaciones.Titulacion;
 import Usuarios.Usuario;
 
@@ -15,9 +16,9 @@ public class Controller {
 	
 	List<Titulacion> titulaciones = new LinkedList<>();
 	
-	public void loadData(JSONObject database, Factory<Titulacion> factoria) throws Exception {
-		JSONArray titulacion = database.getJSONArray("titulacion");
-		
+	public void loadData(JSONObject database) throws Exception {
+		JSONArray titulacion = database.getJSONArray("titulaciones");
+		TitBuilder factoria = new TitBuilder();
 		if(titulacion != null) {
 			for(int i = 0; i < titulacion.length(); i++) {
 				JSONObject tit = titulacion.getJSONObject(i);
