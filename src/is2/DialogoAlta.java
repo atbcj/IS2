@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package is2;
-import is2.NewJFrame;
+package com.mycompany.is2;
 import java.awt.Component;
+import java.awt.Frame;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 /**
@@ -12,12 +15,18 @@ import javax.swing.JTextField;
  * @author stele
  */
 public class DialogoAlta extends javax.swing.JDialog {
+    
+    int selectedIndex;
+    private Frame padre;
+    ArrayList<JTextField> lista = new ArrayList<>();
+    
 
     /**
      * Creates new form DialogoOpciones
      */
     public DialogoAlta(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        Frame padre = parent;
         initComponents();
     }
 
@@ -56,17 +65,17 @@ public class DialogoAlta extends javax.swing.JDialog {
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        panelAlumno = new javax.swing.JPanel();
-        nombreAlumnos = new javax.swing.JLabel();
-        apellidosAlumnos = new javax.swing.JLabel();
-        textoNombreAlumnos = new javax.swing.JTextField();
-        textoApellidosAlumnos = new javax.swing.JTextField();
-        correoAlumnos = new javax.swing.JLabel();
-        textoCorreoAlumnos = new javax.swing.JTextField();
-        textoDNIAlumnos = new javax.swing.JTextField();
-        dniAlumnos = new javax.swing.JLabel();
-        saveButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField17 = new javax.swing.JTextField();
+        jTextField18 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Dar de alta");
@@ -290,43 +299,43 @@ public class DialogoAlta extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Titulación", jPanel6);
 
-        nombreAlumnos.setText("Correo");
+        jLabel15.setText("Correo");
 
-        apellidosAlumnos.setText("Apellidos");
+        jLabel16.setText("Apellidos");
 
-        textoNombreAlumnos.addActionListener(new java.awt.event.ActionListener() {
+        jTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField15ActionPerformed(evt);
             }
         });
 
-        textoApellidosAlumnos.addActionListener(new java.awt.event.ActionListener() {
+        jTextField16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField16ActionPerformed(evt);
             }
         });
 
-        correoAlumnos.setText("Nombre");
+        jLabel17.setText("Nombre");
 
-        dniAlumnos.setText("DNI");
+        jLabel18.setText("DNI");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(panelAlumno);
-        panelAlumno.setLayout(jPanel1Layout);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(correoAlumnos)
-                    .addComponent(apellidosAlumnos)
-                    .addComponent(dniAlumnos)
-                    .addComponent(nombreAlumnos))
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel15))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(textoApellidosAlumnos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                    .addComponent(textoNombreAlumnos, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textoCorreoAlumnos, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textoDNIAlumnos))
+                    .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                    .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField18))
                 .addContainerGap(184, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -334,38 +343,53 @@ public class DialogoAlta extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoApellidosAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(correoAlumnos))
+                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoNombreAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(apellidosAlumnos))
+                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoCorreoAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombreAlumnos))
+                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoDNIAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dniAlumnos))
+                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
                 .addContainerGap(191, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Alumno", panelAlumno);
+        lista.add(jTextField15);
+        lista.add(jTextField15);
+        lista.add(jTextField15);
+        lista.add(jTextField15);
+
+        jTabbedPane1.addTab("Alumno", jPanel1);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
 
-        saveButton.setText("Guardar");
+        jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        cancelButton.setText("Cancelar");
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(saveButton)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
-                .addComponent(cancelButton))
+                .addComponent(jButton2))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jTabbedPane1))
         );
@@ -374,8 +398,8 @@ public class DialogoAlta extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 394, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveButton)
-                    .addComponent(cancelButton)))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -399,8 +423,8 @@ public class DialogoAlta extends javax.swing.JDialog {
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
         // TODO add your handling code here:
-        int selectedIndex = jTabbedPane1.getSelectedIndex();
-
+        
+    selectedIndex = jTabbedPane1.getSelectedIndex();
     if (previousSelectedIndex != -1) {
         resetTextFields(jTabbedPane1.getComponentAt(previousSelectedIndex));
     }
@@ -431,6 +455,29 @@ public class DialogoAlta extends javax.swing.JDialog {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        boolean noVacio = true;
+        JDialog panelAlumno;
+
+        for(int i = 0; i < 4; i++){
+            if(lista.get(i).getText().isEmpty()){
+                System.out.println(lista);
+                noVacio = false;
+            }
+        }
+
+        if (selectedIndex == 5 && noVacio){
+            panelAlumno = new PanelAlumno(padre, true);
+            panelAlumno.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private int previousSelectedIndex = -1; 
     private void resetTextFields(Component component) {
@@ -488,23 +535,23 @@ public class DialogoAlta extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton saveButton;
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel nombreAlumnos;
-    private javax.swing.JLabel apellidosAlumnos;
-    private javax.swing.JLabel correoAlumnos;
-    private javax.swing.JLabel dniAlumnos;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel panelAlumno;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -514,10 +561,10 @@ public class DialogoAlta extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField textoNombreAlumnos;
-    private javax.swing.JTextField textoApellidosAlumnos;
-    private javax.swing.JTextField textoCorreoAlumnos;
-    private javax.swing.JTextField textoDNIAlumnos;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
