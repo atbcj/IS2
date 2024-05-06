@@ -9,7 +9,6 @@ import Usuarios.Profesor;
 import Usuarios.Usuario;
 
 public class UsersFactory implements Factory<Usuario> {
-
 	@Override
 	public Usuario create_instance(JSONObject info) throws Exception {
 		Usuario usuario = null;

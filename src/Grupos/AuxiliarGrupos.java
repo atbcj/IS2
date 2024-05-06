@@ -2,7 +2,7 @@ package Grupos;
 
 import java.util.List;
 
-import Alumnos.Alumno;
+import Usuarios.Alumno;
 
 public class AuxiliarGrupos {
 	
@@ -14,7 +14,7 @@ public class AuxiliarGrupos {
     			System.out.println("Ya existe un grupo con ese nombre");
     			return false;
     		}else {
-    			_grupos.add(new Grupo(nombre));
+    			_grupos.add(new Grupo(nombre,null,null));
     			return true;
     		}
     	}else 

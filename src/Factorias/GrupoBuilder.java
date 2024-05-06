@@ -1,19 +1,40 @@
 package Factorias;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import Grupos.Grupo;
+import Usuarios.Alumno;
+import Usuarios.Profesor;
+import Usuarios.Usuario;
 
 public class GrupoBuilder extends Builder<Grupo>{
 
+	private UsersFactory user;
+	
 	public GrupoBuilder(String type_tag, String desc) {
 		super(type_tag, desc);
 	}
 
 	@Override
 	protected Grupo create_instance(JSONObject data) throws JSONException, Exception {
-		return new Grupo((char) data.get("nombre"));
+		char nombre = (char) data.get("nombre");
+		JSONArray array = data.getJSONArray("alumnos");
+		List<Alumno> listal = new LinkedList();
+		for(int i = 0; i<array.length(); i++) {
+			listal.add((Alumno) user.create_instance(array.getJSONObject(i)));
+		}
+		
+		JSONArray array2 = data.getJSONArray("alumnos");
+		List<Profesor> listaprof = new LinkedList();
+		for(int i = 0; i<array.length(); i++) {
+			listaprof.add((Profesor) user.create_instance(array.getJSONObject(i)));
+		}
+		return new Grupo(nombre,listal,listaprof);
 	}
 
 }

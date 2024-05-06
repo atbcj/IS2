@@ -1,16 +1,18 @@
 package Grupos;
 
 import java.util.LinkedList;
+
 import java.util.List;
 
-import Alumnos.Alumno;
+import Usuarios.Alumno;
+import Usuarios.Profesor;
 
 public class Grupo {
 	
 	private char _nombre;
 	private List<Alumno> _lista_alumnos;
 	
-	public Grupo(char nombre) {
+	public Grupo(char nombre, List<Alumno> listal, List<Profesor> listpr) {
 		_nombre = nombre;
 		_lista_alumnos = new LinkedList<>();
 	}
