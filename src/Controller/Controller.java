@@ -4,6 +4,8 @@ import java.io.FileOutputStream;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.SwingUtilities;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -11,6 +13,7 @@ import Factorias.Factory;
 import Factorias.TitBuilder;
 import Titulaciones.Titulacion;
 import Usuarios.Usuario;
+import is2.NewJFrame;
 
 public class Controller {
 	/*loaddata,alta,baja,mod,consulta;*/
@@ -24,16 +27,16 @@ public class Controller {
 			for(int i = 0; i < titulacion.length(); i++) {
 				JSONObject tit = titulacion.getJSONObject(i);
 				factoria.create_instance(tit);  //crear builder de titulaciones
-				//falta añadir el alumno a la lista general de alumnos y a la lista específica de cada asignatura,grupo y curso
 			}
 		}
 	}
 	
-	public void saveData(JSONObject database) {
+	public void saveData(FileOutputStream out) {
 		
 	}
 	
-	public void run(FileOutputStream out) {
+	public void run() {
 		
 	}
+
 }
