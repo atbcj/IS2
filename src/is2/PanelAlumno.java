@@ -10,25 +10,12 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import Asignaturas.Asignatura;
-
 /**
  *
  * @author stele
  */
 public class PanelAlumno extends javax.swing.JDialog {
 
-	
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-    private JLabel titulacionPanel;
-    private JLabel gruposLabel;
-    private JLabel asignaturasLabel;
-    private JList<Asignatura> listaAsignaturas;
-    private JScrollPane panelSeleccionAsiganturas;
-    private JTextField titulacionText;
-    private JTextField gruposText;
-    // End of variables declaration//GEN-END:variables
-    
     /**
      * Creates new form PanelAlumno
      */
@@ -79,15 +66,14 @@ public class PanelAlumno extends javax.swing.JDialog {
 
         asignaturasLabel.setText("Asignaturas:");
 
-        listaAsignaturas.setModel(new AbstractListModel<Asignatura>() {
-            Asignatura[] asignaturas = {};
-            
+        listaAsignaturas.setModel(new AbstractListModel<String>() {
+            String[] strings = {};
             public int getSize() { 
-            	return asignaturas.length; 
+            	return strings.length; 
             }
             
             public String getElementAt(int i) {
-            	return asignaturas[i].getNombre();
+            	return strings[i];
             }
         });
         listaAsignaturas.setToolTipText("Con CTRL o SHIFT, se pueden seleccionar varios");
@@ -133,9 +119,19 @@ public class PanelAlumno extends javax.swing.JDialog {
         );
 
         pack();
-    }
-    
-    
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -174,4 +170,14 @@ public class PanelAlumno extends javax.swing.JDialog {
             }
         });
     }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private JLabel titulacionPanel;
+    private JLabel gruposLabel;
+    private JLabel asignaturasLabel;
+    private JList<String> listaAsignaturas;
+    private JScrollPane panelSeleccionAsiganturas;
+    private JTextField titulacionText;
+    private JTextField gruposText;
+    // End of variables declaration//GEN-END:variables
 }
