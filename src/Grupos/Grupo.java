@@ -11,10 +11,12 @@ public class Grupo {
 	
 	private char _nombre;
 	private List<Alumno> _lista_alumnos;
+	private List<Profesor> _lista_profesores;
 	
 	public Grupo(char nombre, List<Alumno> listal, List<Profesor> listpr) {
 		_nombre = nombre;
 		_lista_alumnos = new LinkedList<>();
+		_lista_profesores = new LinkedList<>();
 	}
 	
 	public char get_nombre() {
@@ -23,6 +25,10 @@ public class Grupo {
 	
 	public List<Alumno> get_lista_alumnos(){
 		return _lista_alumnos;
+	}
+	
+	public List<Profesor> get_lista_profesores(){
+		return _lista_profesores;
 	}
 	
 	public void modifica_nombre(Character nombre) {

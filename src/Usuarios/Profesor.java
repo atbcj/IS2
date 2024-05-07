@@ -11,5 +11,4 @@ public class Profesor extends Usuario{
 	
 	// metodos
 
-
 }

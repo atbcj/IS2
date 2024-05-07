@@ -12,7 +12,7 @@ import Usuarios.Alumno;
 import Usuarios.Profesor;
 import Usuarios.Usuario;
 
-public class GrupoBuilder extends Builder<Grupo>{
+public class GrupoBuilder extends Builder <Grupo> {
 
 	private AlumnBuilder alu = new AlumnBuilder();
 	private ProfBuilder prof = new ProfBuilder();
@@ -24,18 +24,24 @@ public class GrupoBuilder extends Builder<Grupo>{
 	@Override
 	protected Grupo create_instance(JSONObject data) throws JSONException, Exception {
 		char nombre = (char) data.get("nombre");
-		JSONArray array = data.getJSONArray("alumnos");
-		List<Alumno> listal = new LinkedList();
-		for(int i = 0; i<array.length(); i++) {
-			listal.add((alu.create_instance(array.getJSONObject(i)));
+		
+		JSONArray arrayAlumnos = data.getJSONArray("alumnos");
+		
+		List<Alumno> listaAlumnos = new LinkedList<>();
+		
+		for(int i = 0; i< arrayAlumnos.length(); i++) {
+			listaAlumnos.add((alu.create_instance(arrayAlumnos.getJSONObject(i))));
 		}
 		
-		JSONArray array2 = data.getJSONArray("alumnos");
-		List<Profesor> listaprof = new LinkedList();
-		for(int i = 0; i<array.length(); i++) {
-			listaprof.add((prof.create_instance(array.getJSONObject(i)));
-		}
-		return new Grupo(nombre,listal,listaprof);
+		JSONArray arrayProfesores = data.getJSONArray("profesores"); 
+	    
+		List<Profesor> listaProfesores = new LinkedList<>();
+	    
+		for (int i = 0; i < arrayProfesores.length(); i++) {
+	        listaProfesores.add(prof.create_instance(arrayProfesores.getJSONObject(i)));
+	    }
+	    
+		return new Grupo(nombre, listaAlumnos, listaProfesores);
 	}
 
 }
