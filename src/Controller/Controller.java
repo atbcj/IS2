@@ -27,4 +27,8 @@ public class Controller {
 			}
 		}
 	}
+	
+	public void saveData(JSONObject database) {
+		
+	}
 }

@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package com.mycompany.is2;
-import com.mycompany.is2.NewJFrame;
+package is2;
+import is2.NewJFrame;
 import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
