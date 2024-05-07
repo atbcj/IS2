@@ -3,6 +3,7 @@ package Grupos;
 import java.util.List;
 
 import Usuarios.Alumno;
+import Usuarios.Profesor;
 
 public class AuxiliarGrupos {
 	
@@ -30,8 +31,14 @@ public class AuxiliarGrupos {
         			break;
         	}
     		if(grupo != null) {
-    			_grupos.remove(grupo);
-    			return true;
+    			if(grupo.get_lista_alumnos().isEmpty() && grupo.get_lista_profesores().isEmpty()) {
+    				_grupos.remove(grupo);
+        			return true;
+    			}else {
+    				System.out.println("No se puede eliminar un grupo si todavia hay alumnos o profesores en él");
+        			return false;
+    			}
+    				
     		}else {
     			System.out.println("No existe un grupo con ese nombre");
     			return false;
@@ -40,7 +47,7 @@ public class AuxiliarGrupos {
     		return false;
     }
     
-    public boolean actualizarGrupo(Character nombre, List<Alumno> alumnos) {
+    public boolean actualizarGrupo(Character nombre, List<Alumno> alumnos, List<Profesor> profesores) {
     	if(comprueba_nombre(nombre)) {
     		Grupo grupo = null;
     		for(Grupo g: _grupos)
@@ -49,7 +56,7 @@ public class AuxiliarGrupos {
         			break;
         	}
     		if(grupo != null) {
-    			if(nombre == null && alumnos == null) {
+    			if(nombre == null && alumnos == null && profesores == null) {
     				System.out.println("Todos los argumentos son nulos");
     				return false;
     			}
@@ -58,6 +65,9 @@ public class AuxiliarGrupos {
     			if(alumnos != null)
     				for(Alumno a: alumnos)
     					grupo.añade_alumno(a);
+    			if(profesores != null)
+    				for(Profesor p: profesores)
+    					grupo.añade_profesor(p);
     			return true;
     		}else {
     			System.out.println("No existe un grupo con ese nombre");
@@ -70,6 +80,12 @@ public class AuxiliarGrupos {
 	public boolean visualizarAlumnos(Grupo grupo) {
 		for(Alumno a: grupo.get_lista_alumnos())
 			System.out.println(a);
+    	return true;
+    }
+	
+	public boolean visualizarProfesores(Grupo grupo) {
+		for(Profesor p: grupo.get_lista_profesores())
+			System.out.println(p);
     	return true;
     }
     
