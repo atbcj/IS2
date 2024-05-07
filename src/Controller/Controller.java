@@ -1,5 +1,6 @@
 package Controller;
 
+import java.io.FileOutputStream;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,6 +30,10 @@ public class Controller {
 	}
 	
 	public void saveData(JSONObject database) {
+		
+	}
+	
+	public void run(FileOutputStream out) {
 		
 	}
 }
