@@ -15,8 +15,14 @@ public class Grupo {
 	
 	public Grupo(char nombre, List<Alumno> listal, List<Profesor> listpr) {
 		_nombre = nombre;
-		_lista_alumnos = new LinkedList<>();
-		_lista_profesores = new LinkedList<>();
+		if(listal == null)
+			_lista_alumnos = new LinkedList<>();
+		else
+			_lista_alumnos = listal;
+		if(listpr == null)
+			_lista_profesores = new LinkedList<>();
+		else
+			_lista_profesores = listpr;
 	}
 	
 	public char get_nombre() {
@@ -39,5 +45,20 @@ public class Grupo {
 	public void añade_alumno(Alumno a) {
 		if(!_lista_alumnos.contains(a))
 			_lista_alumnos.add(a);
+	}
+	
+	public void añade_profesor(Profesor p) {
+		if(!_lista_profesores.contains(p))
+			_lista_profesores.add(p);
+	}
+	
+	public void elimina_alumno(Alumno a) {
+		if(_lista_alumnos.contains(a))
+			_lista_alumnos.remove(a);
+	}
+	
+	public void elimina_profesor(Profesor p) {
+		if(!_lista_profesores.contains(p))
+			_lista_profesores.remove(p);
 	}
 }
