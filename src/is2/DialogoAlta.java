@@ -463,18 +463,16 @@ public class DialogoAlta extends javax.swing.JDialog {
 	}// GEN-LAST:event_jButton1ActionPerformed
 
 	private void crearAsignatura() {
-		// Obtiene el texto del JTextField y lo convierte a un entero
+		int creditos = 0;
 		String textoCreditos = creditosTextField.getText();
 		try {
-			int creditos = Integer.parseInt(textoCreditos);
-			// Haz algo con el valor de 'creditos' aquí
+			creditos = Integer.parseInt(textoCreditos);
 		} catch (NumberFormatException e) {
-			// Maneja el caso en que el texto no pueda ser convertido a un entero
 			System.out.println("Error: El valor ingresado no es un número entero.");
 		}
 		String nombre = nombreAsignaturaTextField.getText();
 		String codigo = IDTextField.getText();
-		_ctrl.altaAsignatura(new Asignatura(nombre, creditos, codigo));
+		_ctrl.altaAsignatura(new Asignatura(nombre, creditos, codigo, null));
 	}
 
 	private void crearAlumno() {
