@@ -17,7 +17,7 @@ public class AlumnBuilder extends Builder<Usuario>{
 	public Alumno create_instance(JSONObject data) throws JSONException, Exception {
 		// TODO Auto-generated method stub
 		String nombre = "";
-		String[] apellidos = new String[2];
+		String apellidos = "";
 		String DNI = "";
 		String correo = "";
 		String[] tupla = new String[4];
@@ -25,7 +25,7 @@ public class AlumnBuilder extends Builder<Usuario>{
 			nombre = data.getString("nombre");
 		}
 		if(data.has("apellidos")) {
-			apellidos = JSONObject.getNames(data);
+			apellidos = data.getString("apellidos");
 		}
 		if(data.has("DNI")) {
 			DNI = data.getString("DNI");

@@ -20,18 +20,12 @@ public class ProfBuilder extends Builder<Usuario> {
 	protected Profesor create_instance(JSONObject data) throws JSONException, Exception {
 
 		String _nombre = null, _DNI = null, _correo = null;
-		String[] _apellido = new String[2];
+		String _apellido = "";
 
 		if (data.has("nombre"))
 			_nombre = data.getString("nombre");
 		if (data.has("apellido")) {
-			
-			JSONArray apellidoArray = data.getJSONArray("apellidos");
-			
-			if (apellidoArray.length() >= 2) {
-				_apellido[0] = apellidoArray.getString(0); 
-				_apellido[1] = apellidoArray.getString(1); 
-			}
+			_apellido = data.getString("apellido");
 		}
 		if (data.has("DNI")) {
 			_DNI = data.getString("DNI");
