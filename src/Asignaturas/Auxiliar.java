@@ -116,21 +116,30 @@ public class Auxiliar {
 
 	}
 
-	public boolean ActualizarAsignatura(int creditos, String[] nombre, Asignatura a, List<Grupo> grupos) {
-		if (comprobarNombreyCreditos(creditos, nombre)) {
-			a.setCreditos(creditos);
-			a.setNombre(nombre);
-			if (!grupos.isEmpty()) {
-				a.setGrupos(grupos);
-				return true;
-			}
-			else {
-				System.out.println("La lista de grupos no puede estar vacia");
+	public boolean ActualizarAsignatura(int creditos, String[] nombre, String codigo, String nuevoCod, List<Grupo> grupos) {
+		Asignatura a = obtenerAsignaturaPorCodigo(codigo);
+		if (a != null) {
+			if (comprobarNombreyCreditos(creditos, nombre) && comprobarCodigo(nuevoCod)) {
+				a.setCreditos(creditos);
+				a.setNombre(nombre);
+				if (!grupos.isEmpty()) {
+					a.setGrupos(grupos);
+					return true;
+				}
+				else {
+					System.out.println("La lista de grupos no puede estar vacia");
+					return false;
+				}
+			} else {
+				System.out.println("Los datos para actualizar no son validos");
 				return false;
 			}
-		} else {
+		}
+		else {
+			System.out.println("La asignatura no existe");
 			return false;
 		}
+		
 	}
 
 	public boolean comprobarTitulacion(Titulacion titulacion) {
