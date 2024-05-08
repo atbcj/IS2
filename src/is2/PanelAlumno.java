@@ -45,8 +45,11 @@ public class PanelAlumno extends javax.swing.JDialog {
         asignaturasLabel = new JLabel();
         panelSeleccionAsiganturas = new JScrollPane();
         listaAsignaturas = new JList<>();
-        saveButton = new JButton();
         
+        
+        saveButton = new JButton();
+        saveButton.setText("save");
+        saveButton.addActionListener((e) -> );
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -86,7 +89,7 @@ public class PanelAlumno extends javax.swing.JDialog {
         listaAsignaturas.setToolTipText("Con CTRL o SHIFT, se pueden seleccionar varios");
         panelSeleccionAsiganturas.setViewportView(listaAsignaturas);
 
-        saveButton.setText("save");
+        
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

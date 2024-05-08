@@ -12,7 +12,7 @@ public class AuxiliarProfesores {
 	}
 
 	// funciones CRUD: alta, baja, listado, actualizar
-	public boolean altaProfesor(String nombre, String[] apellidos, String DNI, String correo) {
+	public boolean altaProfesor(String nombre, String apellidos, String DNI, String correo) {
 
 		// Verificar si ya existe un profesor con el mismo DNI
 		if (existe(DNI)) {
@@ -57,7 +57,7 @@ public class AuxiliarProfesores {
 		}
 	}
 
-	public boolean actualizarProfesor(String DNI, String nombre, String[] apellidos, String correo) {
+	public boolean actualizarProfesor(String DNI, String nombre, String apellidos, String correo) {
 
 		// Buscar el profesor por DNI
 		Profesor profesor = obtenerProfesorPorDNI(DNI);

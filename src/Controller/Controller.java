@@ -9,6 +9,7 @@ import javax.swing.SwingUtilities;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import Factorias.AlumnBuilder;
 import Factorias.Factory;
 import Factorias.TitBuilder;
 import Titulaciones.Titulacion;
@@ -42,7 +43,7 @@ public class Controller {
 		
 	}
 
-	public void altaAlumno(Alumno o) {
-		auxA.altaAlumno(o);
+	public void altaAlumno(Alumno a) {
+		auxA.altaAlumno(a);
 	}
 }
