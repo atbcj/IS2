@@ -19,54 +19,58 @@ import Asignaturas.Asignatura;
 import Asignaturas.Auxiliar;
 
 public class Controller {
-	/*loaddata,alta,baja,mod,consulta;*/
-	
+	/* loaddata,alta,baja,mod,consulta; */
+
 	private List<Titulacion> titulaciones = new LinkedList<>();
 	private AuxiliarAlumnos auxAlumnos = new AuxiliarAlumnos();
 	private Auxiliar auxAsignaturas = new Auxiliar();
-	
+
 	public void loadData(JSONObject database) throws Exception {
 		JSONArray titulacion = database.getJSONArray("titulaciones");
 		TitBuilder factoria = new TitBuilder();
-		if(titulacion != null) {
-			for(int i = 0; i < titulacion.length(); i++) {
+		if (titulacion != null) {
+			for (int i = 0; i < titulacion.length(); i++) {
 				JSONObject tit = titulacion.getJSONObject(i);
-				factoria.create_instance(tit);  //crear builder de titulaciones
+				factoria.create_instance(tit); // crear builder de titulaciones
 			}
 		}
 	}
-	
+
 	public void saveData(FileOutputStream out) {
-		
+
 	}
-	
+
 	public void run() {
-		
+
 	}
 
 	public void altaAlumno(Alumno a) {
 		auxAlumnos.altaAlumno(a);
 	}
-	
+
 	public void altaGrupo(String titulacion, String curso, String asignatura, String nombre) {
-		for(Titulacion t: titulaciones) {
-			if(t.getNombre().equals(titulacion))
-				for(Curso c: t.getCursos())
-					if(String.valueOf(c.get_anio()).equals(curso))
-						for(Asignatura a: c.get_lista_asignaturas())
-							if(a.getNombre().equals(asignatura))
+		for (Titulacion t : titulaciones) {
+			if (t.getNombre().equals(titulacion))
+				for (Curso c : t.getCursos())
+					if (String.valueOf(c.get_anio()).equals(curso))
+						for (Asignatura a : c.get_lista_asignaturas())
+							if (a.getNombre().equals(asignatura))
 								a.aniadirGrupo(new Grupo(nombre.charAt(0), null, null));
-							
-						
+
 		}
 	}
-	
-	public List<Titulacion> getLista(){
+
+	public List<Titulacion> getLista() {
 		return Collections.unmodifiableList(this.titulaciones);
 	}
 
-	public void altaAsignatura(Asignatura asignatura) {
-		// TODO Auto-generated method stub
-		auxAsignaturas.altaAsignatura(0, null, null)
+	public void altaAsignatura(String nombre, int creditos, String codigo, String curso, String titulacion) {
+		for (Titulacion t : titulaciones) {
+			if (t.getNombre().equals(titulacion))
+				for (Curso c : t.getCursos())
+					if (String.valueOf(c.get_anio()).equals(curso))
+						c.añade_asignatura(new Asignatura(nombre, creditos, codigo, null));
+
+		}
 	}
 }

@@ -1,5 +1,6 @@
 package Asignaturas;
 
+import java.util.ArrayList;
 import java.util.List;
 import Grupos.Grupo;
 
@@ -13,7 +14,12 @@ public class Asignatura {
         this._nombre = nombre;
         this._creditos = creditos;
         this._codigo = codigo;
-        this._grupos = grupos;
+        if (grupos == null) {
+        	this._grupos = new ArrayList<>();
+        }
+        else {
+        	this._grupos = grupos;
+        }
     }
 
     public int getCreditos() {
