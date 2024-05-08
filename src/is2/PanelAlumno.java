@@ -10,17 +10,22 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import Controller.Controller;
+
 /**
  *
  * @author stele
  */
 public class PanelAlumno extends javax.swing.JDialog {
 
+	private Controller _ctrl;
+	
     /**
      * Creates new form PanelAlumno
      */
-    public PanelAlumno(java.awt.Frame parent, boolean modal) {
+    public PanelAlumno(java.awt.Frame parent, boolean modal,Controller control) {
         super(parent, modal);
+        _ctrl = control;
         initComponents();
     }
 
@@ -40,6 +45,8 @@ public class PanelAlumno extends javax.swing.JDialog {
         asignaturasLabel = new JLabel();
         panelSeleccionAsiganturas = new JScrollPane();
         listaAsignaturas = new JList<>();
+        saveButton = new JButton();
+        
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -79,6 +86,7 @@ public class PanelAlumno extends javax.swing.JDialog {
         listaAsignaturas.setToolTipText("Con CTRL o SHIFT, se pueden seleccionar varios");
         panelSeleccionAsiganturas.setViewportView(listaAsignaturas);
 
+        saveButton.setText("save");
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,7 +105,9 @@ public class PanelAlumno extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(asignaturasLabel)
                         .addPreferredGap(ComponentPlacement.RELATED)
-                        .addComponent(panelSeleccionAsiganturas, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panelSeleccionAsiganturas, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup()
+                    		.addComponent(saveButton)))
                 .addContainerGap(221, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -115,6 +125,8 @@ public class PanelAlumno extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(asignaturasLabel)
                     .addComponent(panelSeleccionAsiganturas, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                		.addComponent(saveButton))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
 
@@ -157,7 +169,7 @@ public class PanelAlumno extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 PanelAlumno dialog = new PanelAlumno(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -168,7 +180,7 @@ public class PanelAlumno extends javax.swing.JDialog {
                 });
                 dialog.setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -179,5 +191,6 @@ public class PanelAlumno extends javax.swing.JDialog {
     private JScrollPane panelSeleccionAsiganturas;
     private JTextField titulacionText;
     private JTextField gruposText;
+    private JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }

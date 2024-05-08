@@ -2,8 +2,8 @@ package Usuarios;
 
 import java.util.List;
 
-public class AuxiliarAlumnos {
-private List<Alumno> alumnos;
+public abstract class AuxiliarAlumnos {
+	private List<Alumno> alumnos;
 	
 	public void altaAlumno(Alumno alumno) {
 		if(!alumnos.contains(alumno)) {

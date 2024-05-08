@@ -473,7 +473,7 @@ public class DialogoAlta extends javax.swing.JDialog {
         }
 
         if (selectedIndex == 5 && noVacio){
-            panelAlumno = new PanelAlumno(padre, true);
+            panelAlumno = new PanelAlumno(padre, true,_ctrl);
             panelAlumno.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed

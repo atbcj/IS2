@@ -12,13 +12,16 @@ import org.json.JSONObject;
 import Factorias.Factory;
 import Factorias.TitBuilder;
 import Titulaciones.Titulacion;
+import Usuarios.Alumno;
 import Usuarios.Usuario;
+import Usuarios.AuxiliarAlumnos;
 import is2.NewJFrame;
 
 public class Controller {
 	/*loaddata,alta,baja,mod,consulta;*/
 	
-	List<Titulacion> titulaciones = new LinkedList<>();
+	private List<Titulacion> titulaciones = new LinkedList<>();
+	private AuxiliarAlumnos auxA;
 	
 	public void loadData(JSONObject database) throws Exception {
 		JSONArray titulacion = database.getJSONArray("titulaciones");
@@ -39,4 +42,7 @@ public class Controller {
 		
 	}
 
+	public void altaAlumno(Alumno o) {
+		auxA.altaAlumno(o);
+	}
 }
