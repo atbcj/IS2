@@ -69,5 +69,9 @@ public abstract class Usuario {
 	public void quitarTupla(Tupla tupla) {
 		_tupla.remove(tupla);
 	}
+
+	public boolean equals(Usuario a) {
+		return this._DNI.equals(a.get_DNI());
+	}
 	
 }
