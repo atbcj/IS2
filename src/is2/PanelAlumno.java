@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Controller.Controller;
+import Titulaciones.Titulacion;
 
 /**
  *
@@ -34,19 +35,22 @@ public class PanelAlumno extends JDialog {
 	
 	
 	private void initGUI() {
-		setTitle("Change Regions");
+		setTitle("select your subjects");
 		JPanel mainPanel = new JPanel();
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		mainPanel.setPreferredSize(new Dimension(600,400));
 		setContentPane(mainPanel);
 		
-		/*JPanel textPanel = new JPanel();
-		textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.X_AXIS));
-		JLabel helptext = new JLabel("<html><p>Select a region type, the rows/cols interval, and provide values for the parameters in the Value column(default values are used for parameters with no value)</p></html>");
-		textPanel.add(helptext);
-		mainPanel.add(textPanel);
-		*/
+		JPanel comboBoxPanel = new JPanel();
+		comboBoxPanel.setLayout(new BoxLayout(comboBoxPanel, BoxLayout.X_AXIS));
+		JLabel tits = new JLabel("Titulaciones: ");
+		comboBoxPanel.add(tits);
 		_titulaciones = new DefaultComboBoxModel<String>();
+		for(Titulacion tit : _ctrl.getLista()) {
+			_titulaciones.addElement(tit.getNombre());
+		}
+		comboBoxPanel.setPreferredSize(new Dimension(100,60));
+		mainPanel.add(comboBoxPanel);
 	}
 	
 	public void open(Frame parent) {

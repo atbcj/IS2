@@ -155,12 +155,6 @@ public class DialogoAlta extends javax.swing.JDialog {
 
 		jTabbedPane1.addTab("Profesor", jPanel2);
 
-		IDTextField.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jTextField14ActionPerformed(evt);
-			}
-		});
-
 		nombreAsignaturaTextField.setText(" ");
 		nombreAsignaturaTextField.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -437,7 +431,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 		// TODO add your handling code here:
 		boolean noVacio = true;
-		JDialog panelAlumno;
+		PanelAlumno panelAlumno;
 
 		for (int i = 0; i < 4; i++) {
 			if (lista.get(i).getText().isEmpty()) {
@@ -448,8 +442,8 @@ public class DialogoAlta extends javax.swing.JDialog {
 
 		if (selectedIndex == 5 && noVacio) {
 			crearAlumno();
-			panelAlumno = new PanelAlumno(padre, true, _ctrl);
-			panelAlumno.setVisible(true);
+			panelAlumno = new PanelAlumno(_ctrl);
+			panelAlumno.open(ViewUtils.getWindow(this));
 		}
 		if (selectedIndex == 3 && noVacio) {
 			crearGrupo();
