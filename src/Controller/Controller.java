@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.FileOutputStream;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -56,5 +57,9 @@ public class Controller {
 							
 						
 		}
+	}
+	
+	public List<Titulacion> getLista(){
+		return Collections.unmodifiableList(this.titulaciones);
 	}
 }
