@@ -559,7 +559,7 @@ public class DialogoAlta extends javax.swing.JDialog {
         });*/
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+
     private javax.swing.JButton saveButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel nombreGrupo;
