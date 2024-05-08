@@ -9,6 +9,7 @@ import java.awt.Frame;
 
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,7 +27,7 @@ public class PanelAlumno extends JDialog {
 	
 	private Controller _ctrl;
 	private DefaultComboBoxModel<String> _titulaciones;
-
+	
 	public PanelAlumno(Controller control) {
 		super();
 		_ctrl = control;
@@ -49,7 +50,8 @@ public class PanelAlumno extends JDialog {
 		for(Titulacion tit : _ctrl.getLista()) {
 			_titulaciones.addElement(tit.getNombre());
 		}
-		comboBoxPanel.setPreferredSize(new Dimension(100,60));
+		JComboBox c = new JComboBox<String>(_titulaciones);
+		comboBoxPanel.add(c);
 		mainPanel.add(comboBoxPanel);
 	}
 	

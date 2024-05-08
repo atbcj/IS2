@@ -31,7 +31,8 @@ public class Controller {
 		if (titulacion != null) {
 			for (int i = 0; i < titulacion.length(); i++) {
 				JSONObject tit = titulacion.getJSONObject(i);
-				factoria.create_instance(tit); // crear builder de titulaciones
+				 // crear builder de titulaciones
+				titulaciones.add(factoria.create_instance(tit));
 			}
 		}
 	}

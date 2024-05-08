@@ -2,18 +2,20 @@ package Launcher;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.lang.reflect.InvocationTargetException;
+import java.io.InputStream;
 
 import javax.swing.SwingUtilities;
+
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import Controller.Controller;
 import is2.NewJFrame;
 
 public class Main {
 
-	public static void main(String[] args) throws InvocationTargetException, InterruptedException, FileNotFoundException {
+	public static void main(String[] args) throws Exception {
 		FileOutputStream out = new FileOutputStream(new File("examples/ex3.json"));
         Controller control = new Controller();
     	control.loadData(load_JSON_file(new FileInputStream(new File("examples/ex1.json"))));
@@ -23,5 +25,8 @@ public class Main {
 		});
     	//control.run();
 	}
-
+	
+	 private static JSONObject load_JSON_file(InputStream in) {
+			return new JSONObject(new JSONTokener(in));
+	}
 }
