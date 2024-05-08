@@ -62,7 +62,7 @@ public class DialogoAlta extends javax.swing.JDialog {
         creditosLabel = new javax.swing.JLabel();
         IDLabel = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        jLabelAnio = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         panelGrupos = new javax.swing.JPanel();////
         nombreGrupo = new javax.swing.JLabel();
@@ -211,7 +211,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Asignatura", jPanel3);
 
-        jLabel11.setText("Año:");
+        jLabelAnio.setText("Año:");
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,7 +225,7 @@ public class DialogoAlta extends javax.swing.JDialog {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11)
+                .addComponent(jLabelAnio)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(283, Short.MAX_VALUE))
@@ -235,7 +235,7 @@ public class DialogoAlta extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
+                    .addComponent(jLabelAnio)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(312, Short.MAX_VALUE))
         );
@@ -571,7 +571,7 @@ public class DialogoAlta extends javax.swing.JDialog {
     private javax.swing.JButton saveButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel nombreGrupo;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabelAnio;
     private javax.swing.JLabel nombreAsignaturaLabel;
     private javax.swing.JLabel creditosLabel;
     private javax.swing.JLabel IDLabel;
