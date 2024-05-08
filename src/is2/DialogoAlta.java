@@ -10,6 +10,8 @@ import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Controller.Controller;
 /**
  *
  * @author stele
@@ -17,6 +19,7 @@ import javax.swing.JTextField;
 public class DialogoAlta extends javax.swing.JDialog {
     
     int selectedIndex;
+    private Controller _ctrl;
     private Frame padre;
     ArrayList<JTextField> lista = new ArrayList<>();
     
@@ -24,9 +27,10 @@ public class DialogoAlta extends javax.swing.JDialog {
     /**
      * Creates new form DialogoOpciones
      */
-    public DialogoAlta(java.awt.Frame parent, boolean modal) {
+    public DialogoAlta(java.awt.Frame parent, boolean modal, Controller control) {
         super(parent, modal);
         Frame padre = parent;
+        _ctrl = control;
         initComponents();
     }
 
@@ -520,7 +524,7 @@ public class DialogoAlta extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 DialogoAlta dialog = new DialogoAlta(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -531,7 +535,7 @@ public class DialogoAlta extends javax.swing.JDialog {
                 });
                 dialog.setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

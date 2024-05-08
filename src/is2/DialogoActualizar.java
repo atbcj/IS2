@@ -7,17 +7,22 @@ import is2.NewJFrame;
 import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Controller.Controller;
 /**
  *
  * @author stele
  */
 public class DialogoActualizar extends javax.swing.JDialog {
 
+	private Controller _ctrl;
+	
     /**
      * Creates new form DialogoOpciones
      */
-    public DialogoActualizar(java.awt.Frame parent, boolean modal) {
+    public DialogoActualizar(java.awt.Frame parent, boolean modal,Controller control) {
         super(parent, modal);
+        _ctrl = control;
         initComponents();
     }
 
@@ -485,7 +490,7 @@ public class DialogoActualizar extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 DialogoActualizar dialog = new DialogoActualizar(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -496,7 +501,7 @@ public class DialogoActualizar extends javax.swing.JDialog {
                 });
                 dialog.setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

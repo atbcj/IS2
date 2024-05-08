@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import Controller.Controller;
+
 /**
  *
  * @author stele
@@ -16,11 +18,13 @@ import javax.swing.JTabbedPane;
 public class NewJFrame extends javax.swing.JFrame {
     
     public static String selectedOption;
+    private Controller _ctrl;
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public NewJFrame(Controller ctrl) {
+    	_ctrl = ctrl;
         initComponents();
     }
 
@@ -144,13 +148,13 @@ public class NewJFrame extends javax.swing.JFrame {
     JDialog newDialog;
         switch (selectedOption) {
             case "Alta":
-                newDialog = new DialogoAlta(this, true);
+                newDialog = new DialogoAlta(this, true,_ctrl);
                 break;
             case "Baja":
-                newDialog = new DialogoBaja(this, true);
+                newDialog = new DialogoBaja(this, true,_ctrl);
                 break;
             default:
-                newDialog = new DialogoActualizar(this, true);
+                newDialog = new DialogoActualizar(this, true,_ctrl);
                 break;
         }
 
@@ -186,11 +190,11 @@ public class NewJFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new NewJFrame().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
