@@ -57,15 +57,12 @@ public class AsignaturaBuilder extends Builder{
 	    return new Asignatura(nombre, creditos, codigo, grupos);*/
 		
 		String codigo = data.getString("codigo");
-		JSONArray n= data.getJSONArray("nombre");
-		String[] nombre = new String[n.length()];
-        for (int i = 0; i < n.length(); i++) {
-            nombre[i] = n.getString(i);
-        }
+		String nombre = data.getString("nombre");
 		int creditos = data.getInt("creditos");
 		JSONArray array = data.getJSONArray("grupos");
 		List<Grupo> lista = new LinkedList();
-		for(int i = 0; i< array.length(); i++) {
+		lista.add(grupo.create_instance(array.getJSONObject(0)));
+		for(int i = 1; i< array.length(); i++) {
 			lista.add(grupo.create_instance(array.getJSONObject(i)));
 		}
         return new Asignatura(nombre, creditos, codigo, lista);

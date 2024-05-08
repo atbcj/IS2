@@ -28,7 +28,7 @@ public class IS2 {
 		
         FileOutputStream out = new FileOutputStream(new File("examples/ex3.json"));
         Controller control = new Controller();
-    	//control.loadData(load_JSON_file(new FileInputStream(new File("examples/ex1.json"))));
+    	control.loadData(load_JSON_file(new FileInputStream(new File("examples/ex1.json"))));
     	SwingUtilities.invokeAndWait(() -> {
 			NewJFrame frame = new NewJFrame(control);
 			frame.setVisible(true);

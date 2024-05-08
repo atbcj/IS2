@@ -52,7 +52,7 @@ public class Controller {
 					if(String.valueOf(c.get_anio()).equals(curso))
 						for(Asignatura a: c.get_lista_asignaturas())
 							if(a.getNombre().equals(asignatura))
-								a.añadeGrupo(new Grupo(nombre, null, null));
+								a.aniadirGrupo(new Grupo(nombre.charAt(0), null, null));
 							
 						
 		}

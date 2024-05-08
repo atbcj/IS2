@@ -1,45 +1,6 @@
 {
   "titulaciones": [
     {
-      "nombre": "Ingeniería Informática",
-      "cursos": [
-        {
-          "anio": 1,
-          "asignaturas": [
-            {
-              "codigo": "FP1",
-              "nombre": "Programación I",
-              "creditos": 6,
-              "grupos": ["A", "D"]
-            },
-            {
-              "codigo": "MDL1",
-              "nombre": "Matemática Discreta 1",
-              "creditos": 5,
-              "grupos": ["C"]
-            }
-          ]
-        },
-        {
-          "anio": 2,
-          "asignaturas": [
-            {
-              "codigo": "ED",
-              "nombre": "Estructuras de Datos",
-              "creditos": 6,
-              "grupos": ["A"]
-            },
-            {
-              "codigo": "BDD",
-              "nombre": "Bases de Datos",
-              "creditos": 5,
-              "grupos": ["I", "H"]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "nombre": "Administración de Empresas",
       "cursos": [
         {

@@ -560,15 +560,9 @@ public class DialogoAlta extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< Updated upstream
     private javax.swing.JButton saveButton;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JLabel jLabel10;
-=======
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel nombreGrupo;
->>>>>>> Stashed changes
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

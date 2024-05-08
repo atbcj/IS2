@@ -23,7 +23,7 @@ public class GrupoBuilder extends Builder <Grupo> {
 
 	@Override
 	protected Grupo create_instance(JSONObject data) throws JSONException, Exception {
-		char nombre = (char) data.get("nombre");
+		char nombre = data.getString("nombre");
 		
 		JSONArray arrayAlumnos = data.getJSONArray("alumnos");
 		
