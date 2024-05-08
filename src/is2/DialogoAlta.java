@@ -73,8 +73,8 @@ public class DialogoAlta extends javax.swing.JDialog {
         panelAlumnos = new javax.swing.JPanel();
         nombreAlumnosLabel = new javax.swing.JLabel();
         apellidosAlumnosLabel = new javax.swing.JLabel();
-        nombreAlumnosTextField = new javax.swing.JTextField();
         apellidosAlumnosTextField = new javax.swing.JTextField();
+        nombreAlumnosTextField = new javax.swing.JTextField();
         correoAlumnosLabel = new javax.swing.JLabel();
         correoAlumnosTextField = new javax.swing.JTextField();
         dniAlumnosTextField = new javax.swing.JTextField();
@@ -308,13 +308,13 @@ public class DialogoAlta extends javax.swing.JDialog {
 
         apellidosAlumnosLabel.setText("Apellidos");
 
-        nombreAlumnosTextField.addActionListener(new java.awt.event.ActionListener() {
+        apellidosAlumnosTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField15ActionPerformed(evt);
             }
         });
 
-        apellidosAlumnosTextField.addActionListener(new java.awt.event.ActionListener() {
+        nombreAlumnosTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField16ActionPerformed(evt);
             }
@@ -337,8 +337,8 @@ public class DialogoAlta extends javax.swing.JDialog {
                     .addComponent(nombreAlumnosLabel))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(apellidosAlumnosTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                    .addComponent(nombreAlumnosTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nombreAlumnosTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                    .addComponent(apellidosAlumnosTextField, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(correoAlumnosTextField, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dniAlumnosTextField))
                 .addContainerGap(184, Short.MAX_VALUE))
@@ -348,11 +348,11 @@ public class DialogoAlta extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(apellidosAlumnosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombreAlumnosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(correoAlumnosLabel))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreAlumnosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(apellidosAlumnosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(apellidosAlumnosLabel))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -365,10 +365,10 @@ public class DialogoAlta extends javax.swing.JDialog {
                 .addContainerGap(191, Short.MAX_VALUE))
         );
 
-        lista.add(nombreAlumnosTextField);
-        lista.add(nombreAlumnosTextField);
-        lista.add(nombreAlumnosTextField);
-        lista.add(nombreAlumnosTextField);
+        lista.add(apellidosAlumnosTextField);
+        lista.add(apellidosAlumnosTextField);
+        lista.add(apellidosAlumnosTextField);
+        lista.add(apellidosAlumnosTextField);
 
         jTabbedPane1.addTab("Alumno", panelAlumnos);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
@@ -482,11 +482,11 @@ public class DialogoAlta extends javax.swing.JDialog {
 
     private void crearAlumno() {
 		// TODO Auto-generated method stub
-		String nombre = nombreAlumnosTextField.getText();
 		String apellidos = apellidosAlumnosTextField.getText();
+		String nombre = nombreAlumnosTextField.getText();
 		String correo = correoAlumnosTextField.getText() + "@universidad.es";
 		String dni = dniAlumnosTextField.getText();
-		_ctrl.altaAlumno(new Alumno(nombre, apellidos, correo, dni));
+		_ctrl.altaAlumno(new Alumno(nombre, apellidos, dni, correo));
 	}
 
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -557,8 +557,8 @@ public class DialogoAlta extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel nombreAlumnosLabel;
     private javax.swing.JLabel apellidosAlumnosLabel;
+    private javax.swing.JLabel nombreAlumnosLabel;
     private javax.swing.JLabel correoAlumnosLabel;
     private javax.swing.JLabel dniAlumnosLabel;
     private javax.swing.JLabel jLabel19;

@@ -22,7 +22,7 @@ public class Controller {
 	/*loaddata,alta,baja,mod,consulta;*/
 	
 	private List<Titulacion> titulaciones = new LinkedList<>();
-	private AuxiliarAlumnos auxA;
+	private AuxiliarAlumnos auxA = new AuxiliarAlumnos();
 	
 	public void loadData(JSONObject database) throws Exception {
 		JSONArray titulacion = database.getJSONArray("titulaciones");

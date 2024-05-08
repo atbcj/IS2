@@ -1,55 +1,71 @@
 package Usuarios;
 
+import java.util.LinkedList;
 import java.util.List;
 
-public abstract class AuxiliarAlumnos {
+public class AuxiliarAlumnos {
 	private List<Alumno> alumnos;
-	
+
+	public AuxiliarAlumnos() {
+		alumnos = new LinkedList<>();
+	}
+
 	public void altaAlumno(Alumno alumno) {
-		if(!alumnos.contains(alumno)) {
+		boolean existe = false;
+		int i = 0;
+
+		while (i < alumnos.size() && !existe) {
+			Alumno a = alumnos.get(i);
+			if (a.equals(alumno)) {
+				existe = true;
+			}
+			i++;
+		}
+		if (!existe) {
 			alumnos.add(alumno);
 		}
 	}
-	
+
 	public void bajaAlumno(Alumno alumno) {
-		if(alumnos.contains(alumno)) {
+		if (alumnos.contains(alumno)) {
 			alumnos.remove(alumno);
 		}
 	}
-	
+
 	private void mostrarAlumno(Alumno alumno) {
-		if(alumno != null) {
-			mostrarAlumno(alumno); //Función de la GUI para mostrar al usuario
+		if (alumno != null) {
+			mostrarAlumno(alumno); // Función de la GUI para mostrar al usuario
 		}
 	}
-	
+
 	public void mostrarListaAlumnos(Tupla condicion) {
-		for(Alumno a : alumnos) {
-			if(a.getTupla() == condicion){
-				mostrarAlumno(a); //Función de la GUI para mostrar al usuario
+		for (Alumno a : alumnos) {
+			if (a.getTupla() == condicion) {
+				mostrarAlumno(a); // Función de la GUI para mostrar al usuario
 			}
 		}
 	}
-	
+
 	public void mostrarListaAlumnos(String condicion) {
-		for(Alumno a : alumnos) {
-			for(Tupla i: a.getTupla()) {
-				if(i.getGrupo() == condicion) {
-					mostrarAlumno(a); //Función de la GUI para mostrar al usuario
-				}else if(i.getCurso() == condicion) {
+		for (Alumno a : alumnos) {
+			for (Tupla i : a.getTupla()) {
+				if (i.getGrupo() == condicion) {
+					mostrarAlumno(a); // Función de la GUI para mostrar al usuario
+				} else if (i.getCurso() == condicion) {
 					mostrarAlumno(a);
-				}else if(i.getGrado() == condicion) {
+				} else if (i.getGrado() == condicion) {
 					mostrarAlumno(a);
 				}
 			}
 		}
 	}
-	
+
 	public void modificarAlumno(Alumno alumno) {
-		if(alumno != null) {
-			//sacar panel de opciones de que se quiere cambiar(Grado,Curso,Asignatura,Grupo)
+		if (alumno != null) {
+			// sacar panel de opciones de que se quiere
+			// cambiar(Grado,Curso,Asignatura,Grupo)
 			// o (DNI,correo,nombre)
-			
+
 		}
 	}
 }

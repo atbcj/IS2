@@ -49,7 +49,7 @@ public class PanelAlumno extends javax.swing.JDialog {
         
         saveButton = new JButton();
         saveButton.setText("save");
-        saveButton.addActionListener((e) -> );
+        //saveButton.addActionListener((e) -> );
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
