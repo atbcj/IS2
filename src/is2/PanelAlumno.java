@@ -11,6 +11,7 @@ import javax.swing.*;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import Controller.Controller;
+import Titulaciones.Titulacion;
 
 /**
  *
@@ -39,7 +40,12 @@ public class PanelAlumno extends javax.swing.JDialog {
     private void initComponents() {
 
         titulacionPanel = new JLabel();
-        titulacionText = new JTextField();
+        titulaciones = new DefaultComboBoxModel<String>();
+        
+        for(Titulacion tit: _ctrl.getLista()) {
+			titulaciones.addElement(tit.getNombre());
+		}
+        
         gruposText = new JTextField();
         gruposLabel = new JLabel();
         asignaturasLabel = new JLabel();
@@ -49,21 +55,11 @@ public class PanelAlumno extends javax.swing.JDialog {
         
         saveButton = new JButton();
         saveButton.setText("save");
-        //saveButton.addActionListener((e) -> );
+        saveButton.addActionListener((e) -> incluirEnAsignaturas());
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         titulacionPanel.setText("Titulación:");
-
-        titulacionText.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-            
-        });
 
         gruposText.addActionListener(new ActionListener() {
             
@@ -99,8 +95,8 @@ public class PanelAlumno extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(titulacionPanel)
-                        .addGap(18, 18, 18)
-                        .addComponent(titulacionText, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                        //.addComponent(titulaciones, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(gruposLabel)
                         .addGap(37, 37, 37)
@@ -118,8 +114,8 @@ public class PanelAlumno extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(titulacionPanel)
-                    .addComponent(titulacionText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(titulacionPanel))
+                    //.addComponent(titulaciones, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(gruposLabel)
@@ -136,7 +132,11 @@ public class PanelAlumno extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void incluirEnAsignaturas() {
+		
+	}
+
+	private void jTextField1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
@@ -192,7 +192,7 @@ public class PanelAlumno extends javax.swing.JDialog {
     private JLabel asignaturasLabel;
     private JList<String> listaAsignaturas;
     private JScrollPane panelSeleccionAsiganturas;
-    private JTextField titulacionText;
+    private DefaultComboBoxModel<String> titulaciones;
     private JTextField gruposText;
     private JButton saveButton;
     // End of variables declaration//GEN-END:variables
