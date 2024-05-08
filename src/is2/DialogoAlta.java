@@ -64,9 +64,9 @@ public class DialogoAlta extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        panelGrupos = new javax.swing.JPanel();////
+        nombreGrupo = new javax.swing.JLabel();
+        nombreGrupoTextField = new javax.swing.JTextField();////
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -242,23 +242,23 @@ public class DialogoAlta extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Curso", jPanel4);
 
-        jLabel10.setText("Grupo:");
+        nombreGrupo.setText("Grupo:");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        nombreGrupoTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(panelGrupos);
+        panelGrupos.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10)
+                .addComponent(nombreGrupo)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nombreGrupoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(272, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -266,12 +266,12 @@ public class DialogoAlta extends javax.swing.JDialog {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombreGrupo)
+                    .addComponent(nombreGrupoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(312, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Grupo", jPanel5);
+        jTabbedPane1.addTab("Grupo", panelGrupos);
 
         jLabel5.setText("Nombre titulación:");
 
@@ -478,6 +478,9 @@ public class DialogoAlta extends javax.swing.JDialog {
             panelAlumno = new PanelAlumno(padre, true,_ctrl);
             panelAlumno.setVisible(true);
         }
+        if (selectedIndex == 3 && noVacio){
+        	crearGrupo();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void crearAlumno() {
@@ -487,6 +490,13 @@ public class DialogoAlta extends javax.swing.JDialog {
 		String correo = correoAlumnosTextField.getText() + "@universidad.es";
 		String dni = dniAlumnosTextField.getText();
 		_ctrl.altaAlumno(new Alumno(nombre, apellidos, dni, correo));
+	}
+    
+    private void crearGrupo() {
+        JDialog panelGrupo;
+		String nombre = nombreGrupoTextField.getText();
+		panelGrupo = new PanelGrupo(padre, true,_ctrl, nombre);
+        panelGrupo.setVisible(true);
 	}
 
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -550,9 +560,15 @@ public class DialogoAlta extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< Updated upstream
     private javax.swing.JButton saveButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel jLabel10;
+=======
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel nombreGrupo;
+>>>>>>> Stashed changes
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -570,7 +586,7 @@ public class DialogoAlta extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel panelGrupos;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
@@ -581,7 +597,7 @@ public class DialogoAlta extends javax.swing.JDialog {
     private javax.swing.JTextField correoAlumnosTextField;
     private javax.swing.JTextField dniAlumnosTextField;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField nombreGrupoTextField;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;

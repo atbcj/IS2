@@ -56,4 +56,7 @@ public class Asignatura {
 		this._grupos = grupos;
 		
 	}
+	public void aniadirGrupo (Grupo g) {
+		this._grupos.add(g);
+	}
 }
