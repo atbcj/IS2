@@ -8,15 +8,10 @@ import javax.swing.SwingUtilities;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import Factorias.AlumnBuilder;
-import Factorias.Factory;
 import Factorias.TitBuilder;
 import Titulaciones.Titulacion;
 import Usuarios.Alumno;
-import Usuarios.Usuario;
 import Usuarios.AuxiliarAlumnos;
-import is2.NewJFrame;
 
 public class Controller {
 	/*loaddata,alta,baja,mod,consulta;*/

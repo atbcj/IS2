@@ -23,9 +23,8 @@ public class AsignaturaBuilder extends Builder{
 
 	@Override
 	protected Asignatura create_instance(JSONObject data) throws JSONException, Exception {
-		/*String codigo = null;
-	    String[] nombre = null;
-	    int creditos = 0;
+		//String codigo = null;
+	    /*int creditos = 0;
 		if (data.has("codigo")) {
 			 codigo = data.getString("codigo");
 		}
@@ -58,7 +57,11 @@ public class AsignaturaBuilder extends Builder{
 	    return new Asignatura(nombre, creditos, codigo, grupos);*/
 		
 		String codigo = data.getString("codigo");
-		String nombre = data.getString("nombre");
+		JSONArray n= data.getJSONArray("nombre");
+		String[] nombre = new String[n.length()];
+        for (int i = 0; i < n.length(); i++) {
+            nombre[i] = n.getString(i);
+        }
 		int creditos = data.getInt("creditos");
 		JSONArray array = data.getJSONArray("grupos");
 		List<Grupo> lista = new LinkedList();

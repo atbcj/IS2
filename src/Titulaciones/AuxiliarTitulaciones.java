@@ -36,7 +36,7 @@ public class AuxiliarTitulaciones {
         return null;
     }
 
-    public boolean actualizarTitulacion(Titulacion t, String[] nombre) {
+    public boolean actualizarTitulacion(Titulacion t, String nombre) {
     	 if (comprobarNombre(nombre)) {
              t.setNombre(nombre);
              return true;
@@ -52,7 +52,7 @@ public class AuxiliarTitulaciones {
     	return true;
     }
 
-	private boolean comprobarNombre(String[] nombre) {
+	private boolean comprobarNombre(String nombre) {
 		 if (nombre == null) {
 	            throw new IllegalArgumentException("La titulacion no puede ser nula o ser vacia ");
 	        }
