@@ -13,7 +13,15 @@
               "grupos": [
                 {
                   "nombre": "J",
-                  "Alumnos": [
+                  "alumnos": [
+                    {
+                      "nombre": "Alvaro",
+                      "apellidos": "Tanarro",
+                      "correo": "alv@ucm.es",
+                      "DNI": "12145A"
+                    }
+                  ],
+                  "profesores": [
                     {
                       "nombre": "Alvaro",
                       "apellidos": "Tanarro",
@@ -24,7 +32,15 @@
                 },
                 {
                   "nombre": "I",
-                  "Alumnos": [
+                  "alumnos": [
+                    {
+                      "nombre": "Alvaro",
+                      "apellidos": "Tanarro",
+                      "correo": "alv@ucm.es",
+                      "DNI": "12145A"
+                    }
+                  ],
+                  "profesores": [
                     {
                       "nombre": "Alvaro",
                       "apellidos": "Tanarro",
@@ -35,7 +51,15 @@
                 },
                 {
                   "nombre": "H",
-                  "Alumnos": [
+                  "alumnos": [
+                    {
+                      "nombre": "Alvaro",
+                      "apellidos": "Tanarro",
+                      "correo": "alv@ucm.es",
+                      "DNI": "12145A"
+                    }
+                  ],
+                  "profesores": [
                     {
                       "nombre": "Alvaro",
                       "apellidos": "Tanarro",
@@ -45,12 +69,6 @@
                   ]
                 }
                ]
-            },
-            {
-              "codigo": "ECO",
-              "nombre": "Economía",
-              "creditos": 5,
-              "grupos": ["I"]
             }
           ]
         }
