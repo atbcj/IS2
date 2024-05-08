@@ -9,9 +9,12 @@ import javax.swing.SwingUtilities;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import Factorias.TitBuilder;
+import Grupos.Grupo;
 import Titulaciones.Titulacion;
 import Usuarios.Alumno;
 import Usuarios.AuxiliarAlumnos;
+import Cursos.Curso;
+import Asignaturas.Asignatura;
 
 public class Controller {
 	/*loaddata,alta,baja,mod,consulta;*/
@@ -40,5 +43,18 @@ public class Controller {
 
 	public void altaAlumno(Alumno a) {
 		auxA.altaAlumno(a);
+	}
+	
+	public void altaGrupo(String titulacion, String curso, String asignatura, String nombre) {
+		for(Titulacion t: titulaciones) {
+			if(t.getNombre().equals(titulacion))
+				for(Curso c: t.getCursos())
+					if(String.valueOf(c.get_anio()).equals(curso))
+						for(Asignatura a: c.get_lista_asignaturas())
+							if(a.getNombre().equals(asignatura))
+								a.añadeGrupo(new Grupo(nombre, null, null));
+							
+						
+		}
 	}
 }
