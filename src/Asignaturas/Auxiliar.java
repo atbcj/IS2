@@ -16,7 +16,7 @@ public class Auxiliar {
 		this._asignaturas = new ArrayList<Asignatura>();
 	}*/
 
-	public boolean altaAsignatura(int creditos, String[] nombre, String codigo) {
+	public boolean altaAsignatura(int creditos, String nombre, String codigo) {
 		if (comprobarNombreyCreditos(creditos, nombre)) {
 			if (!ExisteAsignatura(nombre)) {
 				System.out.println("Introduce un código único de la asignatura: ");
@@ -67,11 +67,11 @@ public class Auxiliar {
 		return null;
 	}
 
-	public boolean comprobarNombreyCreditos(int creditos, String[] nombre) {
+	public boolean comprobarNombreyCreditos(int creditos, String nombre) {
 		if (creditos <= 0) {
 			throw new IllegalArgumentException("Los créditos deben ser mayores que cero.");
 		}
-		if (nombre == null || nombre.length == 0) {
+		if (nombre == null || nombre.isEmpty()) {
 			throw new IllegalArgumentException("Debe proporcionarse al menos un nombre.");
 		}
 		return true;
@@ -84,9 +84,9 @@ public class Auxiliar {
 		return true;
 	}
 
-	public boolean ExisteAsignatura(String[] nombre) {
+	public boolean ExisteAsignatura(String nombre) {
 		for (Asignatura asignatura : _asignaturas) {
-			if (Arrays.equals(asignatura.getNombre(), nombre)) {
+			if (asignatura.getNombre().equals(nombre)) {
 				return true;
 			}
 		}
@@ -116,7 +116,7 @@ public class Auxiliar {
 
 	}
 
-	public boolean ActualizarAsignatura(int creditos, String[] nombre, String codigo, String nuevoCod, List<Grupo> grupos) {
+	public boolean ActualizarAsignatura(int creditos, String nombre, String codigo, String nuevoCod, List<Grupo> grupos) {
 		Asignatura a = obtenerAsignaturaPorCodigo(codigo);
 		if (a != null) {
 			if (comprobarNombreyCreditos(creditos, nombre) && comprobarCodigo(nuevoCod)) {

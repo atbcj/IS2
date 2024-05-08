@@ -23,7 +23,7 @@ public class GrupoBuilder extends Builder <Grupo> {
 
 	@Override
 	protected Grupo create_instance(JSONObject data) throws JSONException, Exception {
-		char nombre = (char) data.get("nombre");
+		char nombre = data.getString("nombre").charAt(0);
 		
 		JSONArray arrayAlumnos = data.getJSONArray("alumnos");
 		
@@ -33,7 +33,7 @@ public class GrupoBuilder extends Builder <Grupo> {
 			listaAlumnos.add((alu.create_instance(arrayAlumnos.getJSONObject(i))));
 		}
 		
-		JSONArray arrayProfesores = data.getJSONArray("profesores"); 
+		JSONArray arrayProfesores = data.getJSONArray("profesores");
 	    
 		List<Profesor> listaProfesores = new LinkedList<>();
 	    

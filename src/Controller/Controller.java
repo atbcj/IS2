@@ -16,12 +16,14 @@ import Usuarios.Alumno;
 import Usuarios.AuxiliarAlumnos;
 import Cursos.Curso;
 import Asignaturas.Asignatura;
+import Asignaturas.Auxiliar;
 
 public class Controller {
 	/*loaddata,alta,baja,mod,consulta;*/
 	
 	private List<Titulacion> titulaciones = new LinkedList<>();
-	private AuxiliarAlumnos auxA = new AuxiliarAlumnos();
+	private AuxiliarAlumnos auxAlumnos = new AuxiliarAlumnos();
+	private Auxiliar auxAsignaturas = new Auxiliar();
 	
 	public void loadData(JSONObject database) throws Exception {
 		JSONArray titulacion = database.getJSONArray("titulaciones");
@@ -43,7 +45,7 @@ public class Controller {
 	}
 
 	public void altaAlumno(Alumno a) {
-		auxA.altaAlumno(a);
+		auxAlumnos.altaAlumno(a);
 	}
 	
 	public void altaGrupo(String titulacion, String curso, String asignatura, String nombre) {
@@ -53,7 +55,7 @@ public class Controller {
 					if(String.valueOf(c.get_anio()).equals(curso))
 						for(Asignatura a: c.get_lista_asignaturas())
 							if(a.getNombre().equals(asignatura))
-								a.añadeGrupo(new Grupo(nombre, null, null));
+								a.aniadirGrupo(new Grupo(nombre.charAt(0), null, null));
 							
 						
 		}
@@ -61,5 +63,10 @@ public class Controller {
 	
 	public List<Titulacion> getLista(){
 		return Collections.unmodifiableList(this.titulaciones);
+	}
+
+	public void altaAsignatura(Asignatura asignatura) {
+		// TODO Auto-generated method stub
+		auxAsignaturas.altaAsignatura(0, null, null)
 	}
 }

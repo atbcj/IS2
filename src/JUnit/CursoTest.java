@@ -16,9 +16,8 @@ public class CursoTest {
     @Before
     public void setUp() {
         // Crear una asignatura con los parámetros actualizados
-        String[] nombreAsignatura = {"Matemática Discreta 1"};
         List<Grupo> grupos = new ArrayList<>(); // Sin grupos inicialmente
-        asignatura = new Asignatura(nombreAsignatura, 6, "MDL1", grupos);
+        asignatura = new Asignatura("Matemática Discreta 1", 6, "MDL1", grupos);
 
         ArrayList<Asignatura> asignaturas = new ArrayList<>();
         asignaturas.add(asignatura);
@@ -38,8 +37,7 @@ public class CursoTest {
 
     @Test
     public void testAñadeAsignatura() {
-        String[] nombreNuevaAsignatura = {"Física"};
-        Asignatura nuevaAsignatura = new Asignatura(nombreNuevaAsignatura, 4, "FIS1", new ArrayList<>());
+        Asignatura nuevaAsignatura = new Asignatura("Fisica", 4, "FIS1", new ArrayList<>());
         curso.añade_asignatura(nuevaAsignatura);
         assertTrue(curso.get_lista_asignaturas().contains(nuevaAsignatura));
     }

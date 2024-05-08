@@ -4,12 +4,12 @@ import java.util.List;
 import Grupos.Grupo;
 
 public class Asignatura {
-    private String[] _nombre;
+    private String _nombre;
     private int _creditos;
     private String _codigo;
     private List<Grupo> _grupos;
 
-    public Asignatura(String[] nombre, int creditos, String codigo, List<Grupo> grupos) {
+    public Asignatura(String nombre, int creditos, String codigo, List<Grupo> grupos) {
         this._nombre = nombre;
         this._creditos = creditos;
         this._codigo = codigo;
@@ -20,7 +20,7 @@ public class Asignatura {
         return this._creditos;
     }
 
-    public String[] getNombre() {
+    public String getNombre() {
         return this._nombre;
     }
 
@@ -44,7 +44,7 @@ public class Asignatura {
         this._creditos = creditos;
     }
 
-    public void setNombre(String[] nombre) {
+    public void setNombre(String nombre) {
         this._nombre = nombre;
     }
 
