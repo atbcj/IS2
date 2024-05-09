@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import Factorias.TitBuilder;
 import Grupos.Grupo;
+import Titulaciones.AuxiliarTitulaciones;
 import Titulaciones.Titulacion;
 import Usuarios.Alumno;
 import Usuarios.AuxiliarAlumnos;
@@ -33,6 +34,7 @@ public class Controller {
 	private AuxiliarGrupos auxGrupos = new AuxiliarGrupos();
 	private AuxiliarProfesores auxP = new AuxiliarProfesores();
 	private AuxiliarCursos auxCursos = new AuxiliarCursos();
+	private AuxiliarTitulaciones auxTit = new AuxiliarTitulaciones();
 
 	public void loadData(JSONObject database) throws Exception {
 		JSONArray titulacion = database.getJSONArray("titulaciones");
@@ -40,7 +42,9 @@ public class Controller {
 		if (titulacion != null) {
 			for (int i = 0; i < titulacion.length(); i++) {
 				JSONObject tit = titulacion.getJSONObject(i);
-				titulaciones.add(factoria.create_instance(tit));
+				Titulacion titulation= factoria.create_instance(tit);
+				titulaciones.add(titulation);
+				auxTit.altaTitulacion(titulation);
 			}
 		}
 	}
@@ -72,11 +76,13 @@ public class Controller {
 			if (t.getNombre().equals(titulacion))
 				for (Curso c : t.getCursos())
 					if (String.valueOf(c.get_anio()).equals(curso))
-						for (Asignatura a : c.get_lista_asignaturas())
+						for (Asignatura a : c.get_lista_asignaturas()) {
+							auxGrupos._grupos = a.getGrupos();
 							if (a.getNombre().equals(asignatura)) {
 								auxGrupos.altaGrupo(nombre.charAt(0));
 								a.asociarGrupos(auxGrupos.getListaGrupos());
 							}
+						}
 		}
 	}
 	public void bajaGrupo(String titulacion, String curso, String asignatura, String nombre) {
@@ -84,11 +90,13 @@ public class Controller {
 			if (t.getNombre().equals(titulacion))
 				for (Curso c : t.getCursos())
 					if (String.valueOf(c.get_anio()).equals(curso))
-						for (Asignatura a : c.get_lista_asignaturas())
+						for (Asignatura a : c.get_lista_asignaturas()) {
+							auxGrupos._grupos = a.getGrupos();
 							if (a.getNombre().equals(asignatura)) {
 								auxGrupos.bajaGrupo(nombre.charAt(0));
 								a.asociarGrupos(auxGrupos.getListaGrupos());
 							}
+						}
 		}
 	}
 
@@ -122,6 +130,20 @@ public class Controller {
 
 	public void eliminarAlumno(Alumno al) {
 		auxAlumnos.bajaAlumno(al);
+	}
+
+	public void altaTitulacion(String nombre) {
+		Titulacion t = new Titulacion(nombre, null);
+		auxTit.altaTitulacion(t);
+		titulaciones.add(t);
+	}
+	public void bajaTitulacion(String nombre) {
+		for(Titulacion t: titulaciones)
+			if(nombre.equals(t.getNombre())) {
+				auxTit.bajaTitulacion(t);
+				titulaciones.remove(t);
+			}
+
 	}
 
 	
