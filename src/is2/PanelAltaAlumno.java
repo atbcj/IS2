@@ -51,7 +51,7 @@ public class PanelAltaAlumno extends JDialog {
 	
 	
 	private void initGUI() {
-		setTitle("select your subjects");
+		setTitle(_al.getNombre() + " " + _al.get_apellidos());
 		JPanel mainPanel = new JPanel();
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		mainPanel.setPreferredSize(new Dimension(600,400));

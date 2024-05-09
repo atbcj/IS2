@@ -36,7 +36,6 @@ public class Controller {
 	private AuxiliarProfesores auxP = new AuxiliarProfesores();
 	private AuxiliarCursos auxCursos = new AuxiliarCursos();
 	private AuxiliarTitulaciones auxTit = new AuxiliarTitulaciones();
-	private Tupla _tupla;
 
 	public void loadData(JSONObject database) throws Exception {
 		JSONArray titulacion = database.getJSONArray("titulaciones");
@@ -147,9 +146,4 @@ public class Controller {
 			}
 
 	}
-
-	public Tupla getTupla() {
-		return this._tupla;
-	}
-
 }

@@ -62,7 +62,7 @@ public class PanelBajaAlumno extends JDialog{
 		buttonPanel.add(_eliminarSistema);
 		
 		_eliminarTupla = new JButton();
-		_eliminarTupla.setText("Eliminar tupla");
+		_eliminarTupla.setText("Eliminar del grupo");
 		_eliminarTupla.addActionListener((e) -> eliminarTuplaAction());
 		buttonPanel.add(_eliminarTupla);
 		
