@@ -10,7 +10,6 @@ import org.json.JSONObject;
 import Grupos.Grupo;
 import Usuarios.Alumno;
 import Usuarios.Profesor;
-import Usuarios.Usuario;
 
 public class GrupoBuilder extends Builder <Grupo> {
 
