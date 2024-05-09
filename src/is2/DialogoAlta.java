@@ -9,6 +9,7 @@ import java.awt.Frame;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -446,6 +447,9 @@ public class DialogoAlta extends javax.swing.JDialog {
 			panelAlumno = new PanelAlumno(_ctrl);
 			panelAlumno.open(ViewUtils.getWindow(this));
 		}
+		if (selectedIndex == 4 && noVacio) {
+			crearCurso();
+		}
 		if (selectedIndex == 3) {
 			crearGrupo();
 		}
@@ -493,6 +497,16 @@ public class DialogoAlta extends javax.swing.JDialog {
 		
 		_ctrl.altaProfesor(new Profesor(nombre, apellidos, DNI, correo));
 	}
+	
+	private void crearCurso() {
+	    try {
+	        int anio = Integer.parseInt(jLabelAnio.getText());
+	        JOptionPane.showMessageDialog(this, "Curso creado correctamente para el año: " + anio);
+	    } catch (NumberFormatException e) {
+	        JOptionPane.showMessageDialog(this, "Error: El valor del año debe ser un número entero.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+	    }
+	}
+
 	
 	
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed

@@ -19,7 +19,7 @@ import Usuarios.Alumno;
 import Usuarios.AuxiliarAlumnos;
 import Usuarios.AuxiliarProfesores;
 import Usuarios.Profesor;
-import Cursos.Curso;
+import Cursos.*;
 import Asignaturas.Asignatura;
 import Asignaturas.Auxiliar;
 import Grupos.AuxiliarGrupos;
@@ -32,6 +32,7 @@ public class Controller {
 	private Auxiliar auxAsignaturas = new Auxiliar();
 	private AuxiliarGrupos auxGrupos = new AuxiliarGrupos();
 	private AuxiliarProfesores auxP = new AuxiliarProfesores();
+	private AuxiliarCursos auxCursos = new AuxiliarCursos();
 
 	public void loadData(JSONObject database) throws Exception {
 		JSONArray titulacion = database.getJSONArray("titulaciones");
@@ -98,4 +99,13 @@ public class Controller {
 
 		}
 	}
+	
+	public void altaCurso(int anio) {
+	    if (!auxCursos.altaCurso(anio)) {
+	        System.out.println("Error: No se pudo crear el curso, ya existe un curso para ese año.");
+	    }
+	}
+
+	
+
 }
