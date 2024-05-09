@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import Asignaturas.Asignatura;
 import Controller.Controller;
+import Grupos.PanelGrupo;
 import Usuarios.Alumno;
 import Usuarios.Profesor;
 
