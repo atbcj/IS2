@@ -450,6 +450,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 		}
 		if (selectedIndex == 4 && noVacio) {
 			crearCurso();
+			
 		}
 		if (selectedIndex == 3) {
 			crearGrupo();
@@ -501,14 +502,18 @@ public class DialogoAlta extends javax.swing.JDialog {
 	
 	private void crearCurso() {
 	    try {
-	        int anio = Integer.parseInt(jLabelAnio.getText());
-	        _ctrl.altaCurso(anio);
-	        JOptionPane.showMessageDialog(this, "Curso creado correctamente para el año: " + anio);
+	        int anio = Integer.parseInt(jLabelAnio.getText()); 
+	        if (_ctrl.altaCurso(anio)) {  
+	            JOptionPane.showMessageDialog(this, "Curso creado correctamente para el año: " + anio);
+	            PanelCurso panelCurso = new PanelCurso(_ctrl);
+	    	    panelCurso.open(padre);
+	        } else {
+	            JOptionPane.showMessageDialog(this, "No se pudo crear el curso, ya existe uno para ese año.", "Error de Creación", JOptionPane.ERROR_MESSAGE);
+	        }
 	    } catch (NumberFormatException e) {
 	        JOptionPane.showMessageDialog(this, "Error: El valor del año debe ser un número entero.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
 	    }
 	}
-
 	
 	
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed

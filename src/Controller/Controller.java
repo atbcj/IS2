@@ -100,11 +100,10 @@ public class Controller {
 		}
 	}
 	
-	public void altaCurso(int anio) {
-	    if (!auxCursos.altaCurso(anio)) {
-	        System.out.println("Error: No se pudo crear el curso, ya existe un curso para ese año.");
-	    }
+	public boolean altaCurso(int anio) {
+	    return auxCursos.altaCurso(anio);
 	}
+
 
 	
 
