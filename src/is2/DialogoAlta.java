@@ -65,7 +65,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 		nombreAsignaturaLabel = new javax.swing.JLabel();
 		creditosLabel = new javax.swing.JLabel();
 		IDLabel = new javax.swing.JLabel();
-		jPanel4 = new javax.swing.JPanel();
+		panelCurso = new javax.swing.JPanel();
 		jLabelAnio = new javax.swing.JLabel();
 		jTextField3 = new javax.swing.JTextField();
 		panelGrupos = new javax.swing.JPanel();////
@@ -209,8 +209,8 @@ public class DialogoAlta extends javax.swing.JDialog {
 			}
 		});
 
-		javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-		jPanel4.setLayout(jPanel4Layout);
+		javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(panelCurso);
+		panelCurso.setLayout(jPanel4Layout);
 		jPanel4Layout
 				.setHorizontalGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(jPanel4Layout.createSequentialGroup().addContainerGap().addComponent(jLabelAnio)
@@ -225,7 +225,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 										javax.swing.GroupLayout.PREFERRED_SIZE))
 						.addContainerGap(312, Short.MAX_VALUE)));
 
-		jTabbedPane1.addTab("Curso", jPanel4);
+		jTabbedPane1.addTab("Curso", panelCurso);
 
 		nombreGrupo.setText("Grupo:");
 
@@ -580,7 +580,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 	private javax.swing.JPanel panelAlumnos;
 	private javax.swing.JPanel jPanel2;
 	private javax.swing.JPanel jPanel3;
-	private javax.swing.JPanel jPanel4;
+	private javax.swing.JPanel panelCurso;
 	private javax.swing.JPanel panelGrupos;
 	private javax.swing.JPanel jPanel6;
 	private javax.swing.JTabbedPane jTabbedPane1;
