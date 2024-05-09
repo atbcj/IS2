@@ -7,6 +7,7 @@ package is2;
 import java.awt.Dimension;
 import is2.ViewUtils;
 import java.awt.Frame;
+import java.awt.geom.Dimension2D;
 
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
@@ -57,7 +58,7 @@ public class PanelAlumno extends JDialog {
 		setContentPane(mainPanel);
 		
 		JPanel comboBoxPanel = new JPanel();
-		comboBoxPanel.setLayout(new BoxLayout(comboBoxPanel, BoxLayout.X_AXIS));
+		comboBoxPanel.setLayout(new BoxLayout(comboBoxPanel, BoxLayout.Y_AXIS));
 		JLabel tits = new JLabel("Titulaciones: ");
 		comboBoxPanel.add(tits);
 		_titulaciones = new DefaultComboBoxModel<String>();
@@ -83,7 +84,7 @@ public class PanelAlumno extends JDialog {
 		c3.addActionListener((e) -> seleccionGrupos(comboBoxPanel));
 		
 		_grupos = new DefaultComboBoxModel<String>();
-		JLabel grup = new JLabel("Asignaturas: ");
+		JLabel grup = new JLabel("Grupos: ");
 		comboBoxPanel.add(grup);
 		JComboBox c4 = new JComboBox<String>(_grupos);
 		comboBoxPanel.add(c4);
@@ -112,7 +113,7 @@ public class PanelAlumno extends JDialog {
 
 
 	private void saveAction() {
-		_al.añadirTupla(new Tupla(_titulaciones.getSelectedItem().toString(), _cursos.getSelectedItem().toString(), _asignaturas.getSelectedItem().toString(), _grupos.getSelectedItem().toString()));
+		_al.añadirTupla(new Tupla(_titulaciones.getSelectedItem().toString(), _cursos.getSelectedItem().toString(), _asignaturas.getSelectedItem().toString(), _grupos.getSelectedItem().toString()),true);
 	}
 
 

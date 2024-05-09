@@ -7,7 +7,7 @@ import java.awt.Frame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-class ViewUtils {
+public class ViewUtils {
 
 	static Frame getWindow(Component c) {
 		Frame w = null;
@@ -20,7 +20,7 @@ class ViewUtils {
 		return w;
 	}
 
-	static void showErrorMsg(String msg) {
+	public static void showErrorMsg(String msg) {
 		showErrorMsg(null, msg);
 	}
 

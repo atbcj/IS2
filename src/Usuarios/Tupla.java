@@ -1,5 +1,7 @@
 package Usuarios;
 
+import Titulaciones.Titulacion;
+
 public class Tupla {
 	
 	private String _grado;
@@ -10,8 +12,8 @@ public class Tupla {
 	public Tupla(String grado, String curso, String asignatura, String grupo) {
 		_grado = grado;
 		_curso = curso;
-		_asignatura = grupo;
-		_grupo = asignatura;
+		_asignatura = asignatura;
+		_grupo = grupo;
 	}
 	
 	public String getGrado() {
@@ -48,5 +50,9 @@ public class Tupla {
 	
 	public String toString() {
 		return _grado + " " + _curso + " " + _asignatura + " " + _grupo;
+	}
+	
+	public boolean equals(Tupla tupla) {
+		return (_grupo == tupla.getGrupo() && _curso == tupla.getCurso() && _asignatura == tupla.getAsignatura() && _grado == tupla.getGrado());
 	}
 }

@@ -1,6 +1,7 @@
 package Usuarios;
 
 import java.util.ArrayList;
+import is2.ViewUtils;
 import java.util.List;
 
 import org.json.JSONObject;
@@ -64,8 +65,23 @@ public abstract class Usuario {
 		return this._tupla;
 	}
 
-	public void añadirTupla(Tupla tupla) {
-		_tupla.add(tupla);
+	public void añadirTupla(Tupla tupla,boolean alumno) {
+		int i=0;
+		boolean existe = false, asigRep = false;
+		while(i < _tupla.size() && !existe && !asigRep) {
+			if(_tupla.get(i).equals(tupla)) {
+				existe = true;
+				ViewUtils.showErrorMsg("Ya te has matriculado en esta asignatura");
+			}
+			if(_tupla.get(i).getAsignatura().equals(tupla.getAsignatura()) && alumno) {
+				asigRep = true;
+				ViewUtils.showErrorMsg("No puedes estar en dos grupos de la misma asigantura a la vez");
+			}
+			i++;
+		}
+		if(!existe && !asigRep) {
+			_tupla.add(tupla);
+		}	
 	}
 
 	public void quitarTupla(Tupla tupla) {
