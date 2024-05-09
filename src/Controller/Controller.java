@@ -72,11 +72,13 @@ public class Controller {
 			if (t.getNombre().equals(titulacion))
 				for (Curso c : t.getCursos())
 					if (String.valueOf(c.get_anio()).equals(curso))
-						for (Asignatura a : c.get_lista_asignaturas())
+						for (Asignatura a : c.get_lista_asignaturas()) {
+							auxGrupos._grupos = a.getGrupos();
 							if (a.getNombre().equals(asignatura)) {
 								auxGrupos.altaGrupo(nombre.charAt(0));
 								a.asociarGrupos(auxGrupos.getListaGrupos());
 							}
+						}
 		}
 	}
 	public void bajaGrupo(String titulacion, String curso, String asignatura, String nombre) {
@@ -84,11 +86,13 @@ public class Controller {
 			if (t.getNombre().equals(titulacion))
 				for (Curso c : t.getCursos())
 					if (String.valueOf(c.get_anio()).equals(curso))
-						for (Asignatura a : c.get_lista_asignaturas())
+						for (Asignatura a : c.get_lista_asignaturas()) {
+							auxGrupos._grupos = a.getGrupos();
 							if (a.getNombre().equals(asignatura)) {
 								auxGrupos.bajaGrupo(nombre.charAt(0));
 								a.asociarGrupos(auxGrupos.getListaGrupos());
 							}
+						}
 		}
 	}
 

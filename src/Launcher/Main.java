@@ -16,7 +16,6 @@ import is2.NewJFrame;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		FileOutputStream out = new FileOutputStream(new File("examples/ex3.json"));
         Controller control = new Controller();
     	control.loadData(load_JSON_file(new FileInputStream(new File("examples/ex1.json"))));
     	SwingUtilities.invokeAndWait(() -> {

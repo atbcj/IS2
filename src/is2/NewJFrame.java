@@ -4,6 +4,12 @@
  */
 package is2;
 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -42,6 +48,37 @@ public class NewJFrame extends javax.swing.JFrame {
         panel2cosas = new javax.swing.JPanel();
         textoBuscar = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        
+        addWindowListener(new WindowListener() {
+
+			@Override
+			public void windowOpened(WindowEvent e) {}
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				try {
+					_ctrl.saveData(new FileOutputStream(new File("examples/ex3.json")));
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+
+			@Override
+			public void windowClosed(WindowEvent e) {}
+
+			@Override
+			public void windowIconified(WindowEvent e) {}
+
+			@Override
+			public void windowDeiconified(WindowEvent e) {}
+
+			@Override
+			public void windowActivated(WindowEvent e) {}
+
+			@Override
+			public void windowDeactivated(WindowEvent e) {}
+		});
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(576, 400));

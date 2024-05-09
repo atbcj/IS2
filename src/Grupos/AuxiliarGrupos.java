@@ -10,9 +10,9 @@ import is2.ViewUtils;
 
 public class AuxiliarGrupos {
 	
-    List<Grupo> _grupos = new LinkedList<Grupo>();
+    public List<Grupo> _grupos = new LinkedList<Grupo>();
 
-    public boolean altaGrupo(Character nombre) { 
+    public boolean altaGrupo(Character nombre) {
     	if(comprueba_nombre(nombre)) {
     		if(existe_grupo(nombre)) {
     			ViewUtils.showErrorMsg("Ya existe un grupo con ese nombre");
@@ -29,7 +29,7 @@ public class AuxiliarGrupos {
     	if(comprueba_nombre(nombre)) {
     		Grupo grupo = null;
     		for(Grupo g: _grupos)
-        		if(g.get_nombre() == nombre) {
+        		if(Character.compare(g.get_nombre(), nombre.charValue()) == 0) {
         			grupo = g;
         			break;
         	}
@@ -54,7 +54,7 @@ public class AuxiliarGrupos {
     	if(comprueba_nombre(nombre)) {
     		Grupo grupo = null;
     		for(Grupo g: _grupos)
-        		if(g.get_nombre() == nombre) {
+        		if(Character.valueOf(g.get_nombre()).equals(nombre)) {
         			grupo = g;
         			break;
         	}
@@ -99,9 +99,10 @@ public class AuxiliarGrupos {
     }
     
     private boolean existe_grupo(Character nombre) {
-    	for(Grupo g: _grupos)
-    		if(g.get_nombre() == nombre)
-    			return true;
+    	for(Grupo g: _grupos) {
+    		if(Character.valueOf(g.get_nombre()).equals(nombre))
+    				return true;
+    	}
     	return false;
     }
     

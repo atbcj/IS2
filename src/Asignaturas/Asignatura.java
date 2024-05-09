@@ -43,7 +43,9 @@ public class Asignatura {
     }
 
     public void asociarGrupos(List<Grupo> l) {
-        this._grupos = l;
+        for(Grupo g: l)
+        	if(!_grupos.contains(g))
+        		_grupos.add(g);
     }
 
     public List<Grupo> getGrupos() {
