@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Controller.Controller;
+import Grupos.PanelAltaGrupo;
 import Grupos.PanelBajaGrupo;
 /**
  *
@@ -440,7 +441,7 @@ public class DialogoBaja extends javax.swing.JDialog {
     	JDialog panelGrupo;
 		String nombre = nombreGrupoTextField.getText();
 		panelGrupo = new PanelBajaGrupo(_ctrl, nombre);
-		panelGrupo.setVisible(true);
+		((PanelBajaGrupo) panelGrupo).open(ViewUtils.getWindow(this));
     }
     
     

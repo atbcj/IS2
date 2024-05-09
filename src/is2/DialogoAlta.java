@@ -488,7 +488,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 		JDialog panelGrupo;
 		String nombre = nombreGrupoTextField.getText();
 		panelGrupo = new PanelAltaGrupo(_ctrl, nombre);
-		panelGrupo.setVisible(true);
+		((PanelAltaGrupo) panelGrupo).open(ViewUtils.getWindow(this));
 	}
 
 	

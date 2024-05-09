@@ -48,11 +48,24 @@ public class PanelBajaGrupo extends JDialog {
 		mainPanel.setPreferredSize(new Dimension(600,400));
 		setContentPane(mainPanel);
 		
-		mainPanel.add(_titulacion);
-		mainPanel.add(_curso);
-		mainPanel.add(_asignatura);
-		mainPanel.add(_save);
+		JPanel titPanel = new JPanel();
+		titPanel.setLayout(new BoxLayout(titPanel, BoxLayout.Y_AXIS));
+		titPanel.add(new JLabel("Titulación"));
+		titPanel.add(_titulacion);
 		
+		JPanel cursoPanel = new JPanel();
+		cursoPanel.setLayout(new BoxLayout(cursoPanel, BoxLayout.Y_AXIS));
+		cursoPanel.add(new JLabel("Curso"));
+		cursoPanel.add(_curso);
+		
+		JPanel asPanel = new JPanel();
+		asPanel.setLayout(new BoxLayout(asPanel, BoxLayout.Y_AXIS));
+		asPanel.add(new JLabel("Asignatura"));
+		asPanel.add(_asignatura);
+		
+		mainPanel.add(titPanel);
+		mainPanel.add(cursoPanel);
+		mainPanel.add(asPanel);
 
 		_save.addActionListener((e) -> save());
 
