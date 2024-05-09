@@ -148,13 +148,13 @@ public class NewJFrame extends javax.swing.JFrame {
     JDialog newDialog;
         switch (selectedOption) {
             case "Alta":
-                newDialog = new DialogoAlta(this, true,_ctrl);
+                newDialog = new DialogoAlta(this, false,_ctrl);
                 break;
             case "Baja":
-                newDialog = new DialogoBaja(this, true,_ctrl);
+                newDialog = new DialogoBaja(this, false,_ctrl);
                 break;
             default:
-                newDialog = new DialogoActualizar(this, true,_ctrl);
+                newDialog = new DialogoActualizar(this, false,_ctrl);
                 break;
         }
 

@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Controller.Controller;
+import Cursos.Curso;
 import Titulaciones.Titulacion;
 
 /**
@@ -27,6 +28,7 @@ public class PanelAlumno extends JDialog {
 	
 	private Controller _ctrl;
 	private DefaultComboBoxModel<String> _titulaciones;
+	private DefaultComboBoxModel<String> _cursos;
 	
 	public PanelAlumno(Controller control) {
 		super();
@@ -50,16 +52,45 @@ public class PanelAlumno extends JDialog {
 		for(Titulacion tit : _ctrl.getLista()) {
 			_titulaciones.addElement(tit.getNombre());
 		}
-		JComboBox c = new JComboBox<String>(_titulaciones);
-		comboBoxPanel.add(c);
+		JComboBox c1 = new JComboBox<String>(_titulaciones);
+		comboBoxPanel.add(c1);
+		c1.addActionListener((e) -> seleccionCursos(comboBoxPanel));
+		
+		_cursos = new DefaultComboBoxModel<String>();
+		JLabel curs = new JLabel("Cursos: ");
+		comboBoxPanel.add(curs);
+		JComboBox c2 = new JComboBox<String>(_cursos);
+		comboBoxPanel.add(c2);
+		
 		mainPanel.add(comboBoxPanel);
 	}
 	
+	private void seleccionCursos(JPanel comboBoxPanel) {
+		
+		Titulacion tit = titulacionParse(_titulaciones.getSelectedItem().toString());
+		for(Curso c : tit.getCursos()) {
+			_cursos.addElement(String.valueOf(c.get_anio()));
+		}
+	}
+
+
 	public void open(Frame parent) {
 		setLocation(
 				parent.getLocation().x + parent.getWidth() / 2 - getWidth() / 2, //
 				parent.getLocation().y + parent.getHeight() / 2 - getHeight() / 2);
 		pack();
 		setVisible(true);
+	}
+	
+	public Titulacion titulacionParse(String nombre) {
+		int i = 0;
+		boolean encontrado = false;
+		while(i < _ctrl.getLista().size() && !encontrado) {
+			if(nombre == _ctrl.getLista().get(i).getNombre()) {
+				encontrado = true;
+			}
+			i++;
+		}
+		return _ctrl.getLista().get(i-1);
 	}
 }
