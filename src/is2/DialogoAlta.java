@@ -502,6 +502,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 	private void crearCurso() {
 	    try {
 	        int anio = Integer.parseInt(jLabelAnio.getText());
+	        _ctrl.altaCurso(anio);
 	        JOptionPane.showMessageDialog(this, "Curso creado correctamente para el año: " + anio);
 	    } catch (NumberFormatException e) {
 	        JOptionPane.showMessageDialog(this, "Error: El valor del año debe ser un número entero.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
