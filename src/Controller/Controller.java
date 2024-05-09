@@ -79,6 +79,18 @@ public class Controller {
 							}
 		}
 	}
+	public void bajaGrupo(String titulacion, String curso, String asignatura, String nombre) {
+		for (Titulacion t : titulaciones) {
+			if (t.getNombre().equals(titulacion))
+				for (Curso c : t.getCursos())
+					if (String.valueOf(c.get_anio()).equals(curso))
+						for (Asignatura a : c.get_lista_asignaturas())
+							if (a.getNombre().equals(asignatura)) {
+								auxGrupos.bajaGrupo(nombre.charAt(0));
+								a.asociarGrupos(auxGrupos.getListaGrupos());
+							}
+		}
+	}
 
 	// alta de profesor
 	public void altaProfesor(Profesor prof) {

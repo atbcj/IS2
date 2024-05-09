@@ -6,6 +6,8 @@ import java.util.List;
 import Usuarios.Alumno;
 import Usuarios.Profesor;
 
+import is2.ViewUtils;
+
 public class AuxiliarGrupos {
 	
     List<Grupo> _grupos = new LinkedList<Grupo>();
@@ -13,7 +15,7 @@ public class AuxiliarGrupos {
     public boolean altaGrupo(Character nombre) { 
     	if(comprueba_nombre(nombre)) {
     		if(existe_grupo(nombre)) {
-    			System.out.println("Ya existe un grupo con ese nombre");
+    			ViewUtils.showErrorMsg("Ya existe un grupo con ese nombre");
     			return false;
     		}else {
     			_grupos.add(new Grupo(nombre,null,null));
@@ -36,12 +38,12 @@ public class AuxiliarGrupos {
     				_grupos.remove(grupo);
         			return true;
     			}else {
-    				System.out.println("No se puede eliminar un grupo si todavia hay alumnos o profesores en él");
+    				ViewUtils.showErrorMsg("No se puede eliminar un grupo si todavia hay alumnos o profesores en él");
         			return false;
     			}
     				
     		}else {
-    			System.out.println("No existe un grupo con ese nombre");
+    			ViewUtils.showErrorMsg("No existe un grupo con ese nombre");
     			return false;
     		}
     	}else
@@ -58,7 +60,7 @@ public class AuxiliarGrupos {
         	}
     		if(grupo != null) {
     			if(nombre == null && alumnos == null && profesores == null) {
-    				System.out.println("Todos los argumentos son nulos");
+    				ViewUtils.showErrorMsg("Todos los argumentos son nulos");
     				return false;
     			}
     			if(nombre != null)
@@ -71,7 +73,7 @@ public class AuxiliarGrupos {
     					grupo.añade_profesor(p);
     			return true;
     		}else {
-    			System.out.println("No existe un grupo con ese nombre");
+    			ViewUtils.showErrorMsg("No existe un grupo con ese nombre");
     			return false;
     		}
     	}else 
@@ -92,7 +94,7 @@ public class AuxiliarGrupos {
     
     private boolean comprueba_nombre(Character nombre) {
     	if(nombre == null||nombre.toString().isBlank())
-    		throw new IllegalArgumentException("El nombre del grupo proporcionado no puede ser nulo no vacio");
+    		ViewUtils.showErrorMsg("El nombre del grupo proporcionado no puede ser nulo no vacio");
     	return true;
     }
     

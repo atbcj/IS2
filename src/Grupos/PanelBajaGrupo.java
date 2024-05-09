@@ -21,7 +21,7 @@ import Controller.Controller;
  *
  * @author stele
  */
-public class PanelGrupo extends JDialog {
+public class PanelBajaGrupo extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -33,7 +33,7 @@ public class PanelGrupo extends JDialog {
 	private JTextField _asignatura = new JTextField();
 	private JButton _save = new JButton("SAVE");
 
-	public PanelGrupo(Controller control, String nombre) {
+	public PanelBajaGrupo(Controller control, String nombre) {
 		super();
 		_ctrl = control;
 		_nombre = nombre;
@@ -67,6 +67,6 @@ public class PanelGrupo extends JDialog {
 	}
 	
 	void save() {
-		_ctrl.altaGrupo(_titulacion.getText(), _curso.getText(), _asignatura.getText(), _nombre);
+		_ctrl.bajaGrupo(_titulacion.getText(), _curso.getText(), _asignatura.getText(), _nombre);
 	}
 }
