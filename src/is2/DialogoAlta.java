@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 
 import Asignaturas.Asignatura;
 import Controller.Controller;
-import Grupos.PanelGrupo;
+import Grupos.PanelAltaGrupo;
 import Usuarios.Alumno;
 import Usuarios.Profesor;
 
@@ -487,7 +487,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 	private void crearGrupo() {
 		JDialog panelGrupo;
 		String nombre = nombreGrupoTextField.getText();
-		panelGrupo = new PanelGrupo(_ctrl, nombre);
+		panelGrupo = new PanelAltaGrupo(_ctrl, nombre);
 		panelGrupo.setVisible(true);
 	}
 
