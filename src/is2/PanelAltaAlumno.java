@@ -114,6 +114,7 @@ public class PanelAltaAlumno extends JDialog {
 
 	private void saveAction() {
 		_al.añadirTupla(new Tupla(_titulaciones.getSelectedItem().toString(), _cursos.getSelectedItem().toString(), _asignaturas.getSelectedItem().toString(), _grupos.getSelectedItem().toString()),true);
+		_ctrl.altaAlumno(_al);
 	}
 
 
@@ -136,13 +137,7 @@ public class PanelAltaAlumno extends JDialog {
 			}
 			i++;
 		}
-		if(encontrado) {
-			return curs.get_lista_asignaturas().get(i-1);
-		}
-		else {
-			return null;
-		}
-		
+		return curs.get_lista_asignaturas().get(i-1);
 	}
 
 
@@ -165,14 +160,8 @@ public class PanelAltaAlumno extends JDialog {
 			}
 			i++;
 		}
-		if(encontrado) {
-			return tit.getCursos().get(i-1);
-		}
-		else {
-			return null;
-		}
+		return tit.getCursos().get(i-1);
 	}
-
 
 	private void seleccionCursos(JPanel comboBoxPanel) {
 		reset(_cursos);
@@ -191,12 +180,7 @@ public class PanelAltaAlumno extends JDialog {
 			}
 			i++;
 		}
-		if(encontrado) {
-			return _ctrl.getLista().get(i-1);
-		}
-		else {
-			return null;
-		}
+		return _ctrl.getLista().get(i-1);
 	}
 	
 	public void open(Frame parent) {

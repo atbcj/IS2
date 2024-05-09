@@ -483,7 +483,6 @@ public class DialogoAlta extends javax.swing.JDialog {
 		String correo = correoAlumnosTextField.getText() + "@universidad.es";
 		String dni = dniAlumnosTextField.getText();
 		Alumno a = new Alumno(nombre, apellidos, dni, correo);
-		_ctrl.altaAlumno(a);
 		return a;
 	}
 
