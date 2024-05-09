@@ -115,7 +115,14 @@ public class Controller {
 	public boolean altaCurso(int anio) {
 	    return auxCursos.altaCurso(anio);
 	}
+	
+	public Alumno buscarAlumno(String dni) {
+		return auxAlumnos.buscarAlumno(dni);
+	}
 
+	public void eliminarAlumno(Alumno al) {
+		auxAlumnos.bajaAlumno(al);
+	}
 
 	
 

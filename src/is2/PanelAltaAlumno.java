@@ -29,7 +29,7 @@ import Usuarios.Tupla;
  *
  * @author stele
  */
-public class PanelAlumno extends JDialog {
+public class PanelAltaAlumno extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -42,7 +42,7 @@ public class PanelAlumno extends JDialog {
 	private JButton _saveButton;
 	private JButton _cancelButton;
 	
-	public PanelAlumno(Controller control,Alumno al) {
+	public PanelAltaAlumno(Controller control, Alumno al) {
 		super();
 		_ctrl = control;
 		_al = al;
@@ -136,7 +136,13 @@ public class PanelAlumno extends JDialog {
 			}
 			i++;
 		}
-		return curs.get_lista_asignaturas().get(i-1);
+		if(encontrado) {
+			return curs.get_lista_asignaturas().get(i-1);
+		}
+		else {
+			return null;
+		}
+		
 	}
 
 
@@ -159,7 +165,12 @@ public class PanelAlumno extends JDialog {
 			}
 			i++;
 		}
-		return tit.getCursos().get(i-1);
+		if(encontrado) {
+			return tit.getCursos().get(i-1);
+		}
+		else {
+			return null;
+		}
 	}
 
 
@@ -180,7 +191,12 @@ public class PanelAlumno extends JDialog {
 			}
 			i++;
 		}
-		return _ctrl.getLista().get(i-1);
+		if(encontrado) {
+			return _ctrl.getLista().get(i-1);
+		}
+		else {
+			return null;
+		}
 	}
 	
 	public void open(Frame parent) {

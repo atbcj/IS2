@@ -434,7 +434,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 		// TODO add your handling code here:
 		boolean noVacio = true;
-		PanelAlumno panelAlumno;
+		PanelAltaAlumno panelAlumno;
 
 		for (int i = 0; i < 4; i++) {
 			if (lista.get(i).getText().isEmpty()) {
@@ -444,8 +444,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 		}
 
 		if (selectedIndex == 5 && noVacio) {
-			
-			panelAlumno = new PanelAlumno(_ctrl,crearAlumno());
+			panelAlumno = new PanelAltaAlumno(_ctrl,crearAlumno());
 			panelAlumno.open(ViewUtils.getWindow(this));
 		}
 		if (selectedIndex == 4 && noVacio) {

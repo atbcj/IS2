@@ -297,24 +297,6 @@ public class DialogoBaja extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Titulación", jPanel6);
 
-        nombreAlumnosTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-
-        apellidosAlumnosTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-
-        nombreAlumnosLabel.setText("Nombre");
-
-        apellidosAlumnosLabel.setText("Apellidos");
-
-        correoAlumnosLabel.setText("Correo");
-
         dniAlumnosLabel.setText("DNI");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(panelAlumnos);
@@ -324,15 +306,9 @@ public class DialogoBaja extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombreAlumnosLabel)
-                    .addComponent(apellidosAlumnosLabel)
-                    .addComponent(dniAlumnosLabel)
-                    .addComponent(correoAlumnosLabel))
+                    .addComponent(dniAlumnosLabel))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombreAlumnosTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                    .addComponent(apellidosAlumnosTextField)
-                    .addComponent(correoAlumnosTextField)
                     .addComponent(dniAlumnosTextField))
                 .addGap(165, 165, 165))
         );
@@ -340,18 +316,6 @@ public class DialogoBaja extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreAlumnosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombreAlumnosLabel))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(apellidosAlumnosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(apellidosAlumnosLabel))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(correoAlumnosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(correoAlumnosLabel))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dniAlumnosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dniAlumnosLabel))
@@ -434,15 +398,27 @@ public class DialogoBaja extends javax.swing.JDialog {
     	if (previousSelectedIndex == 3) {
 			eliminarGrupo();
 		}
+    	
+    	if (previousSelectedIndex == 5) {
+			eliminarAlumno();
+		}
     }//GEN-LAST:event_jButton1ActionPerformed
     
-    private void eliminarGrupo() {
+    
+
+	private void eliminarGrupo() {
     	JDialog panelGrupo;
 		String nombre = nombreGrupoTextField.getText();
 		panelGrupo = new PanelBajaGrupo(_ctrl, nombre);
 		panelGrupo.setVisible(true);
     }
     
+	private void eliminarAlumno() {
+		PanelBajaAlumno panelAlumno;
+		String dni = dniAlumnosTextField.getText();
+		panelAlumno = new PanelBajaAlumno(_ctrl,dni);
+		panelAlumno.open(ViewUtils.getWindow(this));
+	}
     
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
         // TODO add your handling code here:
