@@ -117,6 +117,7 @@ public class PanelAlumno extends JDialog {
 
 
 	private void seleccionGrupos(JPanel comboBoxPanel) {
+		reset(_grupos);
 		Asignatura asig = asigParse(_cursos.getSelectedItem().toString());
 		for(Grupo grup : asig.getGrupos()) {
 			_grupos.addElement(String.valueOf(grup.get_nombre()));
@@ -139,6 +140,7 @@ public class PanelAlumno extends JDialog {
 
 
 	private void seleccionAsignaturas(JPanel comboBoxPanel) {
+		reset(_asignaturas);
 		Curso curs = cursParse(_cursos.getSelectedItem().toString());
 		for(Asignatura a : curs.get_lista_asignaturas()) {
 			_asignaturas.addElement(a.getCodigo() + " " +  a.getNombre());
@@ -161,13 +163,14 @@ public class PanelAlumno extends JDialog {
 
 
 	private void seleccionCursos(JPanel comboBoxPanel) {
+		reset(_cursos);
 		Titulacion tit = titulacionParse(_titulaciones.getSelectedItem().toString());
 		for(Curso c : tit.getCursos()) {
 			_cursos.addElement(String.valueOf(c.get_anio()));
 		}
 	}
 	
-	public Titulacion titulacionParse(String nombre) {
+	private Titulacion titulacionParse(String nombre) {
 		int i = 0;
 		boolean encontrado = false;
 		while(i < _ctrl.getLista().size() && !encontrado) {
@@ -185,5 +188,9 @@ public class PanelAlumno extends JDialog {
 				parent.getLocation().y + parent.getHeight() / 2 - getHeight() / 2);
 		pack();
 		setVisible(true);
+	}
+	
+	private void reset(DefaultComboBoxModel<String> box) {
+		box.removeAllElements();
 	}
 }
