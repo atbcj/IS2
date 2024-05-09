@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import Asignaturas.Asignatura;
 import Controller.Controller;
 import Usuarios.Alumno;
+import Usuarios.Profesor;
 
 /**
  *
@@ -482,6 +483,18 @@ public class DialogoAlta extends javax.swing.JDialog {
 		panelGrupo.setVisible(true);
 	}
 
+	
+	private void crearProfesor() {
+		// datos del profesor a crear
+		String nombre = nombreProfesorTextField.getText();
+		String apellidos = apellidosProfesorTextField.getText();
+		String DNI = dniProfesorTextField.getText();
+		String correo = correoProfesorTextField.getText() + "@prof.es";
+		
+		_ctrl.altaProfesor(new Profesor(nombre, apellidos, DNI, correo));
+	}
+	
+	
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
 		// TODO add your handling code here:
 		this.setVisible(false);
@@ -585,5 +598,9 @@ public class DialogoAlta extends javax.swing.JDialog {
 	private javax.swing.JTextField jTextField22;
 	private javax.swing.JTextField jTextField3;
 	private javax.swing.JTextField nombreAsignaturaTextField;
+	private javax.swing.JTextField nombreProfesorTextField;
+	private javax.swing.JTextField apellidosProfesorTextField;
+	private javax.swing.JTextField correoProfesorTextField;
+	private javax.swing.JTextField dniProfesorTextField;
 	// End of variables declaration//GEN-END:variables
 }
