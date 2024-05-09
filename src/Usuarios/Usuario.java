@@ -3,6 +3,8 @@ package Usuarios;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 public abstract class Usuario {
 	protected String _nombre;
 	protected String _apellidos;
@@ -74,4 +76,13 @@ public abstract class Usuario {
 		return this._DNI.equals(a.get_DNI());
 	}
 	
+	public JSONObject saveData() {
+		JSONObject jo = new JSONObject();
+		jo.put("nombre", _nombre);
+		jo.put("apellidos", _apellidos);
+		jo.put("correo", _correo);
+		jo.put("DNI", _DNI);
+		
+		return jo;
+	}
 }

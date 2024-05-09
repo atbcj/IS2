@@ -1,5 +1,6 @@
 package Grupos;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import Usuarios.Alumno;
@@ -7,7 +8,7 @@ import Usuarios.Profesor;
 
 public class AuxiliarGrupos {
 	
-    List<Grupo> _grupos;
+    List<Grupo> _grupos = new LinkedList<Grupo>();
 
     public boolean altaGrupo(Character nombre) { 
     	if(comprueba_nombre(nombre)) {
@@ -98,7 +99,11 @@ public class AuxiliarGrupos {
     private boolean existe_grupo(Character nombre) {
     	for(Grupo g: _grupos)
     		if(g.get_nombre() == nombre)
-    			return false;
-    	return true;
+    			return true;
+    	return false;
+    }
+    
+    public List<Grupo> getListaGrupos(){
+    	return _grupos;
     }
 }

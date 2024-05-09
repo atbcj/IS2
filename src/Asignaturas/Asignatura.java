@@ -2,6 +2,10 @@ package Asignaturas;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import Grupos.Grupo;
 
 public class Asignatura {
@@ -64,5 +68,21 @@ public class Asignatura {
 	}
 	public void aniadirGrupo (Grupo g) {
 		this._grupos.add(g);
+	}
+	
+	public JSONObject saveData() {
+		JSONObject jo = new JSONObject();
+		jo.put("codigo", _codigo);
+		jo.put("nombre", _nombre);
+		jo.put("creditos", _creditos);
+		
+		JSONArray ja = new JSONArray();
+		for(Grupo g: _grupos) {
+			ja.put(g.saveData());
+		}
+		
+		jo.put("grupos", ja);
+		
+		return jo;
 	}
 }

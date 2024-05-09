@@ -3,6 +3,9 @@ package Titulaciones;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import Cursos.Curso;
 
 public class Titulacion {
@@ -36,5 +39,18 @@ public class Titulacion {
 
 	public void setNombre(String nombre) {
 		this._nombre = nombre;
+	}
+	
+	public JSONObject saveData() {
+		JSONObject jo = new JSONObject();
+		jo.put("nombre", _nombre);
+		
+		JSONArray ja = new JSONArray();
+		for(Curso c: _listTitulacion) {
+			ja.put(c.saveData());
+		}
+		
+		jo.put("cursos", ja);
+		return jo;
 	}
 }

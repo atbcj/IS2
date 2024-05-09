@@ -4,6 +4,10 @@ import java.util.LinkedList;
 
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import Asignaturas.Asignatura;
 import Usuarios.Alumno;
 import Usuarios.Profesor;
 
@@ -60,5 +64,27 @@ public class Grupo {
 	public void elimina_profesor(Profesor p) {
 		if(!_lista_profesores.contains(p))
 			_lista_profesores.remove(p);
+	}
+	
+	public JSONObject saveData() {
+		JSONObject jo = new JSONObject();
+		String nombre = "";
+		jo.put("nombre", nombre+_nombre);
+		
+		JSONArray ja = new JSONArray();
+		for(Alumno a: _lista_alumnos) {
+			ja.put(a.saveData());
+		}
+		
+		jo.put("alumnos", ja);
+		
+		JSONArray ja2 = new JSONArray();
+		for(Profesor p: _lista_profesores) {
+			ja2.put(p.saveData());
+		}
+		
+		jo.put("profesores", ja2);
+		
+		return jo;
 	}
 }

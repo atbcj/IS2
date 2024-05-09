@@ -33,7 +33,7 @@ public class IS2 {
 			NewJFrame frame = new NewJFrame(control);
 			frame.setVisible(true);
 		});
-    	//control.run();
+    	control.saveData(out);
     }
     
 
