@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import Asignaturas.Asignatura;
 import Controller.Controller;
 import Grupos.PanelAltaGrupo;
+import Titulaciones.PanelAltaTitulacion;
 import Usuarios.Alumno;
 import Usuarios.Profesor;
 
@@ -75,7 +76,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 		nombreGrupoTextField = new javax.swing.JTextField();////
 		jPanel6 = new javax.swing.JPanel();
 		jLabel5 = new javax.swing.JLabel();
-		jTextField1 = new javax.swing.JTextField();
+		nombreTitulacion = new javax.swing.JTextField();
 		panelAlumnos = new javax.swing.JPanel();
 		nombreAlumnosLabel = new javax.swing.JLabel();
 		apellidosAlumnosLabel = new javax.swing.JLabel();
@@ -259,7 +260,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 
 		jLabel5.setText("Nombre titulación:");
 
-		jTextField1.addActionListener(new java.awt.event.ActionListener() {
+		nombreTitulacion.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jTextField1ActionPerformed(evt);
 			}
@@ -270,13 +271,13 @@ public class DialogoAlta extends javax.swing.JDialog {
 		jPanel6Layout
 				.setHorizontalGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(jPanel6Layout.createSequentialGroup().addContainerGap().addComponent(jLabel5)
-								.addGap(18, 18, 18).addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE,
+								.addGap(18, 18, 18).addComponent(nombreTitulacion, javax.swing.GroupLayout.PREFERRED_SIZE,
 										100, javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addContainerGap(208, Short.MAX_VALUE)));
 		jPanel6Layout.setVerticalGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(jPanel6Layout.createSequentialGroup().addGap(25, 25, 25)
 						.addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLabel5).addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE,
+								.addComponent(jLabel5).addComponent(nombreTitulacion, javax.swing.GroupLayout.PREFERRED_SIZE,
 										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
 						.addContainerGap(312, Short.MAX_VALUE)));
 
@@ -458,6 +459,9 @@ public class DialogoAlta extends javax.swing.JDialog {
 		if (selectedIndex == 1 && noVacio) {
 			crearAsignatura();
 		}
+		if (selectedIndex == 4) {
+			crearTitulacion();
+		}
 	}// GEN-LAST:event_jButton1ActionPerformed
 
 	private void crearAsignatura() {
@@ -489,6 +493,11 @@ public class DialogoAlta extends javax.swing.JDialog {
 		String nombre = nombreGrupoTextField.getText();
 		panelGrupo = new PanelAltaGrupo(_ctrl, nombre);
 		((PanelAltaGrupo) panelGrupo).open(ViewUtils.getWindow(this));
+	}
+	
+	private void crearTitulacion() {
+		String nombre = nombreTitulacion.getText();
+		_ctrl.altaTitulacion(nombre);
 	}
 
 	
@@ -607,7 +616,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 	private javax.swing.JPanel panelGrupos;
 	private javax.swing.JPanel jPanel6;
 	private javax.swing.JTabbedPane jTabbedPane1;
-	private javax.swing.JTextField jTextField1;
+	private javax.swing.JTextField nombreTitulacion;
 	private javax.swing.JTextField creditosTextField;
 	private javax.swing.JTextField IDTextField;
 	private javax.swing.JTextField nombreAlumnosTextField;

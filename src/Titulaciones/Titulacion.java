@@ -14,6 +14,8 @@ public class Titulacion {
 
     public Titulacion(String nombre, List<Curso> lista) {
         this._listTitulacion = lista;
+        if(lista == null)
+    		_listTitulacion = new LinkedList<Curso>();
         this._nombre = nombre;
     }
 
@@ -46,9 +48,10 @@ public class Titulacion {
 		jo.put("nombre", _nombre);
 		
 		JSONArray ja = new JSONArray();
-		for(Curso c: _listTitulacion) {
-			ja.put(c.saveData());
-		}
+		if(!_listTitulacion.isEmpty())
+			for(Curso c: _listTitulacion) {
+				ja.put(c.saveData());
+			}
 		
 		jo.put("cursos", ja);
 		return jo;

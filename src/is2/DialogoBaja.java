@@ -63,7 +63,7 @@ public class DialogoBaja extends javax.swing.JDialog {
         nombreGrupoTextField = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nombreTitulacion = new javax.swing.JTextField();
         panelAlumnos = new javax.swing.JPanel();
         correoAlumnosTextField = new javax.swing.JTextField();
         nombreAlumnosTextField = new javax.swing.JTextField();
@@ -269,7 +269,7 @@ public class DialogoBaja extends javax.swing.JDialog {
 
         jLabel5.setText("Nombre titulación:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nombreTitulacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
@@ -283,7 +283,7 @@ public class DialogoBaja extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nombreTitulacion, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(189, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -292,7 +292,7 @@ public class DialogoBaja extends javax.swing.JDialog {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombreTitulacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(287, Short.MAX_VALUE))
         );
 
@@ -435,6 +435,9 @@ public class DialogoBaja extends javax.swing.JDialog {
     	if (previousSelectedIndex == 3) {
 			eliminarGrupo();
 		}
+    	if (previousSelectedIndex == 4) {
+			eliminarTitulacion();
+		}
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void eliminarGrupo() {
@@ -443,7 +446,10 @@ public class DialogoBaja extends javax.swing.JDialog {
 		panelGrupo = new PanelBajaGrupo(_ctrl, nombre);
 		((PanelBajaGrupo) panelGrupo).open(ViewUtils.getWindow(this));
     }
-    
+    private void eliminarTitulacion() {
+		String nombre = nombreTitulacion.getText();
+		_ctrl.bajaTitulacion(nombre);
+	}
     
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
         // TODO add your handling code here:
@@ -541,7 +547,7 @@ public class DialogoBaja extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nombreTitulacion;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
