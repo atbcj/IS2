@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import Asignaturas.Asignatura;
 import Controller.Controller;
 import Usuarios.Alumno;
+import Usuarios.Profesor;
 
 /**
  *
@@ -64,7 +65,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 		nombreAsignaturaLabel = new javax.swing.JLabel();
 		creditosLabel = new javax.swing.JLabel();
 		IDLabel = new javax.swing.JLabel();
-		jPanel4 = new javax.swing.JPanel();
+		panelCurso = new javax.swing.JPanel();
 		jLabelAnio = new javax.swing.JLabel();
 		jTextField3 = new javax.swing.JTextField();
 		panelGrupos = new javax.swing.JPanel();////
@@ -208,8 +209,8 @@ public class DialogoAlta extends javax.swing.JDialog {
 			}
 		});
 
-		javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-		jPanel4.setLayout(jPanel4Layout);
+		javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(panelCurso);
+		panelCurso.setLayout(jPanel4Layout);
 		jPanel4Layout
 				.setHorizontalGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(jPanel4Layout.createSequentialGroup().addContainerGap().addComponent(jLabelAnio)
@@ -224,7 +225,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 										javax.swing.GroupLayout.PREFERRED_SIZE))
 						.addContainerGap(312, Short.MAX_VALUE)));
 
-		jTabbedPane1.addTab("Curso", jPanel4);
+		jTabbedPane1.addTab("Curso", panelCurso);
 
 		nombreGrupo.setText("Grupo:");
 
@@ -482,6 +483,18 @@ public class DialogoAlta extends javax.swing.JDialog {
 		panelGrupo.setVisible(true);
 	}
 
+	
+	private void crearProfesor() {
+		// datos del profesor a crear
+		String nombre = nombreProfesorTextField.getText();
+		String apellidos = apellidosProfesorTextField.getText();
+		String DNI = dniProfesorTextField.getText();
+		String correo = correoProfesorTextField.getText() + "@prof.es";
+		
+		_ctrl.altaProfesor(new Profesor(nombre, apellidos, DNI, correo));
+	}
+	
+	
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
 		// TODO add your handling code here:
 		this.setVisible(false);
@@ -567,7 +580,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 	private javax.swing.JPanel panelAlumnos;
 	private javax.swing.JPanel jPanel2;
 	private javax.swing.JPanel jPanel3;
-	private javax.swing.JPanel jPanel4;
+	private javax.swing.JPanel panelCurso;
 	private javax.swing.JPanel panelGrupos;
 	private javax.swing.JPanel jPanel6;
 	private javax.swing.JTabbedPane jTabbedPane1;
@@ -585,5 +598,9 @@ public class DialogoAlta extends javax.swing.JDialog {
 	private javax.swing.JTextField jTextField22;
 	private javax.swing.JTextField jTextField3;
 	private javax.swing.JTextField nombreAsignaturaTextField;
+	private javax.swing.JTextField nombreProfesorTextField;
+	private javax.swing.JTextField apellidosProfesorTextField;
+	private javax.swing.JTextField correoProfesorTextField;
+	private javax.swing.JTextField dniProfesorTextField;
 	// End of variables declaration//GEN-END:variables
 }
