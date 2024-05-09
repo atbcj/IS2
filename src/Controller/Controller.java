@@ -14,6 +14,8 @@ import Grupos.Grupo;
 import Titulaciones.Titulacion;
 import Usuarios.Alumno;
 import Usuarios.AuxiliarAlumnos;
+import Usuarios.AuxiliarProfesores;
+import Usuarios.Profesor;
 import Cursos.Curso;
 import Asignaturas.Asignatura;
 import Asignaturas.Auxiliar;
@@ -24,6 +26,7 @@ public class Controller {
 	private List<Titulacion> titulaciones = new LinkedList<>();
 	private AuxiliarAlumnos auxAlumnos = new AuxiliarAlumnos();
 	private Auxiliar auxAsignaturas = new Auxiliar();
+	private AuxiliarProfesores auxP = new AuxiliarProfesores();
 
 	public void loadData(JSONObject database) throws Exception {
 		JSONArray titulacion = database.getJSONArray("titulaciones");
@@ -61,6 +64,12 @@ public class Controller {
 		}
 	}
 
+	// alta de profesor
+	public void altaProfesor(Profesor prof) {
+		auxP.altaProfesor(prof.getNombre(), prof.get_apellidos(), prof.get_DNI(), prof.getCorreo());
+	}
+	
+	
 	public List<Titulacion> getLista() {
 		return Collections.unmodifiableList(this.titulaciones);
 	}
