@@ -20,6 +20,7 @@ import Usuarios.Alumno;
 import Usuarios.AuxiliarAlumnos;
 import Usuarios.AuxiliarProfesores;
 import Usuarios.Profesor;
+import Usuarios.Tupla;
 import Cursos.*;
 import Asignaturas.Asignatura;
 import Asignaturas.Auxiliar;
@@ -35,10 +36,11 @@ public class Controller {
 	private AuxiliarProfesores auxP = new AuxiliarProfesores();
 	private AuxiliarCursos auxCursos = new AuxiliarCursos();
 	private AuxiliarTitulaciones auxTit = new AuxiliarTitulaciones();
+	private Tupla _tupla;
 
 	public void loadData(JSONObject database) throws Exception {
 		JSONArray titulacion = database.getJSONArray("titulaciones");
-		TitBuilder factoria = new TitBuilder();
+		TitBuilder factoria = new TitBuilder(this);
 		if (titulacion != null) {
 			for (int i = 0; i < titulacion.length(); i++) {
 				JSONObject tit = titulacion.getJSONObject(i);
@@ -146,6 +148,8 @@ public class Controller {
 
 	}
 
-	
+	public Tupla getTupla() {
+		return this._tupla;
+	}
 
 }

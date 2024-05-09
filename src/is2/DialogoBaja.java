@@ -422,10 +422,10 @@ public class DialogoBaja extends javax.swing.JDialog {
 
     
 	private void eliminarAlumno() {
-		PanelBajaAlumno panelAlumno;
+		JDialog panelAlumno;
 		String dni = dniAlumnosTextField.getText();
 		panelAlumno = new PanelBajaAlumno(_ctrl,dni);
-		panelAlumno.open(ViewUtils.getWindow(this));
+		((PanelBajaAlumno) panelAlumno).open(ViewUtils.getWindow(this));
 	}
 
     private void eliminarTitulacion() {

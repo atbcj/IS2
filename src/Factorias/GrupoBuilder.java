@@ -7,17 +7,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Controller.Controller;
 import Grupos.Grupo;
 import Usuarios.Alumno;
 import Usuarios.Profesor;
 
 public class GrupoBuilder extends Builder <Grupo> {
 
-	private AlumnBuilder alu = new AlumnBuilder();
+	private Controller _ctrl;
+	private AlumnBuilder alu;
 	private ProfBuilder prof = new ProfBuilder();
 	
-	public GrupoBuilder() {
+	public GrupoBuilder(Controller control) {
 		super(".", ".");
+		_ctrl = control;
+		alu = new AlumnBuilder(_ctrl);
 	}
 
 	@Override

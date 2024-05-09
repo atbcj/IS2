@@ -3,14 +3,17 @@ package Factorias;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Controller.Controller;
 import Usuarios.Alumno;
 import Usuarios.Usuario;
 
 public class AlumnBuilder extends Builder<Usuario>{
 
-	public AlumnBuilder() {
+	private Controller _ctrl;
+	
+	public AlumnBuilder(Controller control) {
 		super("Alum","Human");
-		// TODO Auto-generated constructor stub
+		_ctrl = control;
 	}
 
 	@Override
@@ -20,7 +23,6 @@ public class AlumnBuilder extends Builder<Usuario>{
 		String apellidos = "";
 		String DNI = "";
 		String correo = "";
-		String[] tupla = new String[4];
 		if(data.has("nombre")) {
 			nombre = data.getString("nombre");
 		}
@@ -33,6 +35,8 @@ public class AlumnBuilder extends Builder<Usuario>{
 		if(data.has("correo")) {
 			correo = data.getString("correo");
 		}
-		return new Alumno(nombre, apellidos, DNI, correo);
+		Alumno a = new Alumno(nombre, apellidos, DNI, correo);
+		_ctrl.altaAlumno(a);
+		return a;
 	}
 }

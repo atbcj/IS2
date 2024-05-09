@@ -67,6 +67,7 @@ public class PanelBajaGrupo extends JDialog {
 		mainPanel.add(cursoPanel);
 		mainPanel.add(asPanel);
 
+		mainPanel.add(_save);
 		_save.addActionListener((e) -> save());
 
 	}

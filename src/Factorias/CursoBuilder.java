@@ -8,15 +8,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import Asignaturas.Asignatura;
+import Controller.Controller;
 import Cursos.Curso;
 import Titulaciones.Titulacion;
 
 public class CursoBuilder extends Builder<Curso> {
 	
-	private AsignaturaBuilder asignatura = new AsignaturaBuilder();
+	private Controller _ctrl;
+	private AsignaturaBuilder asignatura;
 	
-	public CursoBuilder() {
+	public CursoBuilder(Controller control) {
         super("Curso", "Builder para la clase Curso ");
+        _ctrl = control;
+        asignatura = new AsignaturaBuilder(_ctrl);
     }
 
 	@Override

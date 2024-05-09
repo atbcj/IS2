@@ -8,16 +8,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Controller.Controller;
 import Cursos.Curso;
 import Titulaciones.Titulacion;
 
 public class TitBuilder extends Builder<Titulacion>{
 
-	private CursoBuilder cursos = new CursoBuilder();
+	private Controller _ctrl;
+	private CursoBuilder cursos;
 	
-	public TitBuilder() {
+	public TitBuilder(Controller control) {
 		super(".", ".");
-		
+		_ctrl = control;
+		cursos = new CursoBuilder(_ctrl);
 	}
 
 	@Override

@@ -5,16 +5,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import Asignaturas.Asignatura;
+import Controller.Controller;
 import Grupos.AuxiliarGrupos;
 
 public class AsignaturaBuilder extends Builder{
 
-	private GrupoBuilder grupo = new GrupoBuilder();
+	private Controller _ctrl;
+	private GrupoBuilder grupo;
 	private AuxiliarGrupos auxGrupo = new AuxiliarGrupos();
 	
-	public AsignaturaBuilder() {
+	public AsignaturaBuilder(Controller control) {
 		super(".", ".");
-		// TODO Auto-generated constructor stub
+		_ctrl = control;
+		grupo = new GrupoBuilder(_ctrl);
 	}
 
 	@Override

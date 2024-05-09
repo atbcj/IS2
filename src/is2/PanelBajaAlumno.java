@@ -26,12 +26,15 @@ public class PanelBajaAlumno extends JDialog{
 	private JButton _cancelar;
 
 	public PanelBajaAlumno(Controller control, String dni) {
+		super();
 		_ctrl = control;
 		_alumno = _ctrl.buscarAlumno(dni);
+		initGUI();
 	}
 	
 	private void initGUI() {
-		setTitle("select your subjects");
+		setTitle(_alumno.getNombre() + " " + _alumno.get_apellidos());
+		
 		JPanel mainPanel = new JPanel();
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		mainPanel.setPreferredSize(new Dimension(600,400));
@@ -47,6 +50,8 @@ public class PanelBajaAlumno extends JDialog{
 		}
 		JComboBox c1 = new JComboBox<String>(_tuplas);
 		comboBoxPanel.add(c1);
+		
+		mainPanel.add(comboBoxPanel);
 		
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
