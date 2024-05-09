@@ -23,7 +23,6 @@ public class Main {
 			NewJFrame frame = new NewJFrame(control);
 			frame.setVisible(true);
 		});
-    	//control.run();
 	}
 	
 	 private static JSONObject load_JSON_file(InputStream in) {

@@ -444,8 +444,8 @@ public class DialogoAlta extends javax.swing.JDialog {
 		}
 
 		if (selectedIndex == 5 && noVacio) {
-			crearAlumno();
-			panelAlumno = new PanelAlumno(_ctrl);
+			
+			panelAlumno = new PanelAlumno(_ctrl,crearAlumno());
 			panelAlumno.open(ViewUtils.getWindow(this));
 		}
 		if (selectedIndex == 4 && noVacio) {
@@ -473,13 +473,15 @@ public class DialogoAlta extends javax.swing.JDialog {
 		_ctrl.altaAsignatura(new Asignatura(nombre, creditos, codigo, null));
 	}
 
-	private void crearAlumno() {
+	private Alumno crearAlumno() {
 		// TODO Auto-generated method stub
 		String apellidos = apellidosAlumnosTextField.getText();
 		String nombre = nombreAlumnosTextField.getText();
 		String correo = correoAlumnosTextField.getText() + "@universidad.es";
 		String dni = dniAlumnosTextField.getText();
-		_ctrl.altaAlumno(new Alumno(nombre, apellidos, dni, correo));
+		Alumno a = new Alumno(nombre, apellidos, dni, correo);
+		_ctrl.altaAlumno(a);
+		return a;
 	}
 
 	private void crearGrupo() {
