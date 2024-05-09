@@ -24,14 +24,14 @@ public class ProfBuilder extends Builder<Usuario> {
 
 		if (data.has("nombre"))
 			_nombre = data.getString("nombre");
-		if (data.has("apellido")) {
-			_apellido = data.getString("apellido");
+		if (data.has("apellidos")) {
+			_apellido = data.getString("apellidos");
 		}
 		if (data.has("DNI")) {
 			_DNI = data.getString("DNI");
 		}
 		if (data.has("correo")) {
-			_correo = data.getString("nombre");
+			_correo = data.getString("correo");
 		}
 		
 		return new Profesor(_nombre, _apellido, _DNI, _correo);

@@ -445,7 +445,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 			panelAlumno = new PanelAlumno(_ctrl);
 			panelAlumno.open(ViewUtils.getWindow(this));
 		}
-		if (selectedIndex == 3 && noVacio) {
+		if (selectedIndex == 3) {
 			crearGrupo();
 		}
 		if (selectedIndex == 1 && noVacio) {
@@ -478,7 +478,7 @@ public class DialogoAlta extends javax.swing.JDialog {
 	private void crearGrupo() {
 		JDialog panelGrupo;
 		String nombre = nombreGrupoTextField.getText();
-		panelGrupo = new PanelGrupo(padre, true, _ctrl, nombre);
+		panelGrupo = new PanelGrupo(_ctrl, nombre);
 		panelGrupo.setVisible(true);
 	}
 

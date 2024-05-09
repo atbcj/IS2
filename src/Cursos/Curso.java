@@ -2,6 +2,10 @@ package Cursos;
 
 
 import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import Asignaturas.Asignatura;
@@ -64,7 +68,19 @@ public class Curso {
 	    return null;
 	}
 
-
+	public JSONObject saveData() {
+		JSONObject jo = new JSONObject();
+		jo.put("anio", _anio);
+		
+		JSONArray ja = new JSONArray();
+		for(Asignatura a: _lista_asignaturas) {
+			ja.put(a.saveData());
+		}
+		
+		jo.put("asignaturas", ja);
+		
+		return jo;
+	}
 	
 	
 }

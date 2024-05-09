@@ -31,8 +31,8 @@ public class AlumnBuilder extends Builder<Usuario>{
 			DNI = data.getString("DNI");
 		}
 		if(data.has("correo")) {
-			correo = data.getString("nombre");
+			correo = data.getString("correo");
 		}
-		return new Alumno(nombre, apellidos, correo, DNI);
+		return new Alumno(nombre, apellidos, DNI, correo);
 	}
 }
