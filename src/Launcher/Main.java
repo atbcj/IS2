@@ -1,4 +1,4 @@
-package launcher;
+package Launcher;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,7 +16,7 @@ import presentacion.MainWindow;
 public class Main {
 
 	public static void main(String[] args) throws JSONException, Exception {
-		JSONObject data = load_JSON_file(new FileInputStream(new File("examples/in.json")));
+		JSONObject data = load_JSON_file(new FileInputStream(new File("examples/ex3.json")));
 		Controller ctrl = new Controller(data);
 		SwingUtilities.invokeLater(() -> new MainWindow(ctrl));
 	}
