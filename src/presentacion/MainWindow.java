@@ -100,7 +100,6 @@ public class MainWindow extends JFrame{
 		
 		JButton asignaturas = new JButton("Asignaturas");
 		JButton grupos = new JButton("Grupos");
-		
 		asignaturas.setMaximumSize(DIM);
 		grupos.setMaximumSize(DIM);
 		
@@ -129,6 +128,7 @@ public class MainWindow extends JFrame{
 		alumnos.setMaximumSize(DIM);
 		profesores.setMaximumSize(DIM);
 		
+		alumnos.addActionListener((e) -> new SeleccionAlumnos(_ctrl));		
 		lowerPanel.add(Box.createRigidArea(new Dimension(150, 0)));
 		lowerPanel.add(alumnos);
 		lowerPanel.add(Box.createRigidArea(new Dimension(100, 0)));
