@@ -1,10 +1,11 @@
 package logicaNegocio;
 
 import clases.Alumno;
+import presentacion.InfoAlumno;
 
 public interface SAAlumnos {
 	
-	public boolean altaAlumno(Character nombre) throws Exception;
+	public boolean altaAlumno(InfoAlumno al) throws Exception;
 	
 	public boolean bajaAlumno(Character nombre) throws Exception;
 	

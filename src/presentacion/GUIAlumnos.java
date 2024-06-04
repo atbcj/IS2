@@ -29,16 +29,16 @@ public class GUIAlumnos extends JFrame{
 	private String[] _headers = {"DNI" ,"Nombre", "Apellido", "Correo" };
 	
 	private DefaultComboBoxModel<String> alumnosComboBox;
-	private JTextField nombreTextField;
+	private JTextField dniTextField;
 	
 	public GUIAlumnos(Grupo grupo) {
 		_grupo = grupo;
-		_fachadaAlumnos = new FachadaAlumnosImp();
+		_fachadaAlumnos = new FachadaAlumnosImp(grupo);
 		initGUI();
 	}
 
 	private void initGUI() {
-		setTitle("Gestion de Grupos");
+		setTitle("Gestion de Alumnos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(500, 300);
 		JPanel mainPanel = new JPanel();
@@ -53,10 +53,10 @@ public class GUIAlumnos extends JFrame{
 		datosPanel.add(new JLabel("Alumnos: "));
 		datosPanel.add(ca);
 		
-		nombreTextField = new JTextField();
+		dniTextField = new JTextField();
 		
-		datosPanel.add( new JLabel("Nombre: "));
-		datosPanel.add(nombreTextField);
+		datosPanel.add( new JLabel("DNI: "));
+		datosPanel.add(dniTextField);
 		
 		JButton alta = new JButton("Crear");
 		alta.addActionListener((e) -> crearAlumno());
@@ -77,7 +77,6 @@ public class GUIAlumnos extends JFrame{
 		_dataTableModel = new DefaultTableModel();
 		_dataTableModel.setColumnIdentifiers(_headers);
 		InfoTable tab = new InfoTable("Alumnos", _dataTableModel);
-		
 		mainPanel.add(tab);
 		
 		loadData();
@@ -102,7 +101,7 @@ public class GUIAlumnos extends JFrame{
 	}
 
 	private void modificarAlumno() {
-		String nombre = nombreTextField.getText();
+		String nombre = dniTextField.getText();
 		if(!nombre.isEmpty()) {
 			try {
 				if(_fachadaAlumnos.modificarAlumno(alumnosComboBox.getSelectedItem().toString())) {
@@ -120,7 +119,7 @@ public class GUIAlumnos extends JFrame{
 	}
 
 	private void eliminarAlumno() {
-		String nombre = nombreTextField.getText();
+		String nombre = dniTextField.getText();
 		if(!nombre.isEmpty()) {
 			try {
 				if(_fachadaAlumnos.bajaAlumno(nombre)) {
@@ -138,11 +137,12 @@ public class GUIAlumnos extends JFrame{
 	}
 
 	private void crearAlumno() {
-		String nombre = nombreTextField.getText();
+		String dni = dniTextField.getText();
 		
-		if(!nombre.isEmpty()) {
+		if(!dni.isEmpty()) {
+			InfoAlumno al = new InfoAlumno(dni);
 			try {
-				if(_fachadaAlumnos.altaAlumno(nombre)) {
+				if(_fachadaAlumnos.altaAlumno(al)) {
 					loadData();
 					JOptionPane.showMessageDialog(null, "El alumno se ha registrado correctamente.", "Éxito",
 							JOptionPane.INFORMATION_MESSAGE);

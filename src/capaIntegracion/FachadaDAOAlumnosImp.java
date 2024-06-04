@@ -1,13 +1,20 @@
 package capaIntegracion;
 
 import clases.Alumno;
+import clases.Grupo;
+import presentacion.InfoAlumno;
 
 public class FachadaDAOAlumnosImp implements IFachadaDAOAlumnos{
 
+	private ISADAOAlumnos _daoAlumnos;
+	
+	public FachadaDAOAlumnosImp(Grupo grupo) {
+		_daoAlumnos = new SADAOAlumnosImp(grupo);
+	}
+	
 	@Override
-	public boolean crearAlumno(Character nombre) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean crearAlumno(InfoAlumno al) {
+		return _daoAlumnos.crearAlumno(al);
 	}
 
 	@Override
@@ -17,11 +24,10 @@ public class FachadaDAOAlumnosImp implements IFachadaDAOAlumnos{
 	}
 
 	@Override
-	public boolean existeAlumno(Character nombre) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean existeAlumno(String nombre) {
+		return _daoAlumnos.existeAlumno(nombre);
 	}
-
+	
 	@Override
 	public boolean modificacionAlumno(Character grupo, Character nombre) {
 		// TODO Auto-generated method stub

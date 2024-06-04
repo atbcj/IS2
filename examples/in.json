@@ -10,12 +10,15 @@
             "nombre": "Alvaro",
             "DNI": "12145A"
           }],
-          "alumnos": [{
-            "apellidos": "Tanarro",
-            "correo": "alv@ucm.es",
-            "nombre": "Alvaro",
-            "DNI": "12145A"
-          }],
+          "alumnos": [
+            {
+              "apellidos": "Tanarro",
+              "correo": "alv@ucm.es",
+              "nombre": "Alvaro",
+              "DNI": "12145A"
+            },
+            {"DNI": "11"}
+          ],
           "nombre": "J"
         },
         {
