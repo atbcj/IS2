@@ -59,7 +59,7 @@ public class SeleccionAlumnos extends JFrame{
 		
 		gruposComboBox = new DefaultComboBoxModel<>();
 		JComboBox<String> cg = new JComboBox<String>(gruposComboBox);
-		ca.addActionListener((e) -> actualizarGrupos((String) cg.getSelectedItem()));
+		cg.addActionListener((e) -> actualizarGrupos((String) cg.getSelectedItem()));
 		
 		JPanel comboBoxPanel = new JPanel();
 		comboBoxPanel.add(new JLabel("Titulaciones"));
@@ -81,7 +81,7 @@ public class SeleccionAlumnos extends JFrame{
 		save.addActionListener((e) -> {new GUIAlumnos(_grupo); setVisible(false);});
 		savePanel.add(save);
 		
-mainPanel.add(savePanel);
+		mainPanel.add(savePanel);
 		
 		setContentPane(mainPanel);
 		setLocationRelativeTo(null);
