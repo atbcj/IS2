@@ -13,7 +13,7 @@ public class SADAOGruposImp implements ISADAOGrupos{
 
 	@Override
 	public boolean crearGrupo(Character nombre) {
-		_asignatura.aniadirGrupo(new Grupo(nombre, null, null));
+		_asignatura.añade_grupo(new Grupo(nombre, null, null));
 		return true;
 	}
 

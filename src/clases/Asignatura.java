@@ -36,11 +36,11 @@ public class Asignatura {
         return this._codigo;
     }
 
-    public boolean tieneGrupos() {
+    public boolean existen_grupos() {
         return !_grupos.isEmpty();
     }
 
-    public void asociarGrupos(List<Grupo> l) {
+    public void añade_grupos(List<Grupo> l) {
         for(Grupo g: l)
         	if(!_grupos.contains(g))
         		_grupos.add(g);
@@ -50,23 +50,23 @@ public class Asignatura {
         return this._grupos;
     }
 
-    public void setCreditos(int creditos) {
+    public void modifica_creditos(int creditos) {
         this._creditos = creditos;
     }
 
-    public void setNombre(String nombre) {
+    public void modifica_nombre(String nombre) {
         this._nombre = nombre;
     }
 
-    public void setCodigo(String codigo) {
+    public void modifica_codigo(String codigo) {
         this._codigo = codigo;
     }
 
-	public void setGrupos(List<Grupo> grupos) {
+	public void modifica_grupos(List<Grupo> grupos) {
 		this._grupos = grupos;
 		
 	}
-	public void aniadirGrupo (Grupo g) {
+	public void añade_grupo (Grupo g) {
 		this._grupos.add(g);
 	}
 	

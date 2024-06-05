@@ -55,6 +55,11 @@
             "DNI": "12145A"
           }],
           "nombre": "H"
+        },
+        {
+          "profesores": [],
+          "alumnos": [],
+          "nombre": "P"
         }
       ],
       "creditos": 6,
