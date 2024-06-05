@@ -17,7 +17,12 @@
               "nombre": "Alvaro",
               "DNI": "12145A"
             },
-            {"DNI": "11"}
+            {
+              "apellidos": "Pastor",
+              "correo": "fgsoighep",
+              "nombre": "Ivan",
+              "DNI": "00"
+            }
           ],
           "nombre": "J"
         },

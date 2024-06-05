@@ -5,7 +5,7 @@ import presentacion.InfoAlumno;
 
 public interface SAAlumnos {
 	
-	public boolean altaAlumno(InfoAlumno al) throws Exception;
+	public boolean altaAlumno(String[] al) throws Exception;
 	
 	public boolean bajaAlumno(Character nombre) throws Exception;
 	

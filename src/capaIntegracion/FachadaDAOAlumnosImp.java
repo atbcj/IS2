@@ -13,7 +13,7 @@ public class FachadaDAOAlumnosImp implements IFachadaDAOAlumnos{
 	}
 	
 	@Override
-	public boolean crearAlumno(InfoAlumno al) {
+	public boolean crearAlumno(String[] al) {
 		return _daoAlumnos.crearAlumno(al);
 	}
 

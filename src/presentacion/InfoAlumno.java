@@ -4,8 +4,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import logicaNegocio.IFachadaAlumnos;
 
 @SuppressWarnings("serial")
 public class InfoAlumno extends JFrame{
@@ -15,9 +18,11 @@ public class InfoAlumno extends JFrame{
 	private String _dni;
 	private String _correo;
 	private JButton _saveButton;
+
 	
 	public InfoAlumno(String dni) {
 		_dni = dni;
+
 		initGUI();
 	}
 
@@ -46,7 +51,7 @@ public class InfoAlumno extends JFrame{
 		mainPanel.add(datosPanel);
 		
 		JPanel buttonPanel = new JPanel();
-		buttonPanel.setLayout(new BoxLayout(datosPanel, BoxLayout.Y_AXIS));
+		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 		
 		_saveButton = new JButton("Save");
 		_saveButton.addActionListener((e) -> saveAction(nombre.getText(),apellidos.getText(),correo.getText()));
@@ -63,6 +68,7 @@ public class InfoAlumno extends JFrame{
 		_nombre = nombre;
 		_apellidos = apellidos;
 		_correo = correo;
+		setVisible(false);
 	}
 	
 	public String[] getInfo() {

@@ -5,7 +5,7 @@ import presentacion.InfoAlumno;
 
 public interface IFachadaAlumnos {
 
-	boolean altaAlumno(InfoAlumno al) throws Exception;
+	boolean altaAlumno(String[] al) throws Exception;
 	
 	boolean bajaAlumno(String nombre) throws Exception;
 	

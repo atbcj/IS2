@@ -38,7 +38,7 @@ public class GUIAlumnos extends JFrame{
 	}
 
 	private void initGUI() {
-		setTitle("Gestion de Alumnos");
+		setTitle(String.valueOf(_grupo.get_nombre()));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(500, 300);
 		JPanel mainPanel = new JPanel();
@@ -138,11 +138,10 @@ public class GUIAlumnos extends JFrame{
 
 	private void crearAlumno() {
 		String dni = dniTextField.getText();
-		
 		if(!dni.isEmpty()) {
 			InfoAlumno al = new InfoAlumno(dni);
 			try {
-				if(_fachadaAlumnos.altaAlumno(al)) {
+				if(_fachadaAlumnos.altaAlumno(al.getInfo())) {
 					loadData();
 					JOptionPane.showMessageDialog(null, "El alumno se ha registrado correctamente.", "Éxito",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -155,5 +154,4 @@ public class GUIAlumnos extends JFrame{
 			}
 		}
 	}
-
 }

@@ -13,9 +13,8 @@ public class SADAOAlumnosImp implements ISADAOAlumnos{
 	}
 	
 	@Override
-	public boolean crearAlumno(InfoAlumno al) {
-		String[] info = al.getInfo();
-		_grupo.añade_alumno(new Alumno(info[0],info[1],info[2],info[3]));
+	public boolean crearAlumno(String[] al) {
+		_grupo.añade_alumno(new Alumno(al[0],al[1],al[2],al[3]));
 		return true;
 	}
 

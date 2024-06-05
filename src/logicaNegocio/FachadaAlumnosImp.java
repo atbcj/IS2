@@ -13,7 +13,7 @@ public class FachadaAlumnosImp implements IFachadaAlumnos{
 	}
 	
 	@Override
-	public boolean altaAlumno(InfoAlumno al) throws Exception {
+	public boolean altaAlumno(String[] al) throws Exception {
 		return _saAlumnos.altaAlumno(al);
 	}
 

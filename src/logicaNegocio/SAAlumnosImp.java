@@ -14,8 +14,8 @@ public class SAAlumnosImp implements SAAlumnos{
 		_fachada = new FachadaDAOAlumnosImp(grupo);
 	}
 	@Override
-	public boolean altaAlumno(InfoAlumno al) throws Exception {
-		if(_fachada.existeAlumno(al.getInfo()[2])) {
+	public boolean altaAlumno(String[] al) throws Exception {
+		if(_fachada.existeAlumno(al[2])) {
 			throw new Exception("Ya existe un alumno con ese DNI.");
 		}
 		return _fachada.crearAlumno(al);

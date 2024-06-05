@@ -5,7 +5,7 @@ import presentacion.InfoAlumno;
 
 public interface IFachadaDAOAlumnos {
 	
-	public boolean crearAlumno(InfoAlumno al);
+	public boolean crearAlumno(String[] al);
 	
 	public boolean eliminarAlumno(Character nombre);
 	
