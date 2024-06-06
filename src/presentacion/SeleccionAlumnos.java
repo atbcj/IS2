@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import clases.Asignatura;
@@ -78,7 +79,14 @@ public class SeleccionAlumnos extends JFrame{
 		JPanel savePanel = new JPanel();
 		savePanel.add(Box.createRigidArea(new Dimension(10, 0)));
 		JButton save = new JButton("Guardar");
-		save.addActionListener((e) -> {new GUIAlumnos(_grupo); setVisible(false);});
+		save.addActionListener((e) -> {
+			if (_grupo == null) {
+				JOptionPane.showMessageDialog(this, "Por favor, seleccione una titulación, curso, asignatura y grupo.", "Error", JOptionPane.ERROR_MESSAGE);
+			} else {
+				new GUIAlumnos(_grupo);
+				setVisible(false);
+			}
+		});
 		savePanel.add(save);
 		
 		mainPanel.add(savePanel);
