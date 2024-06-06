@@ -106,7 +106,7 @@ public class MainWindow extends JFrame{
 		grupos.addActionListener((e) -> new SeleccionGrupos(_ctrl));
 		
 		JLabel imageLabel = new JLabel(new ImageIcon(
-				new ImageIcon("resources/icons/exit.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT)));
+				new ImageIcon("image/open.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT)));
 		
 		centerPanel.add(Box.createRigidArea(new Dimension(10, 0)));
 		centerPanel.add(asignaturas);
