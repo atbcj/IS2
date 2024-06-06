@@ -1,5 +1,7 @@
 package capaIntegracion;
 
+import java.util.List;
+
 import clases.Alumno;
 import clases.Grupo;
 import presentacion.InfoAlumno;
@@ -19,9 +21,9 @@ public class SADAOAlumnosImp implements ISADAOAlumnos{
 	}
 
 	@Override
-	public boolean eliminarAlumno(Character nombre) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean eliminarAlumno(String dni) {
+		_grupo.elimina_alumno(getAlumno(dni));
+		return true;
 	}
 
 	@Override
@@ -41,8 +43,20 @@ public class SADAOAlumnosImp implements ISADAOAlumnos{
 	}
 
 	@Override
-	public Alumno getAlumno(Character nombre) {
-		// TODO Auto-generated method stub
+	public Alumno getAlumno(String dni) {
+		int i=0;
+		boolean encontrado = false;
+		List<Alumno> lista = _grupo.get_lista_alumnos();
+		while(i < lista.size() && !encontrado) {
+			if(lista.get(i).get_DNI().equals(dni)) {
+				encontrado = true;
+			}else {
+				i++;
+			}
+		}
+		if(encontrado) {
+			return lista.get(i);
+		}
 		return null;
 	}
 

@@ -19,8 +19,7 @@ public class FachadaAlumnosImp implements IFachadaAlumnos{
 
 	@Override
 	public boolean bajaAlumno(String nombre) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+		return _saAlumnos.bajaAlumno(nombre);
 	}
 
 	@Override

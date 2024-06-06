@@ -10,20 +10,12 @@
             "nombre": "Alvaro",
             "DNI": "12145A"
           }],
-          "alumnos": [
-            {
-              "apellidos": "Tanarro",
-              "correo": "alv@ucm.es",
-              "nombre": "Alvaro",
-              "DNI": "12145A"
-            },
-            {
-              "apellidos": "Pastor",
-              "correo": "fgsoighep",
-              "nombre": "Ivan",
-              "DNI": "00"
-            }
-          ],
+          "alumnos": [{
+            "apellidos": "Tanarro",
+            "correo": "alv@ucm.es",
+            "nombre": "Alvaro",
+            "DNI": "12145A"
+          }],
           "nombre": "J"
         },
         {
@@ -55,11 +47,6 @@
             "DNI": "12145A"
           }],
           "nombre": "H"
-        },
-        {
-          "profesores": [],
-          "alumnos": [],
-          "nombre": "P"
         }
       ],
       "creditos": 6,

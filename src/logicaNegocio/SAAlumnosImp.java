@@ -22,13 +22,15 @@ public class SAAlumnosImp implements SAAlumnos{
 	}
 
 	@Override
-	public boolean bajaAlumno(Character nombre) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean bajaAlumno(String nombre) throws Exception {
+		if(!_fachada.existeAlumno(nombre)) {
+			throw new Exception("No existe un alumno con ese DNI para eliminar.");
+		}
+		return _fachada.eliminarAlumno(nombre);
 	}
 
 	@Override
-	public Alumno consultaAlumno(Character nombre) {
+	public Alumno consultaAlumno(String nombre) {
 		// TODO Auto-generated method stub
 		return null;
 	}

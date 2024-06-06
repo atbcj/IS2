@@ -18,11 +18,14 @@ public class InfoAlumno extends JFrame{
 	private String _dni;
 	private String _correo;
 	private JButton _saveButton;
+	private GUIAlumnos _gui;
+	private IFachadaAlumnos _fach;
 
 	
-	public InfoAlumno(String dni) {
+	public InfoAlumno(String dni, GUIAlumnos al, IFachadaAlumnos fach) {
 		_dni = dni;
-
+		_fach = fach;
+		_gui = al;
 		initGUI();
 	}
 
@@ -68,6 +71,18 @@ public class InfoAlumno extends JFrame{
 		_nombre = nombre;
 		_apellidos = apellidos;
 		_correo = correo;
+		try {
+			if(_fach.altaAlumno(getInfo())) {
+				_gui.loadData();
+				JOptionPane.showMessageDialog(null, "El alumno se ha registrado correctamente.", "Éxito",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error",
+					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error al crear el alumno.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		}
 		setVisible(false);
 	}
 	

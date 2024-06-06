@@ -86,7 +86,7 @@ public class GUIAlumnos extends JFrame{
 		setVisible(true);
 	}
 
-	private void loadData() {
+	protected void loadData() {
 		alumnosComboBox.removeAllElements();
 		_dataTableModel.setRowCount(0);
 		for(Alumno a: _grupo.get_lista_alumnos()) {
@@ -119,10 +119,11 @@ public class GUIAlumnos extends JFrame{
 	}
 
 	private void eliminarAlumno() {
-		String nombre = dniTextField.getText();
-		if(!nombre.isEmpty()) {
+		String dni = dniTextField.getText();
+		
+		if(!dni.isEmpty()) {
 			try {
-				if(_fachadaAlumnos.bajaAlumno(nombre)) {
+				if(_fachadaAlumnos.bajaAlumno(dni)) {
 					loadData();
 					JOptionPane.showMessageDialog(null, "El alumno se ha eliminado correctamente.", "Éxito",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -139,19 +140,7 @@ public class GUIAlumnos extends JFrame{
 	private void crearAlumno() {
 		String dni = dniTextField.getText();
 		if(!dni.isEmpty()) {
-			InfoAlumno al = new InfoAlumno(dni);
-			try {
-				if(_fachadaAlumnos.altaAlumno(al.getInfo())) {
-					loadData();
-					JOptionPane.showMessageDialog(null, "El alumno se ha registrado correctamente.", "Éxito",
-							JOptionPane.INFORMATION_MESSAGE);
-				}
-			}catch(Exception e) {
-				JOptionPane.showMessageDialog(null, e.getMessage(), "Error",
-						JOptionPane.ERROR_MESSAGE);
-				JOptionPane.showMessageDialog(null, "Error al crear el alumno.", "Error",
-						JOptionPane.ERROR_MESSAGE);
-			}
+			InfoAlumno al = new InfoAlumno(dni,this,_fachadaAlumnos);
 		}
 	}
 }

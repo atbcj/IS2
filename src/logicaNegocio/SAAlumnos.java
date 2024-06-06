@@ -7,9 +7,9 @@ public interface SAAlumnos {
 	
 	public boolean altaAlumno(String[] al) throws Exception;
 	
-	public boolean bajaAlumno(Character nombre) throws Exception;
+	public boolean bajaAlumno(String dni) throws Exception;
 	
-	public Alumno consultaAlumno(Character nombre);
+	public Alumno consultaAlumno(String nombre);
 	
 	public boolean modificacionAlumno(Character grupo, Character nombre) throws Exception;
 }

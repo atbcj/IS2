@@ -18,14 +18,13 @@ public class FachadaDAOAlumnosImp implements IFachadaDAOAlumnos{
 	}
 
 	@Override
-	public boolean eliminarAlumno(Character nombre) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean eliminarAlumno(String dni) {
+		return _daoAlumnos.eliminarAlumno(dni);
 	}
 
 	@Override
-	public boolean existeAlumno(String nombre) {
-		return _daoAlumnos.existeAlumno(nombre);
+	public boolean existeAlumno(String dni) {
+		return _daoAlumnos.existeAlumno(dni);
 	}
 	
 	@Override
@@ -35,8 +34,8 @@ public class FachadaDAOAlumnosImp implements IFachadaDAOAlumnos{
 	}
 
 	@Override
-	public Alumno getAlumno(Character nombre) {
-		// TODO Auto-generated method stub
+	public Alumno getAlumno(String dni) {
+		_daoAlumnos.getAlumno(dni);
 		return null;
 	}
 
