@@ -7,26 +7,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Titulacion {
-    private List<Curso> _listTitulacion;
+    private List<Curso> _listCursos;
     private String _nombre;
 
     public Titulacion(String nombre, List<Curso> lista) {
-        this._listTitulacion = lista;
+        this._listCursos = lista;
         if(lista == null)
-    		_listTitulacion = new LinkedList<Curso>();
+    		_listCursos = new LinkedList<Curso>();
         this._nombre = nombre;
     }
 
     public List<Curso> getListaTitulacionCursos() {
-        return this._listTitulacion;
+        return this._listCursos;
     }
 
     public void setMapaTitulacionCursos(List<Curso> listaTitulacionCursos) {
-        this._listTitulacion = listaTitulacionCursos;
+        this._listCursos = listaTitulacionCursos;
     }
     
+	public void añade_curso (Curso c) {
+		this._listCursos.add(c);
+	}
+	
     public List<Curso> getCursos() {
-        return this._listTitulacion;
+        return this._listCursos;
     }
     
     public String getNombre() {
@@ -34,7 +38,7 @@ public class Titulacion {
     }
     
     public boolean tieneCursos() {
-        return _listTitulacion != null && !_listTitulacion.isEmpty();
+        return _listCursos != null && !_listCursos.isEmpty();
     }
 
 	public void setNombre(String nombre) {
@@ -46,8 +50,8 @@ public class Titulacion {
 		jo.put("nombre", _nombre);
 		
 		JSONArray ja = new JSONArray();
-		if(!_listTitulacion.isEmpty())
-			for(Curso c: _listTitulacion) {
+		if(!_listCursos.isEmpty())
+			for(Curso c: _listCursos) {
 				ja.put(c.saveData());
 			}
 		
@@ -57,7 +61,7 @@ public class Titulacion {
 
 	public Curso getCurso(String nombre) {
 		Curso curso = null;
-		for(Curso c: _listTitulacion)
+		for(Curso c: _listCursos)
 			if(String.valueOf(c.get_anio()).equals(nombre))
 				curso = c;
 		return curso;
