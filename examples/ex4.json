@@ -60,6 +60,31 @@
                       "DNI": "56789E"
                     }
                   ]
+                },
+                {
+                  "nombre": "C",
+                  "alumnos": [
+                    {
+                      "nombre": "Pablo",
+                      "apellidos": "Gomez",
+                      "correo": "pablo.gomez@ucm.es",
+                      "DNI": "90123H"
+                    },
+                    {
+                      "nombre": "Elena",
+                      "apellidos": "Sanchez",
+                      "correo": "elena.sanchez@ucm.es",
+                      "DNI": "01234I"
+                    }
+                  ],
+                  "profesores": [
+                    {
+                      "nombre": "Jose",
+                      "apellidos": "Martinez",
+                      "correo": "jose.martinez@ucm.es",
+                      "DNI": "34567J"
+                    }
+                  ]
                 }
               ]
             },
@@ -131,7 +156,7 @@
               "creditos": 6,
               "grupos": [
                 {
-                  "nombre": "C",
+                  "nombre": "A",
                   "alumnos": [
                     {
                       "nombre": "Elena",
@@ -156,7 +181,7 @@
                   ]
                 },
                 {
-                  "nombre": "D",
+                  "nombre": "B",
                   "alumnos": [
                     {
                       "nombre": "Daniel",
@@ -188,7 +213,7 @@
               "creditos": 7,
               "grupos": [
                 {
-                  "nombre": "E",
+                  "nombre": "A",
                   "alumnos": [
                     {
                       "nombre": "Eva",
@@ -213,7 +238,7 @@
                   ]
                 },
                 {
-                  "nombre": "F",
+                  "nombre": "B",
                   "alumnos": [
                     {
                       "nombre": "Javier",
@@ -255,7 +280,7 @@
               "creditos": 6,
               "grupos": [
                 {
-                  "nombre": "G1",
+                  "nombre": "A",
                   "alumnos": [
                     {
                       "nombre": "Adrian",
@@ -280,7 +305,7 @@
                   ]
                 },
                 {
-                  "nombre": "G2",
+                  "nombre": "B",
                   "alumnos": [
                     {
                       "nombre": "Laura",
@@ -297,67 +322,67 @@
                   ],
                   "profesores": [
                     {
-                      "nombre": "Antonio",
-                      "apellidos": "Santos",
-                      "correo": "antonio.santos@ucm.es",
-                      "DNI": "01234Y"
+                      "nombre": "Raquel",
+                      "apellidos": "Gil",
+                      "correo": "raquel.gil@ucm.es",
+                      "DNI": "12345Y"
                     }
                   ]
                 }
               ]
             },
             {
-              "codigo": "MA102",
-              "nombre": "Matemáticas Discretas",
+              "codigo": "MA101",
+              "nombre": "Matemáticas Aplicadas",
               "creditos": 5,
               "grupos": [
                 {
-                  "nombre": "G1",
+                  "nombre": "A",
                   "alumnos": [
                     {
-                      "nombre": "Adrian",
-                      "apellidos": "Blanco",
-                      "correo": "adrian.blanco@ucm.es",
-                      "DNI": "56789T"
+                      "nombre": "Sara",
+                      "apellidos": "Moreno",
+                      "correo": "sara.moreno@ucm.es",
+                      "DNI": "45678Z"
                     },
                     {
-                      "nombre": "Monica",
-                      "apellidos": "Calvo",
-                      "correo": "monica.calvo@ucm.es",
-                      "DNI": "67890U"
+                      "nombre": "Luis",
+                      "apellidos": "Vega",
+                      "correo": "luis.vega@ucm.es",
+                      "DNI": "12345A"
                     }
                   ],
                   "profesores": [
                     {
-                      "nombre": "Roberto",
-                      "apellidos": "Marin",
-                      "correo": "roberto.marin@ucm.es",
-                      "DNI": "12345Z"
+                      "nombre": "Carlos",
+                      "apellidos": "Fernandez",
+                      "correo": "carlos.fernandez@ucm.es",
+                      "DNI": "23456B"
                     }
                   ]
                 },
                 {
-                  "nombre": "G2",
+                  "nombre": "B",
                   "alumnos": [
                     {
-                      "nombre": "Laura",
-                      "apellidos": "Iglesias",
-                      "correo": "laura.iglesias@ucm.es",
-                      "DNI": "89012W"
+                      "nombre": "Elena",
+                      "apellidos": "Santos",
+                      "correo": "elena.santos@ucm.es",
+                      "DNI": "34567C"
                     },
                     {
-                      "nombre": "David",
-                      "apellidos": "Martinez",
-                      "correo": "david.martinez@ucm.es",
-                      "DNI": "90123X"
+                      "nombre": "Mario",
+                      "apellidos": "Perez",
+                      "correo": "mario.perez@ucm.es",
+                      "DNI": "45678D"
                     }
                   ],
                   "profesores": [
                     {
-                      "nombre": "Fernando",
-                      "apellidos": "Vega",
-                      "correo": "fernando.vega@ucm.es",
-                      "DNI": "23456A"
+                      "nombre": "Alberto",
+                      "apellidos": "Ramirez",
+                      "correo": "alberto.ramirez@ucm.es",
+                      "DNI": "56789E"
                     }
                   ]
                 }
@@ -374,7 +399,7 @@
               "creditos": 6,
               "grupos": [
                 {
-                  "nombre": "G1",
+                  "nombre": "A",
                   "alumnos": [
                     {
                       "nombre": "Ines",
@@ -399,7 +424,7 @@
                   ]
                 },
                 {
-                  "nombre": "G2",
+                  "nombre": "B",
                   "alumnos": [
                     {
                       "nombre": "Julia",
@@ -431,7 +456,7 @@
               "creditos": 7,
               "grupos": [
                 {
-                  "nombre": "G1",
+                  "nombre": "A",
                   "alumnos": [
                     {
                       "nombre": "Ines",
@@ -456,7 +481,7 @@
                   ]
                 },
                 {
-                  "nombre": "G2",
+                  "nombre": "B",
                   "alumnos": [
                     {
                       "nombre": "Julia",

@@ -51,6 +51,29 @@
                   }
                 ],
                 "nombre": "B"
+              },
+              {
+                "profesores": [{
+                  "apellidos": "Martinez",
+                  "correo": "jose.martinez@ucm.es",
+                  "nombre": "Jose",
+                  "DNI": "34567J"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Gomez",
+                    "correo": "pablo.gomez@ucm.es",
+                    "nombre": "Pablo",
+                    "DNI": "90123H"
+                  },
+                  {
+                    "apellidos": "Sanchez",
+                    "correo": "elena.sanchez@ucm.es",
+                    "nombre": "Elena",
+                    "DNI": "01234I"
+                  }
+                ],
+                "nombre": "C"
               }
             ],
             "creditos": 6,
@@ -138,7 +161,7 @@
                     "DNI": "01234I"
                   }
                 ],
-                "nombre": "C"
+                "nombre": "A"
               },
               {
                 "profesores": [{
@@ -161,7 +184,7 @@
                     "DNI": "67890L"
                   }
                 ],
-                "nombre": "D"
+                "nombre": "B"
               }
             ],
             "creditos": 6,
@@ -191,7 +214,7 @@
                     "DNI": "90123O"
                   }
                 ],
-                "nombre": "E"
+                "nombre": "A"
               },
               {
                 "profesores": [{
@@ -214,7 +237,7 @@
                     "DNI": "34567R"
                   }
                 ],
-                "nombre": "F"
+                "nombre": "B"
               }
             ],
             "creditos": 7,
@@ -254,14 +277,14 @@
                     "DNI": "67890U"
                   }
                 ],
-                "nombre": "G"
+                "nombre": "A"
               },
               {
                 "profesores": [{
-                  "apellidos": "Santos",
-                  "correo": "antonio.santos@ucm.es",
-                  "nombre": "Antonio",
-                  "DNI": "01234Y"
+                  "apellidos": "Gil",
+                  "correo": "raquel.gil@ucm.es",
+                  "nombre": "Raquel",
+                  "DNI": "12345Y"
                 }],
                 "alumnos": [
                   {
@@ -277,64 +300,64 @@
                     "DNI": "90123X"
                   }
                 ],
-                "nombre": "G"
+                "nombre": "B"
               }
             ],
             "creditos": 6,
             "nombre": "Programación"
           },
           {
-            "codigo": "MA102",
+            "codigo": "MA101",
             "grupos": [
               {
                 "profesores": [{
-                  "apellidos": "Marin",
-                  "correo": "roberto.marin@ucm.es",
-                  "nombre": "Roberto",
-                  "DNI": "12345Z"
+                  "apellidos": "Fernandez",
+                  "correo": "carlos.fernandez@ucm.es",
+                  "nombre": "Carlos",
+                  "DNI": "23456B"
                 }],
                 "alumnos": [
                   {
-                    "apellidos": "Blanco",
-                    "correo": "adrian.blanco@ucm.es",
-                    "nombre": "Adrian",
-                    "DNI": "56789T"
+                    "apellidos": "Moreno",
+                    "correo": "sara.moreno@ucm.es",
+                    "nombre": "Sara",
+                    "DNI": "45678Z"
                   },
                   {
-                    "apellidos": "Calvo",
-                    "correo": "monica.calvo@ucm.es",
-                    "nombre": "Monica",
-                    "DNI": "67890U"
+                    "apellidos": "Vega",
+                    "correo": "luis.vega@ucm.es",
+                    "nombre": "Luis",
+                    "DNI": "12345A"
                   }
                 ],
-                "nombre": "G"
+                "nombre": "A"
               },
               {
                 "profesores": [{
-                  "apellidos": "Vega",
-                  "correo": "fernando.vega@ucm.es",
-                  "nombre": "Fernando",
-                  "DNI": "23456A"
+                  "apellidos": "Ramirez",
+                  "correo": "alberto.ramirez@ucm.es",
+                  "nombre": "Alberto",
+                  "DNI": "56789E"
                 }],
                 "alumnos": [
                   {
-                    "apellidos": "Iglesias",
-                    "correo": "laura.iglesias@ucm.es",
-                    "nombre": "Laura",
-                    "DNI": "89012W"
+                    "apellidos": "Santos",
+                    "correo": "elena.santos@ucm.es",
+                    "nombre": "Elena",
+                    "DNI": "34567C"
                   },
                   {
-                    "apellidos": "Martinez",
-                    "correo": "david.martinez@ucm.es",
-                    "nombre": "David",
-                    "DNI": "90123X"
+                    "apellidos": "Perez",
+                    "correo": "mario.perez@ucm.es",
+                    "nombre": "Mario",
+                    "DNI": "45678D"
                   }
                 ],
-                "nombre": "G"
+                "nombre": "B"
               }
             ],
             "creditos": 5,
-            "nombre": "Matemáticas Discretas"
+            "nombre": "Matemáticas Aplicadas"
           }
         ],
         "anio": 1
@@ -365,7 +388,7 @@
                     "DNI": "45678C"
                   }
                 ],
-                "nombre": "G"
+                "nombre": "A"
               },
               {
                 "profesores": [{
@@ -388,7 +411,7 @@
                     "DNI": "78901F"
                   }
                 ],
-                "nombre": "G"
+                "nombre": "B"
               }
             ],
             "creditos": 6,
@@ -418,7 +441,7 @@
                     "DNI": "45678C"
                   }
                 ],
-                "nombre": "G"
+                "nombre": "A"
               },
               {
                 "profesores": [{
@@ -441,7 +464,7 @@
                     "DNI": "78901F"
                   }
                 ],
-                "nombre": "G"
+                "nombre": "B"
               }
             ],
             "creditos": 7,
