@@ -31,14 +31,12 @@ public class SAAlumnosImp implements SAAlumnos{
 
 	@Override
 	public Alumno consultaAlumno(String nombre) {
-		// TODO Auto-generated method stub
-		return null;
+		return _fachada.getAlumno(nombre);
 	}
 
 	@Override
-	public boolean modificacionAlumno(Character grupo, Character nombre) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean modificacionAlumno(String[] al) throws Exception{
+		return _fachada.modificacionAlumno(al);
 	}
 
 }

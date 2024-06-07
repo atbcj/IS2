@@ -28,15 +28,13 @@ public class FachadaDAOAlumnosImp implements IFachadaDAOAlumnos{
 	}
 	
 	@Override
-	public boolean modificacionAlumno(Character grupo, Character nombre) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean modificacionAlumno(String[] al) {
+		return _daoAlumnos.modificacionAlumno(al);
 	}
 
 	@Override
 	public Alumno getAlumno(String dni) {
-		_daoAlumnos.getAlumno(dni);
-		return null;
+		return _daoAlumnos.getAlumno(dni);	 
 	}
 
 }

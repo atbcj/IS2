@@ -63,14 +63,17 @@ public class GUIAlumnos extends JFrame{
 		JButton baja = new JButton("Eliminar");
 		baja.addActionListener((e) -> eliminarAlumno());
 		JButton modificacion = new JButton("Modificar");
-		modificacion.addActionListener((e) -> modificarAlumno());
-		JButton consulta = new JButton("Consultar");
-		consulta.addActionListener((e) -> consultarAlumno(alumnosComboBox.getSelectedItem().toString()));
+		modificacion.addActionListener((e) -> {
+			try {
+				modificarAlumno();
+			}catch (Exception ex){
+			}
+		});
+		
 		
 		datosPanel.add(alta);
 		datosPanel.add(baja);
 		datosPanel.add(modificacion);
-		datosPanel.add(consulta);
 		
 		mainPanel.add(datosPanel);
 		
@@ -79,11 +82,22 @@ public class GUIAlumnos extends JFrame{
 		InfoTable tab = new InfoTable("Alumnos", _dataTableModel);
 		mainPanel.add(tab);
 		
+		JPanel bottomPanel = new JPanel();
+		bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));
+		JButton backButton = new JButton("Back");
+		backButton.addActionListener((e) -> backAction());
+		bottomPanel.add(backButton);
+		mainPanel.add(bottomPanel);
+		
 		loadData();
 		
 		setContentPane(mainPanel);
 		setLocationRelativeTo(null);
 		setVisible(true);
+	}
+
+	private void backAction() {
+		setVisible(false);
 	}
 
 	protected void loadData() {
@@ -96,25 +110,10 @@ public class GUIAlumnos extends JFrame{
 		}
 	}
 
-	private void consultarAlumno(String selectedItem) {
-		
-	}
-
-	private void modificarAlumno() {
-		String nombre = dniTextField.getText();
-		if(!nombre.isEmpty()) {
-			try {
-				if(_fachadaAlumnos.modificarAlumno(alumnosComboBox.getSelectedItem().toString())) {
-					loadData();
-					JOptionPane.showMessageDialog(null, "El alumno se ha eliminado correctamente.", "Éxito",
-							JOptionPane.INFORMATION_MESSAGE);
-				}
-			}catch(Exception e) {
-				JOptionPane.showMessageDialog(null, e.getMessage(), "Error",
-						JOptionPane.ERROR_MESSAGE);
-				JOptionPane.showMessageDialog(null, "Error al modificar el alumno.", "Error",
-						JOptionPane.ERROR_MESSAGE);
-			}
+	private void modificarAlumno() throws Exception {
+		String dni = dniTextField.getText();
+		if(!dni.isEmpty()) {
+			new InfoAlumno(_fachadaAlumnos.consultarAlumno(dni),this,_fachadaAlumnos,false);	
 		}
 	}
 
@@ -140,7 +139,7 @@ public class GUIAlumnos extends JFrame{
 	private void crearAlumno() {
 		String dni = dniTextField.getText();
 		if(!dni.isEmpty()) {
-			InfoAlumno al = new InfoAlumno(dni,this,_fachadaAlumnos);
+			new InfoAlumno(dni,this,_fachadaAlumnos,true);
 		}
 	}
 }

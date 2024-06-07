@@ -37,9 +37,13 @@ public class SADAOAlumnosImp implements ISADAOAlumnos{
 	}
 
 	@Override
-	public boolean modificacionAlumno(Character grupo, Character nombre) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean modificacionAlumno(String[] al) {
+		Alumno a = getAlumno(al[2]);
+		a.set_nombre(al[0]);
+		a.set_apellidos(al[1]);
+		a.set_DNI(al[2]);
+		a.setCorreo(al[3]);
+		return true;
 	}
 
 	@Override

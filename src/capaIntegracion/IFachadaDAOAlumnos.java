@@ -11,7 +11,7 @@ public interface IFachadaDAOAlumnos {
 	
 	public boolean existeAlumno(String nombre);
 	
-	public boolean modificacionAlumno(Character grupo, Character nombre);
-
 	public Alumno getAlumno(String nombre);
+
+	public boolean modificacionAlumno(String[] al);
 }

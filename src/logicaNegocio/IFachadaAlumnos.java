@@ -11,5 +11,5 @@ public interface IFachadaAlumnos {
 	
 	Alumno consultarAlumno(String string) throws Exception;
 	
-	boolean modificarAlumno(String nombre) throws Exception;
+	boolean modificarAlumno(String[] string) throws Exception;
 }

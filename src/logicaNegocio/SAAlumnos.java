@@ -11,5 +11,5 @@ public interface SAAlumnos {
 	
 	public Alumno consultaAlumno(String nombre);
 	
-	public boolean modificacionAlumno(Character grupo, Character nombre) throws Exception;
+	public boolean modificacionAlumno(String[] al) throws Exception;
 }

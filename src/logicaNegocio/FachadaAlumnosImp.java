@@ -24,14 +24,12 @@ public class FachadaAlumnosImp implements IFachadaAlumnos{
 
 	@Override
 	public Alumno consultarAlumno(String nombre) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return _saAlumnos.consultaAlumno(nombre);
 	}
 
 	@Override
-	public boolean modificarAlumno(String nombre) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean modificarAlumno(String[] al) throws Exception {
+		return _saAlumnos.modificacionAlumno(al);
 	}
 
 }

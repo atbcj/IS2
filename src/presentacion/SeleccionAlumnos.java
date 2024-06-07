@@ -84,10 +84,12 @@ public class SeleccionAlumnos extends JFrame{
 				JOptionPane.showMessageDialog(this, "Por favor, seleccione una titulación, curso, asignatura y grupo.", "Error", JOptionPane.ERROR_MESSAGE);
 			} else {
 				new GUIAlumnos(_grupo);
-				setVisible(false);
 			}
 		});
 		savePanel.add(save);
+		JButton back = new JButton("Back");
+		back.addActionListener((e) -> setVisible(false));
+		savePanel.add(back);
 		
 		mainPanel.add(savePanel);
 		
