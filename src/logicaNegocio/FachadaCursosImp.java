@@ -1,7 +1,7 @@
 package logicaNegocio;
 
-import clases.Asignatura;
 import clases.Curso;
+import clases.Titulacion;
 
 public class FachadaCursosImp implements IFachadaCursos {
 	

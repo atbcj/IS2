@@ -82,6 +82,8 @@ public class MainWindow extends JFrame{
 		JButton titulaciones = new JButton("Titulaciones");
 		JButton cursos = new JButton("Cursos");
 		
+		cursos.addActionListener((e) -> new SeleccionCursos(_ctrl));
+		
 		titulaciones.setMaximumSize(DIM);
 		cursos.setMaximumSize(DIM);
 		
