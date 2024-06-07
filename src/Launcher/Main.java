@@ -16,7 +16,7 @@ import presentacion.MainWindow;
 public class Main {
 
 	public static void main(String[] args) throws JSONException, Exception {
-		JSONObject data = load_JSON_file(new FileInputStream(new File("examples/ex3.json")));
+		JSONObject data = load_JSON_file(new FileInputStream(new File("examples/ex4.json")));
 		Controller ctrl = new Controller(data);
 		SwingUtilities.invokeLater(() -> new MainWindow(ctrl));
 	}

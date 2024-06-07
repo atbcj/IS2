@@ -1,58 +1,456 @@
-{"titulaciones": [{
-  "cursos": [{
-    "asignaturas": [{
-      "codigo": "CF",
-      "grupos": [
-        {
-          "profesores": [{
-            "apellidos": "Tanarro",
-            "correo": "alv@ucm.es",
-            "nombre": "Alvaro",
-            "DNI": "12145A"
-          }],
-          "alumnos": [{
-            "apellidos": "Tanarro",
-            "correo": "alv@ucm.es",
-            "nombre": "Alvaro",
-            "DNI": "12145A"
-          }],
-          "nombre": "J"
-        },
-        {
-          "profesores": [{
-            "apellidos": "Tanarro",
-            "correo": "alv@ucm.es",
-            "nombre": "Alvaro",
-            "DNI": "12145A"
-          }],
-          "alumnos": [{
-            "apellidos": "Tanarro",
-            "correo": "alv@ucm.es",
-            "nombre": "Alvaro",
-            "DNI": "12145A"
-          }],
-          "nombre": "I"
-        },
-        {
-          "profesores": [{
-            "apellidos": "Tanarro",
-            "correo": "alv@ucm.es",
-            "nombre": "Alvaro",
-            "DNI": "12145A"
-          }],
-          "alumnos": [{
-            "apellidos": "Tanarro",
-            "correo": "alv@ucm.es",
-            "nombre": "Alvaro",
-            "DNI": "12145A"
-          }],
-          "nombre": "H"
-        }
-      ],
-      "creditos": 68598,
-      "nombre": "Contabilidad Financiera"
-    }],
-    "anio": 1
-  }],
-  "nombre": "Administración de Empresas"
-}]}
+{"titulaciones": [
+  {
+    "cursos": [
+      {
+        "asignaturas": [
+          {
+            "codigo": "CF101",
+            "grupos": [
+              {
+                "profesores": [{
+                  "apellidos": "Perez",
+                  "correo": "juan.perez@ucm.es",
+                  "nombre": "Juan",
+                  "DNI": "45432Z"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Tanarro",
+                    "correo": "alvaro.tanarro@ucm.es",
+                    "nombre": "Alvaro",
+                    "DNI": "12145A"
+                  },
+                  {
+                    "apellidos": "Martinez",
+                    "correo": "lucia.martinez@ucm.es",
+                    "nombre": "Lucia",
+                    "DNI": "23156B"
+                  }
+                ],
+                "nombre": "A"
+              },
+              {
+                "profesores": [{
+                  "apellidos": "Lopez",
+                  "correo": "maria.lopez@ucm.es",
+                  "nombre": "Maria",
+                  "DNI": "56789E"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Garcia",
+                    "correo": "sofia.garcia@ucm.es",
+                    "nombre": "Sofia",
+                    "DNI": "78901C"
+                  },
+                  {
+                    "apellidos": "Ruiz",
+                    "correo": "carlos.ruiz@ucm.es",
+                    "nombre": "Carlos",
+                    "DNI": "89012D"
+                  }
+                ],
+                "nombre": "B"
+              }
+            ],
+            "creditos": 6,
+            "nombre": "Contabilidad Financiera"
+          },
+          {
+            "codigo": "MA101",
+            "grupos": [
+              {
+                "profesores": [{
+                  "apellidos": "Gonzalez",
+                  "correo": "ana.gonzalez@ucm.es",
+                  "nombre": "Ana",
+                  "DNI": "67890F"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Tanarro",
+                    "correo": "alvaro.tanarro@ucm.es",
+                    "nombre": "Alvaro",
+                    "DNI": "12145A"
+                  },
+                  {
+                    "apellidos": "Martinez",
+                    "correo": "lucia.martinez@ucm.es",
+                    "nombre": "Lucia",
+                    "DNI": "23156B"
+                  }
+                ],
+                "nombre": "A"
+              },
+              {
+                "profesores": [{
+                  "apellidos": "Martinez",
+                  "correo": "luis.martinez@ucm.es",
+                  "nombre": "Luis",
+                  "DNI": "23456G"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Garcia",
+                    "correo": "sofia.garcia@ucm.es",
+                    "nombre": "Sofia",
+                    "DNI": "78901C"
+                  },
+                  {
+                    "apellidos": "Ruiz",
+                    "correo": "carlos.ruiz@ucm.es",
+                    "nombre": "Carlos",
+                    "DNI": "89012D"
+                  }
+                ],
+                "nombre": "B"
+              }
+            ],
+            "creditos": 5,
+            "nombre": "Matemáticas Aplicadas"
+          }
+        ],
+        "anio": 1
+      },
+      {
+        "asignaturas": [
+          {
+            "codigo": "MR201",
+            "grupos": [
+              {
+                "profesores": [{
+                  "apellidos": "Moreno",
+                  "correo": "laura.moreno@ucm.es",
+                  "nombre": "Laura",
+                  "DNI": "34567J"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Sanchez",
+                    "correo": "elena.sanchez@ucm.es",
+                    "nombre": "Elena",
+                    "DNI": "90123H"
+                  },
+                  {
+                    "apellidos": "Gomez",
+                    "correo": "pablo.gomez@ucm.es",
+                    "nombre": "Pablo",
+                    "DNI": "01234I"
+                  }
+                ],
+                "nombre": "C"
+              },
+              {
+                "profesores": [{
+                  "apellidos": "Vazquez",
+                  "correo": "pedro.vazquez@ucm.es",
+                  "nombre": "Pedro",
+                  "DNI": "78901M"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Fernandez",
+                    "correo": "daniel.fernandez@ucm.es",
+                    "nombre": "Daniel",
+                    "DNI": "56789K"
+                  },
+                  {
+                    "apellidos": "Diaz",
+                    "correo": "clara.diaz@ucm.es",
+                    "nombre": "Clara",
+                    "DNI": "67890L"
+                  }
+                ],
+                "nombre": "D"
+              }
+            ],
+            "creditos": 6,
+            "nombre": "Marketing"
+          },
+          {
+            "codigo": "FI201",
+            "grupos": [
+              {
+                "profesores": [{
+                  "apellidos": "Hernandez",
+                  "correo": "sergio.hernandez@ucm.es",
+                  "nombre": "Sergio",
+                  "DNI": "01234P"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Alvarez",
+                    "correo": "eva.alvarez@ucm.es",
+                    "nombre": "Eva",
+                    "DNI": "89012N"
+                  },
+                  {
+                    "apellidos": "Molina",
+                    "correo": "raul.molina@ucm.es",
+                    "nombre": "Raul",
+                    "DNI": "90123O"
+                  }
+                ],
+                "nombre": "E"
+              },
+              {
+                "profesores": [{
+                  "apellidos": "Romero",
+                  "correo": "patricia.romero@ucm.es",
+                  "nombre": "Patricia",
+                  "DNI": "45678S"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Gutierrez",
+                    "correo": "javier.gutierrez@ucm.es",
+                    "nombre": "Javier",
+                    "DNI": "23456Q"
+                  },
+                  {
+                    "apellidos": "Lopez",
+                    "correo": "marta.lopez@ucm.es",
+                    "nombre": "Marta",
+                    "DNI": "34567R"
+                  }
+                ],
+                "nombre": "F"
+              }
+            ],
+            "creditos": 7,
+            "nombre": "Finanzas"
+          }
+        ],
+        "anio": 2
+      }
+    ],
+    "nombre": "Administración de Empresas"
+  },
+  {
+    "cursos": [
+      {
+        "asignaturas": [
+          {
+            "codigo": "PR101",
+            "grupos": [
+              {
+                "profesores": [{
+                  "apellidos": "Nunez",
+                  "correo": "miguel.nunez@ucm.es",
+                  "nombre": "Miguel",
+                  "DNI": "78901V"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Blanco",
+                    "correo": "adrian.blanco@ucm.es",
+                    "nombre": "Adrian",
+                    "DNI": "56789T"
+                  },
+                  {
+                    "apellidos": "Calvo",
+                    "correo": "monica.calvo@ucm.es",
+                    "nombre": "Monica",
+                    "DNI": "67890U"
+                  }
+                ],
+                "nombre": "G"
+              },
+              {
+                "profesores": [{
+                  "apellidos": "Santos",
+                  "correo": "antonio.santos@ucm.es",
+                  "nombre": "Antonio",
+                  "DNI": "01234Y"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Iglesias",
+                    "correo": "laura.iglesias@ucm.es",
+                    "nombre": "Laura",
+                    "DNI": "89012W"
+                  },
+                  {
+                    "apellidos": "Martinez",
+                    "correo": "david.martinez@ucm.es",
+                    "nombre": "David",
+                    "DNI": "90123X"
+                  }
+                ],
+                "nombre": "G"
+              }
+            ],
+            "creditos": 6,
+            "nombre": "Programación"
+          },
+          {
+            "codigo": "MA102",
+            "grupos": [
+              {
+                "profesores": [{
+                  "apellidos": "Marin",
+                  "correo": "roberto.marin@ucm.es",
+                  "nombre": "Roberto",
+                  "DNI": "12345Z"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Blanco",
+                    "correo": "adrian.blanco@ucm.es",
+                    "nombre": "Adrian",
+                    "DNI": "56789T"
+                  },
+                  {
+                    "apellidos": "Calvo",
+                    "correo": "monica.calvo@ucm.es",
+                    "nombre": "Monica",
+                    "DNI": "67890U"
+                  }
+                ],
+                "nombre": "G"
+              },
+              {
+                "profesores": [{
+                  "apellidos": "Vega",
+                  "correo": "fernando.vega@ucm.es",
+                  "nombre": "Fernando",
+                  "DNI": "23456A"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Iglesias",
+                    "correo": "laura.iglesias@ucm.es",
+                    "nombre": "Laura",
+                    "DNI": "89012W"
+                  },
+                  {
+                    "apellidos": "Martinez",
+                    "correo": "david.martinez@ucm.es",
+                    "nombre": "David",
+                    "DNI": "90123X"
+                  }
+                ],
+                "nombre": "G"
+              }
+            ],
+            "creditos": 5,
+            "nombre": "Matemáticas Discretas"
+          }
+        ],
+        "anio": 1
+      },
+      {
+        "asignaturas": [
+          {
+            "codigo": "BD201",
+            "grupos": [
+              {
+                "profesores": [{
+                  "apellidos": "Dominguez",
+                  "correo": "sara.dominguez@ucm.es",
+                  "nombre": "Sara",
+                  "DNI": "56789D"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Mendoza",
+                    "correo": "ines.mendoza@ucm.es",
+                    "nombre": "Ines",
+                    "DNI": "34567B"
+                  },
+                  {
+                    "apellidos": "Pardo",
+                    "correo": "andres.pardo@ucm.es",
+                    "nombre": "Andres",
+                    "DNI": "45678C"
+                  }
+                ],
+                "nombre": "G"
+              },
+              {
+                "profesores": [{
+                  "apellidos": "Navarro",
+                  "correo": "pablo.navarro@ucm.es",
+                  "nombre": "Pablo",
+                  "DNI": "89012G"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Herrera",
+                    "correo": "julia.herrera@ucm.es",
+                    "nombre": "Julia",
+                    "DNI": "67890E"
+                  },
+                  {
+                    "apellidos": "Garcia",
+                    "correo": "miguel.garcia@ucm.es",
+                    "nombre": "Miguel",
+                    "DNI": "78901F"
+                  }
+                ],
+                "nombre": "G"
+              }
+            ],
+            "creditos": 6,
+            "nombre": "Bases de Datos"
+          },
+          {
+            "codigo": "SO201",
+            "grupos": [
+              {
+                "profesores": [{
+                  "apellidos": "Mendez",
+                  "correo": "ana.mendez@ucm.es",
+                  "nombre": "Ana",
+                  "DNI": "90123H"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Mendoza",
+                    "correo": "ines.mendoza@ucm.es",
+                    "nombre": "Ines",
+                    "DNI": "34567B"
+                  },
+                  {
+                    "apellidos": "Pardo",
+                    "correo": "andres.pardo@ucm.es",
+                    "nombre": "Andres",
+                    "DNI": "45678C"
+                  }
+                ],
+                "nombre": "G"
+              },
+              {
+                "profesores": [{
+                  "apellidos": "Lopez",
+                  "correo": "fernando.lopez@ucm.es",
+                  "nombre": "Fernando",
+                  "DNI": "23456I"
+                }],
+                "alumnos": [
+                  {
+                    "apellidos": "Herrera",
+                    "correo": "julia.herrera@ucm.es",
+                    "nombre": "Julia",
+                    "DNI": "67890E"
+                  },
+                  {
+                    "apellidos": "Garcia",
+                    "correo": "miguel.garcia@ucm.es",
+                    "nombre": "Miguel",
+                    "DNI": "78901F"
+                  }
+                ],
+                "nombre": "G"
+              }
+            ],
+            "creditos": 7,
+            "nombre": "Sistemas Operativos"
+          }
+        ],
+        "anio": 2
+      }
+    ],
+    "nombre": "Ingeniería Informática"
+  }
+]}

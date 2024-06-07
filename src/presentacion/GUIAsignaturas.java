@@ -174,7 +174,8 @@ public class GUIAsignaturas extends JFrame{
 
 	    if (!nombreTextField.getText().isEmpty()) {
 	        nombre = nombreTextField.getText();
-	        if (!_curso.getAsignatura(nombre).equals(asignatura)) {
+	        Asignatura asignaturaExistente = _curso.getAsignatura(nombre);
+	        if (asignaturaExistente != null && !asignaturaExistente.equals(asignatura)) {
 	            JOptionPane.showMessageDialog(null, "El nombre de la asignatura ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
 	            return;
 	        }
@@ -192,7 +193,8 @@ public class GUIAsignaturas extends JFrame{
 	    }
 	    if (!codigoTextField.getText().isEmpty()) {
 	        codigo = codigoTextField.getText();
-	        if (!_curso.getAsignaturaCodigo(codigo).equals(asignatura)) {
+	        Asignatura asignaturaExistente = _curso.getAsignaturaCodigo(codigo);
+	        if (asignaturaExistente != null && !asignaturaExistente.equals(asignatura)) {
 	            JOptionPane.showMessageDialog(null, "El código de la asignatura ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
 	            return;
 	        }
@@ -214,32 +216,4 @@ public class GUIAsignaturas extends JFrame{
 	        JOptionPane.showMessageDialog(null, "No se han realizado cambios.", "Información", JOptionPane.INFORMATION_MESSAGE);
 	    }
 	}
-
-
-	/*private void modificarAsignatura() {
-	    String nombre = nombreTextField.getText();
-	    String creditosText = creditosTextField.getText();
-	    String codigo = codigoTextField.getText();
-	    
-	    if (!nombre.isEmpty() && !creditosText.isEmpty() && !codigo.isEmpty()) {
-	        try {
-	            int creditos = Integer.parseInt(creditosText);
-	            
-	            if (_fachadaAsignaturasImp.modificarAsignatura(asignaturasComboBox.getSelectedItem().toString(),
-	                    codigo, nombre, creditos)) {
-	                loadData();
-	                JOptionPane.showMessageDialog(null, "La asignatura se ha modificado correctamente.", "Éxito",
-	                        JOptionPane.INFORMATION_MESSAGE);
-	            }
-	        } catch (NumberFormatException e) {
-	            JOptionPane.showMessageDialog(null, "El campo de créditos debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
-	        } catch (Exception e) {
-	            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-	            JOptionPane.showMessageDialog(null, "Error al modificar la asignatura.", "Error", JOptionPane.ERROR_MESSAGE);
-	        }
-	    } else {
-	        JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos.", "Error", JOptionPane.ERROR_MESSAGE);
-	    }
-	}*/
-
 }
