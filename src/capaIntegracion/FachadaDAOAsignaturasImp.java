@@ -28,15 +28,23 @@ public class FachadaDAOAsignaturasImp implements IFachadaDAOAsignaturas{
 		return _daoAsignaturas.existeAsignatura(codigo);
 	}
 	
+	
 	@Override
 	public Asignatura getAsignatura(String codigo) {
 		// TODO Auto-generated method stub
 		return _daoAsignaturas.getAsignatura(codigo);
 	}
+	
 	@Override
 	public boolean modificacionAsignatura(String c, String codigo, String nombre, int creditos) {
 		// TODO Auto-generated method stub
 		return _daoAsignaturas.modificacionAsignatura(c, codigo, nombre, creditos);
+	}
+	
+	@Override
+	public boolean existeAsignaturaNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return _daoAsignaturas.existeAsignaturaNombre(nombre);
 	}
 
 }

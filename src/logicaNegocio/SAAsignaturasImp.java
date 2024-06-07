@@ -17,17 +17,18 @@ public class SAAsignaturasImp implements SAAsignaturas{
 	public boolean altaAsignatura(String nombre, int creditos, String codigo) throws Exception {
 		// TODO Auto-generated method stub
 		if (_fachada.existeAsignatura(codigo))
+			throw new Exception ("Ya existe una asignatura con ese codigo");
+		if(_fachada.existeAsignaturaNombre(nombre))
 			throw new Exception ("Ya existe una asignatura con ese nombre");
+			
 		return _fachada.crearAsignatura(nombre, creditos, codigo);
 	}
 
 	@Override
 	public boolean bajaAsigantura(String codigo) throws Exception {
 		// TODO Auto-generated method stub
-		if (!_fachada.existeAsignatura(codigo))
-			throw new Exception ("Ya existe una asignatura con ese nombre");
 		if (!_fachada.eliminarAsignatura(codigo))
-			throw new Exception ("La asignatura debe estar vacía para poder ser eliminada");
+			throw new Exception ("La asignatura no debe tener grupos asociados para poder ser eliminada");
 		return true; 
 	}
 
@@ -36,11 +37,13 @@ public class SAAsignaturasImp implements SAAsignaturas{
 		// TODO Auto-generated method stub
 		return _fachada.getAsignatura(codigo);
 	}
-
+	
+	
 	@Override
 	public boolean modificacionAsignatura(String c, String codigo, String nombre, int creditos) throws Exception {
 		// TODO Auto-generated method stub
-		return false;
+		return _fachada.modificacionAsignatura(c, codigo, nombre, creditos);
 	}
+
 
 }

@@ -51,7 +51,14 @@ public class Curso {
 	public boolean contiene_asignatura(Asignatura a) {
 	    return _lista_asignaturas.contains(a);
 	}
-
+	 public Asignatura buscar(String codigo) {
+		 for (Asignatura a: this._lista_asignaturas) {
+			 if (a.getCodigo().equals(codigo)) {
+				 return a;
+			 }
+		 }
+		 return null;
+	 }
 	
 	public int contar_asignaturas() {
 	    return _lista_asignaturas.size();
@@ -82,6 +89,14 @@ public class Curso {
 		Asignatura asignatura = null;
 		for(Asignatura a: _lista_asignaturas)
 			if(a.getNombre().equals(nombre))
+				asignatura = a;
+		return asignatura;
+	}
+	
+	public Asignatura getAsignaturaCodigo(String codigo) {
+		Asignatura asignatura = null;
+		for(Asignatura a: _lista_asignaturas)
+			if(a.getCodigo().equals(codigo))
 				asignatura = a;
 		return asignatura;
 	}

@@ -106,6 +106,7 @@ public class MainWindow extends JFrame{
 		grupos.setMaximumSize(DIM);
 		
 		grupos.addActionListener((e) -> new SeleccionGrupos(_ctrl));
+		asignaturas.addActionListener((e) -> new SeleccionAsignaturas(_ctrl));
 		
 		JLabel imageLabel = new JLabel(new ImageIcon(
 				new ImageIcon("image/logo.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT)));

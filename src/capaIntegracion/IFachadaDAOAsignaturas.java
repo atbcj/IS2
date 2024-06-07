@@ -10,6 +10,8 @@ public interface IFachadaDAOAsignaturas {
 
 	public boolean existeAsignatura(String codigo);
 	
+	public boolean existeAsignaturaNombre (String nombre);
+	
 	public boolean modificacionAsignatura(String c, String codigo, String nombre, int creditos);
 
 	public Asignatura getAsignatura(String codigo);

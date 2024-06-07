@@ -25,15 +25,15 @@ public class FachadaAsignaturasImp implements IFachadaAsignaturas{
 	}
 
 	@Override
-	public Asignatura consultarAsignatura(String codigo) throws Exception {
+	public Asignatura consultarAsignatura(String codigo) {
 		// TODO Auto-generated method stub
 		return _saAsignaturasImp.consultaAsignatura(codigo);
 	}
-
+	
 	@Override
 	public boolean modificarAsignatura(String c, String codigo, String nombre, int creditos) throws Exception {
 		// TODO Auto-generated method stub
-		return _saAsignaturasImp.modificacionAsignatura(c, nombre, codigo, creditos);
+		return _saAsignaturasImp.modificacionAsignatura(c, codigo, nombre, creditos);
 	}
 
 }
