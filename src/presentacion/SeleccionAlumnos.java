@@ -113,14 +113,15 @@ public class SeleccionAlumnos extends JFrame {
 				gruposComboBox.addElement(String.valueOf(g.get_nombre()));
 			}
 		}
-
 	}
 
 	private void actualizarCursos(String nombre) {
 		_curso = _tit.getCurso(nombre);
-		asignaturasComboBox.removeAllElements();
-		for (Asignatura a : _curso.get_lista_asignaturas()) {
-			asignaturasComboBox.addElement(a.getNombre());
+		if(_curso != null) {
+			asignaturasComboBox.removeAllElements();
+			for (Asignatura a : _curso.get_lista_asignaturas()) {
+				asignaturasComboBox.addElement(a.getNombre());
+			}
 		}
 	}
 
