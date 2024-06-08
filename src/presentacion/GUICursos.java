@@ -41,7 +41,7 @@ public class GUICursos extends JFrame {
 
 		datosPanel.add(new JLabel("Año: "));
 		datosPanel.add(ca);
-		datosPanel.add(new JLabel("Año del Curso: "));
+		datosPanel.add(new JLabel("Año Curso: "));
 		datosPanel.add(anioTextField);
 
 		JButton alta = new JButton("Crear");
@@ -50,10 +50,13 @@ public class GUICursos extends JFrame {
 		baja.addActionListener((e) -> eliminarCurso());
 		JButton modificacion = new JButton("Modificar");
 		modificacion.addActionListener((e) -> modificarCurso());
+		JButton consulta = new JButton("Consultar");
+		consulta.addActionListener((e) -> consultarCurso());
 
 		datosPanel.add(alta);
 		datosPanel.add(baja);
 		datosPanel.add(modificacion);
+		datosPanel.add(consulta);
 
 		mainPanel.add(datosPanel);
 
@@ -81,14 +84,18 @@ public class GUICursos extends JFrame {
 	}
 
 	private void crearCurso() {
-		// Implementar la lógica para crear un curso
+	 
 	}
 
 	private void eliminarCurso() {
-		// Implementar la lógica para eliminar un curso
+
 	}
 
 	private void modificarCurso() {
-		// Implementar la lógica para modificar un curso
+
+	}
+	
+	private void consultarCurso() {
+		
 	}
 }
