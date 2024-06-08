@@ -20,7 +20,7 @@ public class Main {
 		Controller ctrl = new Controller(data);
 		SwingUtilities.invokeLater(() -> new MainWindow(ctrl));
 	}
-	
+
 	private static JSONObject load_JSON_file(InputStream in) {
 		return new JSONObject(new JSONTokener(in));
 	}

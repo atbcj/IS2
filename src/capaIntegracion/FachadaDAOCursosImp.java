@@ -1,12 +1,11 @@
 package capaIntegracion;
 
-
 import clases.Curso;
 import clases.Titulacion;
 
 public class FachadaDAOCursosImp implements IFachadaDAOCursos {
 	private SADAOCursosImp _daoCursos;
-	
+
 	public FachadaDAOCursosImp(Titulacion titulacion) {
 		_daoCursos = new SADAOCursosImp(titulacion);
 	}

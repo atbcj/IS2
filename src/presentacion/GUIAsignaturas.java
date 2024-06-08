@@ -15,8 +15,8 @@ import clases.Asignatura;
 import clases.Curso;
 import logicaNegocio.FachadaAsignaturasImp;
 
-public class GUIAsignaturas extends JFrame{
-	
+public class GUIAsignaturas extends JFrame {
+
 	/**
 	 * 
 	 */
@@ -27,7 +27,7 @@ public class GUIAsignaturas extends JFrame{
 	Curso _curso;
 	private DefaultTableModel _dataTableModel;
 
-	private String[] _headers = { "Nombre", "#Grupos"};
+	private String[] _headers = { "Nombre", "#Grupos" };
 
 	private DefaultComboBoxModel<String> asignaturasComboBox;
 	private JTextField nombreTextField;
@@ -64,9 +64,8 @@ public class GUIAsignaturas extends JFrame{
 		datosPanel.add(nombreTextField);
 		datosPanel.add(new JLabel("Creditos: "));
 		datosPanel.add(creditosTextField);
-		datosPanel.add(new JLabel ("Codigo: "));
+		datosPanel.add(new JLabel("Codigo: "));
 		datosPanel.add(codigoTextField);
-		
 
 		mainPanel.add(datosPanel);
 
@@ -88,9 +87,10 @@ public class GUIAsignaturas extends JFrame{
 		JButton consulta = new JButton("Consultar");
 		consulta.addActionListener((e) -> {
 			Asignatura a = _curso.getAsignatura(asignaturasComboBox.getSelectedItem().toString());
-			System.out.println(_fachadaAsignaturasImp.consultarAsignatura(asignaturasComboBox.getSelectedItem().toString()));
+			System.out.println(
+					_fachadaAsignaturasImp.consultarAsignatura(asignaturasComboBox.getSelectedItem().toString()));
 			new InfoAsignatura(_fachadaAsignaturasImp.consultarAsignatura(a.getCodigo()));
-				// TODO Auto-generated catch block
+			// TODO Auto-generated catch block
 
 		});
 
@@ -111,43 +111,45 @@ public class GUIAsignaturas extends JFrame{
 	private void loadData() {
 		asignaturasComboBox.removeAllElements();
 		_dataTableModel.setRowCount(0);
-		for (Asignatura a  : _curso.get_lista_asignaturas()) {
+		for (Asignatura a : _curso.get_lista_asignaturas()) {
 			asignaturasComboBox.addElement(String.valueOf(a.getNombre()));
-			String[] row = { String.valueOf(a.getNombre()), String.valueOf(a.getGrupos().size())};
+			String[] row = { String.valueOf(a.getNombre()), String.valueOf(a.getGrupos().size()) };
 			_dataTableModel.addRow(row);
 		}
 	}
 
 	private void crearAsignatura() {
-	    String nombre = nombreTextField.getText();
-	    String creditosText = creditosTextField.getText();
-	    String codigo = codigoTextField.getText();
+		String nombre = nombreTextField.getText();
+		String creditosText = creditosTextField.getText();
+		String codigo = codigoTextField.getText();
 
-	    if (!nombre.isEmpty() && !creditosText.isEmpty() && !codigo.isEmpty()) {
-	        try {
-	            int creditos = Integer.parseInt(creditosText);
-	            
-	            if (_fachadaAsignaturasImp.altaAsignatura(nombre, creditos, codigo)) {
-	                loadData();
-	                JOptionPane.showMessageDialog(null, "La asignatura se ha registrado correctamente.", "Éxito",
-	                        JOptionPane.INFORMATION_MESSAGE);
-	            }
-	        } catch (NumberFormatException e) {
-	            JOptionPane.showMessageDialog(null, "El campo de créditos debe ser un número entero.", "Error", JOptionPane.ERROR_MESSAGE);
-	        } catch (Exception e) {
-	            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-	            JOptionPane.showMessageDialog(null, "Error al crear la asignatura.", "Error", JOptionPane.ERROR_MESSAGE);
-	        }
-	    } else {
-	        JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos.", "Error", JOptionPane.ERROR_MESSAGE);
-	    }
+		if (!nombre.isEmpty() && !creditosText.isEmpty() && !codigo.isEmpty()) {
+			try {
+				int creditos = Integer.parseInt(creditosText);
+
+				if (_fachadaAsignaturasImp.altaAsignatura(nombre, creditos, codigo)) {
+					loadData();
+					JOptionPane.showMessageDialog(null, "La asignatura se ha registrado correctamente.", "Éxito",
+							JOptionPane.INFORMATION_MESSAGE);
+				}
+			} catch (NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "El campo de créditos debe ser un número entero.", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Error al crear la asignatura.", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		} else {
+			JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos.", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		}
 	}
-
 
 	private void eliminarAsignatura() {
 		String selected = asignaturasComboBox.getSelectedItem().toString();
-	    Asignatura asignatura = _curso.getAsignatura(selected);
-	    
+		Asignatura asignatura = _curso.getAsignatura(selected);
+
 		if (!asignatura.getCodigo().isEmpty()) {
 			try {
 				if (_fachadaAsignaturasImp.bajaAsignatura(asignatura.getCodigo())) {
@@ -157,63 +159,69 @@ public class GUIAsignaturas extends JFrame{
 				}
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-				JOptionPane.showMessageDialog(null, "Error al eliminar la asignatura.", "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Error al eliminar la asignatura.", "Error",
+						JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}
-	
+
 	private void modificarAsignatura() {
-	    String selected = asignaturasComboBox.getSelectedItem().toString();
-	    Asignatura asignatura = _curso.getAsignatura(selected);
-	    String antiguoCodigo = asignatura.getCodigo();
-	    String antiguoNombre = asignatura.getNombre();
+		String selected = asignaturasComboBox.getSelectedItem().toString();
+		Asignatura asignatura = _curso.getAsignatura(selected);
+		String antiguoCodigo = asignatura.getCodigo();
+		String antiguoNombre = asignatura.getNombre();
 
-	    String nombre = null, codigo = null;
-	    int creditos = -1;
-	    boolean modificado = false;
+		String nombre = null, codigo = null;
+		int creditos = -1;
+		boolean modificado = false;
 
-	    if (!nombreTextField.getText().isEmpty()) {
-	        nombre = nombreTextField.getText();
-	        Asignatura asignaturaExistente = _curso.getAsignatura(nombre);
-	        if (asignaturaExistente != null && !asignaturaExistente.equals(asignatura)) {
-	            JOptionPane.showMessageDialog(null, "El nombre de la asignatura ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
-	            return;
-	        }
-	        modificado = true;
-	    }
-	    if (!creditosTextField.getText().isEmpty()) {
-	        String creditosText = creditosTextField.getText();
-	        try {
-	            creditos = Integer.parseInt(creditosText);
-	            modificado = true;
-	        } catch (NumberFormatException e) {
-	            JOptionPane.showMessageDialog(null, "El campo de créditos debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
-	            return;
-	        }
-	    }
-	    if (!codigoTextField.getText().isEmpty()) {
-	        codigo = codigoTextField.getText();
-	        Asignatura asignaturaExistente = _curso.getAsignaturaCodigo(codigo);
-	        if (asignaturaExistente != null && !asignaturaExistente.equals(asignatura)) {
-	            JOptionPane.showMessageDialog(null, "El código de la asignatura ya existe.", "Error", JOptionPane.ERROR_MESSAGE);
-	            return;
-	        }
-	        modificado = true;
-	    }
+		if (!nombreTextField.getText().isEmpty()) {
+			nombre = nombreTextField.getText();
+			Asignatura asignaturaExistente = _curso.getAsignatura(nombre);
+			if (asignaturaExistente != null && !asignaturaExistente.equals(asignatura)) {
+				JOptionPane.showMessageDialog(null, "El nombre de la asignatura ya existe.", "Error",
+						JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			modificado = true;
+		}
+		if (!creditosTextField.getText().isEmpty()) {
+			String creditosText = creditosTextField.getText();
+			try {
+				creditos = Integer.parseInt(creditosText);
+				modificado = true;
+			} catch (NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "El campo de créditos debe ser un número válido.", "Error",
+						JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+		}
+		if (!codigoTextField.getText().isEmpty()) {
+			codigo = codigoTextField.getText();
+			Asignatura asignaturaExistente = _curso.getAsignaturaCodigo(codigo);
+			if (asignaturaExistente != null && !asignaturaExistente.equals(asignatura)) {
+				JOptionPane.showMessageDialog(null, "El código de la asignatura ya existe.", "Error",
+						JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			modificado = true;
+		}
 
-	    if (modificado) {
-	        try {
-	            if (_fachadaAsignaturasImp.modificarAsignatura(antiguoCodigo, codigo, nombre, creditos)) {
-	                loadData();
-	                JOptionPane.showMessageDialog(null, "La asignatura se ha modificado correctamente.", "Éxito",
-	                        JOptionPane.INFORMATION_MESSAGE);
-	            }
-	        } catch (Exception e) {
-	            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-	            JOptionPane.showMessageDialog(null, "Error al modificar la asignatura.", "Error", JOptionPane.ERROR_MESSAGE);
-	        }
-	    } else {
-	        JOptionPane.showMessageDialog(null, "No se han realizado cambios.", "Información", JOptionPane.INFORMATION_MESSAGE);
-	    }
+		if (modificado) {
+			try {
+				if (_fachadaAsignaturasImp.modificarAsignatura(antiguoCodigo, codigo, nombre, creditos)) {
+					loadData();
+					JOptionPane.showMessageDialog(null, "La asignatura se ha modificado correctamente.", "Éxito",
+							JOptionPane.INFORMATION_MESSAGE);
+				}
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Error al modificar la asignatura.", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		} else {
+			JOptionPane.showMessageDialog(null, "No se han realizado cambios.", "Información",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 }

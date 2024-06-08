@@ -6,7 +6,7 @@ import clases.Titulacion;
 public class SADAOCursosImp implements ISADAOCursos {
 
 	private Titulacion _titulacion;
-	
+
 	public SADAOCursosImp(Titulacion titulacion) {
 		_titulacion = titulacion;
 	}
@@ -20,13 +20,13 @@ public class SADAOCursosImp implements ISADAOCursos {
 	@Override
 	public boolean eliminarCurso(int anio) {
 		Curso curso = null;
-		for(Curso c: _titulacion.getCursos())
-			if(c.get_anio() == anio)
+		for (Curso c : _titulacion.getCursos())
+			if (c.get_anio() == anio)
 				curso = c;
-		if(curso.get_lista_asignaturas().isEmpty()) {
+		if (curso.get_lista_asignaturas().isEmpty()) {
 			_titulacion.getCursos().remove(curso);
 			return true;
-		}else
+		} else
 			return false;
 	}
 
@@ -42,12 +42,12 @@ public class SADAOCursosImp implements ISADAOCursos {
 	@Override
 	public boolean modificacionCurso(int anioAntiguo, int anioNuevo) {
 		for (Curso c : _titulacion.getCursos()) {
-            if (c.get_anio() == anioAntiguo) {
-                c.modifica_anio(anioNuevo);
-                return true;
-            }
-        }
-        return false;
+			if (c.get_anio() == anioAntiguo) {
+				c.modifica_anio(anioNuevo);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override

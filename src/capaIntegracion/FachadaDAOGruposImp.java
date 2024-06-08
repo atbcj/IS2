@@ -3,10 +3,10 @@ package capaIntegracion;
 import clases.Asignatura;
 import clases.Grupo;
 
-public class FachadaDAOGruposImp implements IFachadaDAOGrupos{
-	
+public class FachadaDAOGruposImp implements IFachadaDAOGrupos {
+
 	private SADAOGruposImp _daoGrupos;
-	
+
 	public FachadaDAOGruposImp(Asignatura asignatura) {
 		_daoGrupos = new SADAOGruposImp(asignatura);
 	}
@@ -30,7 +30,7 @@ public class FachadaDAOGruposImp implements IFachadaDAOGrupos{
 	public boolean modificacionGrupo(Character grupo, Character nombre) {
 		return _daoGrupos.modificacionGrupo(grupo, nombre);
 	}
-	
+
 	@Override
 	public Grupo getGrupo(Character nombre) {
 		return _daoGrupos.getGrupo(nombre);

@@ -4,13 +4,13 @@ import clases.Curso;
 import clases.Titulacion;
 
 public class FachadaCursosImp implements IFachadaCursos {
-	
+
 	private SACursosImp _saCursosImp;
 
 	public FachadaCursosImp(Titulacion titulacion) {
 		_saCursosImp = new SACursosImp(titulacion);
 	}
-	
+
 	@Override
 	public boolean altaCurso(int anio) throws Exception {
 		return _saCursosImp.altaCurso(anio);

@@ -1,17 +1,18 @@
 package capaIntegracion;
 
 import clases.Alumno;
-import clases.Grupo;
-import presentacion.InfoAlumno;
 
-public class FachadaDAOAlumnosImp implements IFachadaDAOAlumnos{
+import clases.Grupo;
+
+
+public class FachadaDAOAlumnosImp implements IFachadaDAOAlumnos {
 
 	private ISADAOAlumnos _daoAlumnos;
-	
+
 	public FachadaDAOAlumnosImp(Grupo grupo) {
 		_daoAlumnos = new SADAOAlumnosImp(grupo);
 	}
-	
+
 	@Override
 	public boolean crearAlumno(String[] al) {
 		return _daoAlumnos.crearAlumno(al);
@@ -26,7 +27,7 @@ public class FachadaDAOAlumnosImp implements IFachadaDAOAlumnos{
 	public boolean existeAlumno(String dni) {
 		return _daoAlumnos.existeAlumno(dni);
 	}
-	
+
 	@Override
 	public boolean modificacionAlumno(String[] al) {
 		return _daoAlumnos.modificacionAlumno(al);
@@ -34,7 +35,7 @@ public class FachadaDAOAlumnosImp implements IFachadaDAOAlumnos{
 
 	@Override
 	public Alumno getAlumno(String dni) {
-		return _daoAlumnos.getAlumno(dni);	 
+		return _daoAlumnos.getAlumno(dni);
 	}
 
 }

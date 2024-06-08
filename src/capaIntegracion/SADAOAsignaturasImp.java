@@ -32,15 +32,15 @@ public class SADAOAsignaturasImp implements ISADADOAsignaturas {
 	@Override
 	public boolean existeAsignatura(String codigo) {
 		for (Asignatura a : _curso.get_lista_asignaturas()) {
-			if (String.valueOf(a.getCodigo()).equals(codigo) )
+			if (String.valueOf(a.getCodigo()).equals(codigo))
 				return true;
 		}
 		return false;
 	}
-	
+
 	@Override
 	public boolean modificacionAsignatura(String c, String codigo, String nombre, int creditos) {
-		for (Asignatura a  : _curso.get_lista_asignaturas()) {
+		for (Asignatura a : _curso.get_lista_asignaturas()) {
 			if (String.valueOf(a.getCodigo()).equals(c)) {
 				if (codigo != null) {
 					a.modifica_codigo(codigo);
@@ -55,7 +55,7 @@ public class SADAOAsignaturasImp implements ISADADOAsignaturas {
 			}
 		}
 		return true;
-		
+
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class SADAOAsignaturasImp implements ISADADOAsignaturas {
 	@Override
 	public boolean existeAsignaturaNombre(String nombre) {
 		for (Asignatura a : _curso.get_lista_asignaturas()) {
-			if (String.valueOf(a.getNombre()).equals(nombre) )
+			if (String.valueOf(a.getNombre()).equals(nombre))
 				return true;
 		}
 		return false;

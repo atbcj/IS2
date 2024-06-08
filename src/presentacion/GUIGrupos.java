@@ -16,19 +16,18 @@ import clases.Grupo;
 import logicaNegocio.FachadaGruposImp;
 
 @SuppressWarnings("serial")
-public class GUIGrupos extends JFrame{
-	
+public class GUIGrupos extends JFrame {
+
 	FachadaGruposImp _fachadGruposImp;
-	
+
 	Asignatura _asignatura;
 	private DefaultTableModel _dataTableModel;
-	
 
 	private String[] _headers = { "Grupo", "#Alumnos", "#Profesores" };
-	
+
 	private DefaultComboBoxModel<String> gruposComboBox;
 	private JTextField nombreTextField;
-	
+
 	public GUIGrupos(Asignatura asignatura) {
 		_asignatura = asignatura;
 		_fachadGruposImp = new FachadaGruposImp(_asignatura);
@@ -41,21 +40,21 @@ public class GUIGrupos extends JFrame{
 		setSize(500, 300);
 		JPanel mainPanel = new JPanel();
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-		
+
 		JPanel datosPanel = new JPanel();
 		datosPanel.setLayout(new BoxLayout(datosPanel, BoxLayout.X_AXIS));
-		
+
 		gruposComboBox = new DefaultComboBoxModel<>();
 		JComboBox<String> cg = new JComboBox<String>(gruposComboBox);
-		
+
 		datosPanel.add(new JLabel("Grupos: "));
 		datosPanel.add(cg);
 
 		nombreTextField = new JTextField();
-		
-		datosPanel.add( new JLabel("Nombre: "));
+
+		datosPanel.add(new JLabel("Nombre: "));
 		datosPanel.add(nombreTextField);
-		
+
 		JButton alta = new JButton("Crear");
 		alta.addActionListener((e) -> crearGrupo());
 		JButton baja = new JButton("Eliminar");
@@ -63,88 +62,85 @@ public class GUIGrupos extends JFrame{
 		JButton modificacion = new JButton("Modificar");
 		modificacion.addActionListener((e) -> modificarGrupo());
 		JButton consulta = new JButton("Consultar");
-		consulta.addActionListener((e) -> new InfoGrupo(_fachadGruposImp.consultarGrupo(gruposComboBox.getSelectedItem().toString().charAt(0))));
-		
+		consulta.addActionListener((e) -> new InfoGrupo(
+				_fachadGruposImp.consultarGrupo(gruposComboBox.getSelectedItem().toString().charAt(0))));
+
 		datosPanel.add(alta);
 		datosPanel.add(baja);
 		datosPanel.add(modificacion);
 		datosPanel.add(consulta);
-		
+
 		mainPanel.add(datosPanel);
-		
+
 		_dataTableModel = new DefaultTableModel();
 		_dataTableModel.setColumnIdentifiers(_headers);
 		InfoTable tab = new InfoTable("Grupos", _dataTableModel);
-		
+
 		mainPanel.add(tab);
-		
+
 		loadData();
-		
+
 		setContentPane(mainPanel);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
-	
+
 	private void loadData() {
 		gruposComboBox.removeAllElements();
 		_dataTableModel.setRowCount(0);
-		for(Grupo g: _asignatura.getGrupos()) {
+		for (Grupo g : _asignatura.getGrupos()) {
 			gruposComboBox.addElement(String.valueOf(g.get_nombre()));
-			String[] row = {String.valueOf(g.get_nombre()), String.valueOf(g.get_lista_alumnos().size()), String.valueOf(g.get_lista_profesores().size())};
+			String[] row = { String.valueOf(g.get_nombre()), String.valueOf(g.get_lista_alumnos().size()),
+					String.valueOf(g.get_lista_profesores().size()) };
 			_dataTableModel.addRow(row);
 		}
 	}
-	
+
 	private void crearGrupo() {
 		String nombre = nombreTextField.getText();
-		if(!nombre.isEmpty()) {
+		if (!nombre.isEmpty()) {
 			try {
-				if(_fachadGruposImp.altaGrupo(nombre.charAt(0))) {
+				if (_fachadGruposImp.altaGrupo(nombre.charAt(0))) {
 					loadData();
 					JOptionPane.showMessageDialog(null, "El grupo se ha registrado correctamente.", "Éxito",
 							JOptionPane.INFORMATION_MESSAGE);
 				}
-			}catch(Exception e) {
-				JOptionPane.showMessageDialog(null, e.getMessage(), "Error",
-						JOptionPane.ERROR_MESSAGE);
-				JOptionPane.showMessageDialog(null, "Error al crear el grupo.", "Error",
-						JOptionPane.ERROR_MESSAGE);
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Error al crear el grupo.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}
-	
+
 	private void eliminarGrupo() {
 		String nombre = nombreTextField.getText();
-		if(!nombre.isEmpty()) {
+		if (!nombre.isEmpty()) {
 			try {
-				if(_fachadGruposImp.bajaGrupo(nombre.charAt(0))) {
+				if (_fachadGruposImp.bajaGrupo(nombre.charAt(0))) {
 					loadData();
 					JOptionPane.showMessageDialog(null, "El grupo se ha eliminado correctamente.", "Éxito",
 							JOptionPane.INFORMATION_MESSAGE);
 				}
-			}catch(Exception e) {
-				JOptionPane.showMessageDialog(null, e.getMessage(), "Error",
-						JOptionPane.ERROR_MESSAGE);
-				JOptionPane.showMessageDialog(null, "Error al eliminar el grupo.", "Error",
-						JOptionPane.ERROR_MESSAGE);
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Error al eliminar el grupo.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}
-	
+
 	private void modificarGrupo() {
 		String nombre = nombreTextField.getText();
-		if(!nombre.isEmpty()) {
+		if (!nombre.isEmpty()) {
 			try {
-				if(_fachadGruposImp.modificarGrupo(gruposComboBox.getSelectedItem().toString().charAt(0) , nombre.charAt(0))) {
+				if (_fachadGruposImp.modificarGrupo(gruposComboBox.getSelectedItem().toString().charAt(0),
+						nombre.charAt(0))) {
 					loadData();
 					JOptionPane.showMessageDialog(null, "El grupo se ha eliminado correctamente.", "Éxito",
 							JOptionPane.INFORMATION_MESSAGE);
 				}
-			}catch(Exception e) {
-				JOptionPane.showMessageDialog(null, e.getMessage(), "Error",
-						JOptionPane.ERROR_MESSAGE);
-				JOptionPane.showMessageDialog(null, "Error al modificar el grupo.", "Error",
-						JOptionPane.ERROR_MESSAGE);
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Error al modificar el grupo.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 package presentacion;
 
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -15,7 +16,7 @@ import builders.TitBuilder;
 import clases.Titulacion;
 
 public class Controller {
-	
+
 	List<Titulacion> _titulaciones;
 
 	public Controller(JSONObject data) throws JSONException, Exception {
@@ -25,36 +26,35 @@ public class Controller {
 		if (titulacion != null) {
 			for (int i = 0; i < titulacion.length(); i++) {
 				JSONObject tit = titulacion.getJSONObject(i);
-				Titulacion titulation= factoria.create_instance(tit);
+				Titulacion titulation = factoria.create_instance(tit);
 				_titulaciones.add(titulation);
 			}
 		}
 	}
 
 	public void save_data() throws FileNotFoundException {
-		
+
 		JSONObject jo = new JSONObject();
-		
+
 		JSONArray ja = new JSONArray();
-		for(Titulacion t: _titulaciones) {
+		for (Titulacion t : _titulaciones) {
 			ja.put(t.saveData());
 		}
-		
+
 		jo.put("titulaciones", ja);
-		
 		PrintStream p = new PrintStream(new FileOutputStream(new File("examples/in.json")));
 		p.print(jo.toString(2));
-		
+
 	}
-	
-	public List<Titulacion> getTitulaciones(){
+
+	public List<Titulacion> getTitulaciones() {
 		return _titulaciones;
 	}
-	
+
 	public Titulacion getTitulacion(String nombre) {
 		Titulacion tit = null;
-		for(Titulacion t: _titulaciones)
-			if(t.getNombre().equals(nombre))
+		for (Titulacion t : _titulaciones)
+			if (t.getNombre().equals(nombre))
 				tit = t;
 		return tit;
 	}

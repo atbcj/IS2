@@ -3,10 +3,10 @@ package logicaNegocio;
 import clases.Asignatura;
 import clases.Grupo;
 
-public class FachadaGruposImp implements IFachadaGrupos{
-	
+public class FachadaGruposImp implements IFachadaGrupos {
+
 	private SAGruposImp _saGruposImp;
-	
+
 	public FachadaGruposImp(Asignatura asignatura) {
 		_saGruposImp = new SAGruposImp(asignatura);
 	}

@@ -31,7 +31,7 @@ public class ProfBuilder extends Builder<Profesor> {
 		if (data.has("correo")) {
 			_correo = data.getString("correo");
 		}
-		
+
 		return new Profesor(_nombre, _apellido, _DNI, _correo);
 	}
 
