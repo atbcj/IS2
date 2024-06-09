@@ -24,9 +24,10 @@ public class Titulacion {
 	public void setMapaTitulacionCursos(List<Curso> listaTitulacionCursos) {
 		this._listCursos = listaTitulacionCursos;
 	}
-
+	
 	public void añade_curso(Curso c) {
-		this._listCursos.add(c);
+		if (!_listCursos.contains(c))
+			_listCursos.add(c);
 	}
 
 	public List<Curso> getCursos() {

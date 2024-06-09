@@ -1,5 +1,6 @@
 package clases;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -12,7 +13,11 @@ public class Curso {
 
 	public Curso(int anio, List<Asignatura> lista) {
 		_anio = anio;
-		_lista_asignaturas = lista;
+		if (lista == null) {
+			_lista_asignaturas = new ArrayList<>();
+		} else {
+			_lista_asignaturas = lista;
+		}
 	}
 
 	public int get_anio() {

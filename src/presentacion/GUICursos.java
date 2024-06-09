@@ -78,18 +78,63 @@ public class GUICursos extends JFrame {
 		_dataTableModel.setRowCount(0);
 		for (Curso curso : _titulacion.getCursos()) {
 			aniosComboBox.addElement(String.valueOf(curso.get_anio()));
-			String[] row = { String.valueOf(curso.get_anio()), String.valueOf(curso.get_lista_asignaturas().size()) };
+			String[] row = { String.valueOf(curso.get_anio()),
+					String.valueOf(curso.get_lista_asignaturas().size()) };
 			_dataTableModel.addRow(row);
 		}
 	}
 
 	private void crearCurso() {
-	 
+		String anioStr = anioTextField.getText();
+        if (!anioStr.isEmpty()) {
+            try {
+                int anio = Integer.parseInt(anioStr);
+                if (_fachadaCursosImp.altaCurso(anio)) {
+                    loadData();
+                    JOptionPane.showMessageDialog(this, 
+                    		"El curso se ha creado correctamente.", 
+                    		"Éxito", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, 
+                		"El año debe ser un número.",
+                		"Error", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(),
+                		"Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this,
+            		"El año no puede estar vacío.",
+            		"Error", JOptionPane.ERROR_MESSAGE);
+        }
 	}
 
-	private void eliminarCurso() {
-
-	}
+    private void eliminarCurso() {
+        String anioStr = anioTextField.getText();
+        if (!anioStr.isEmpty()) {
+            try {
+                int anio = Integer.parseInt(anioStr);
+                if (_fachadaCursosImp.bajaCurso(anio)) {
+                    loadData();
+                    JOptionPane.showMessageDialog(this, 
+                            "El curso se ha eliminado correctamente.", 
+                            "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, 
+                        "El año debe ser un número.",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "El año no puede estar vacío.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
 	private void modificarCurso() {
 
