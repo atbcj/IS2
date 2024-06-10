@@ -10,9 +10,7 @@ public class SeleccionCursos extends JFrame {
 
 	private Controller _ctrl;
 	private DefaultComboBoxModel<String> titulacionComboBox;
-	private DefaultComboBoxModel<String> cursosComboBox;
 	private Titulacion _tit;
-	private Curso _curso;
 
 	public SeleccionCursos(Controller ctrl) {
 		_ctrl = ctrl;
@@ -32,16 +30,15 @@ public class SeleccionCursos extends JFrame {
 		}
 		JComboBox<String> ct = new JComboBox<>(titulacionComboBox);
 		ct.addActionListener((e) -> actualizarTitulacion((String) ct.getSelectedItem()));
-
-		cursosComboBox = new DefaultComboBoxModel<>();
-		JComboBox<String> cc = new JComboBox<>(cursosComboBox);
-		cc.addActionListener((e) -> actualizarCursos((String) cc.getSelectedItem()));
-
+		
+		if (titulacionComboBox.getSize() > 0) {
+			ct.setSelectedIndex(0); // Selecciona automáticamente la primera titulación
+			actualizarTitulacion((String) ct.getSelectedItem()); // Actualiza la titulación seleccionada
+		}
+		
 		JPanel comboBoxPanel = new JPanel();
 		comboBoxPanel.add(new JLabel("Titulaciones"));
 		comboBoxPanel.add(ct);
-		comboBoxPanel.add(new JLabel("Cursos"));
-		comboBoxPanel.add(cc);
 
 		mainPanel.add(comboBoxPanel);
 
@@ -49,8 +46,8 @@ public class SeleccionCursos extends JFrame {
 		savePanel.add(Box.createRigidArea(new Dimension(10, 0)));
 		JButton save = new JButton("Guardar");
 		save.addActionListener((e) -> {
-			if (_curso == null) {
-				JOptionPane.showMessageDialog(this, "Por favor, seleccione una titulación y curso.", "Error",
+			if (_tit == null) {
+				JOptionPane.showMessageDialog(this, "Por favor, seleccione una titulación.", "Error",
 						JOptionPane.ERROR_MESSAGE);
 			} else {
 				new GUICursos(_tit);
@@ -68,13 +65,8 @@ public class SeleccionCursos extends JFrame {
 
 	private void actualizarTitulacion(String nombreTitulacion) {
 		_tit = _ctrl.getTitulacion(nombreTitulacion);
-		cursosComboBox.removeAllElements();
-		for (Curso c : _tit.getCursos()) {
-			cursosComboBox.addElement(String.valueOf(c.get_anio()));
-		}
+
 	}
 
-	private void actualizarCursos(String nombreCurso) {
-		_curso = _tit.getCurso(nombreCurso);
-	}
+
 }
