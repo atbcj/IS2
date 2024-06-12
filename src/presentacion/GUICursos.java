@@ -1,8 +1,13 @@
 package presentacion;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import clases.Asignatura;
 import clases.Curso;
 import clases.Titulacion;
 import logicaNegocio.FachadaCursosImp;
@@ -76,6 +81,10 @@ public class GUICursos extends JFrame {
 	private void loadData() {
 		aniosComboBox.removeAllElements();
 		_dataTableModel.setRowCount(0);
+		
+		List<Curso> cursos = _titulacion.getCursos();
+	    Collections.sort(cursos, Comparator.comparingInt(Curso::get_anio));
+		
 		for (Curso curso : _titulacion.getCursos()) {
 			aniosComboBox.addElement(String.valueOf(curso.get_anio()));
 			String[] row = { String.valueOf(curso.get_anio()),
@@ -137,7 +146,48 @@ public class GUICursos extends JFrame {
     }
 
 	private void modificarCurso() {
+		String selected = aniosComboBox.getSelectedItem().toString();
+		Curso curso = _titulacion.getCurso(selected);
+		int antiguoAnio = curso.get_anio();
 
+		int nuevoAnio = -1;
+		boolean modificado = false;
+
+		if (!anioTextField.getText().isEmpty()) {
+			String nuevoAnioStr = anioTextField.getText();
+			try {
+                nuevoAnio = Integer.parseInt(nuevoAnioStr);
+                Curso cursoExistente = _titulacion.getCurso(nuevoAnioStr);
+    			if (cursoExistente != null && !cursoExistente.equals(curso)) {
+    				JOptionPane.showMessageDialog(null, "El curso ya existe.", "Error",
+    						JOptionPane.ERROR_MESSAGE);
+    				return;
+    			}
+    			modificado = true;
+			}catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "El año debe ser un número válido.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+			}
+		}
+
+		if (modificado) {
+            try {
+                if (_fachadaCursosImp.modificarCurso(antiguoAnio, nuevoAnio)) {
+                    loadData();
+                    JOptionPane.showMessageDialog(this, "El curso se ha modificado correctamente.", "Éxito",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    aniosComboBox.setSelectedItem(String.valueOf(nuevoAnio));  // Cambia el combobox al nuevo año
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error al modificar el curso.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No se han realizado cambios.", "Información",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
 	}
 	
 	private void consultarCurso() {

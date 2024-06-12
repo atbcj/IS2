@@ -1,6 +1,9 @@
 package presentacion;
 
 import java.awt.Dimension;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -109,6 +112,8 @@ public class SeleccionAlumnos extends JFrame {
 		if (_curso != null) {
 			_asignatura = _curso.getAsignatura(nombre);
 			gruposComboBox.removeAllElements();
+			//Sale error una vez seleccionado una titulacion,
+			//eliges otra
 			for (Grupo g : _asignatura.getGrupos()) {
 				gruposComboBox.addElement(String.valueOf(g.get_nombre()));
 			}
@@ -128,6 +133,10 @@ public class SeleccionAlumnos extends JFrame {
 	private void actualizarTitulacion(String nombre) {
 		_tit = _ctrl.getTitulacion(nombre);
 		cursosComboBox.removeAllElements();
+		//Para ordenar los anios
+		List<Curso> cursos = _tit.getCursos();
+        Collections.sort(cursos, Comparator.comparingInt(Curso::get_anio));
+		
 		for (Curso c : _tit.getCursos()) {
 			cursosComboBox.addElement(String.valueOf(c.get_anio()));
 		}

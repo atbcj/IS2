@@ -86,7 +86,8 @@ public class SeleccionProfesores extends JFrame {
             if (_grupo == null) {
                 JOptionPane.showMessageDialog(this, "Por favor, seleccione una titulación, curso, asignatura y grupo.", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                new GUIProfesores();
+            	//He comentado pq sale error
+                //new GUIProfesores();
                 setVisible(false);
             }
         });
