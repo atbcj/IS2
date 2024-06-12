@@ -138,6 +138,9 @@ public class MainWindow extends JFrame {
 		profesores.setMaximumSize(DIM);
 
 		alumnos.addActionListener((e) -> new SeleccionAlumnos(_ctrl));
+		
+		profesores.addActionListener((e) -> new SeleccionProfesores(_ctrl));
+		
 		lowerPanel.add(Box.createRigidArea(new Dimension(150, 0)));
 		lowerPanel.add(alumnos);
 		lowerPanel.add(Box.createRigidArea(new Dimension(100, 0)));
