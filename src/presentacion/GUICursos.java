@@ -191,6 +191,31 @@ public class GUICursos extends JFrame {
 	}
 	
 	private void consultarCurso() {
-		
+	    String anioStr = (String) aniosComboBox.getSelectedItem();
+	    if (anioStr != null && !anioStr.isEmpty()) {
+	        try {
+	            int anio = Integer.parseInt(anioStr);
+	            Curso curso = _fachadaCursosImp.consultarCurso(anio);
+	            if (curso != null) {
+	                new InfoCurso(curso, _titulacion);
+	            } else {
+	                JOptionPane.showMessageDialog(this,
+	                        "Curso no encontrado.",
+	                        "Error", JOptionPane.ERROR_MESSAGE);
+	            }
+	        } catch (NumberFormatException e) {
+	            JOptionPane.showMessageDialog(this, 
+	                    "El año debe ser un número.",
+	                    "Error", JOptionPane.ERROR_MESSAGE);
+	        } catch (Exception e) {
+	            JOptionPane.showMessageDialog(this, e.getMessage(),
+	                    "Error", JOptionPane.ERROR_MESSAGE);
+	        }
+	    } else {
+	        JOptionPane.showMessageDialog(this,
+	                "Por favor, seleccione un año del combo box.",
+	                "Error", JOptionPane.ERROR_MESSAGE);
+	    }
 	}
+
 }
