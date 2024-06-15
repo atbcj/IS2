@@ -1,7 +1,7 @@
 package capaIntegracion;
 
 import clases.Alumno;
-import presentacion.InfoAlumno;
+
 
 public interface IFachadaDAOAlumnos {
 

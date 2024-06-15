@@ -2,9 +2,9 @@ package capaIntegracion;
 
 import java.util.List;
 
+
 import clases.Alumno;
 import clases.Grupo;
-import presentacion.InfoAlumno;
 
 public class SADAOAlumnosImp implements ISADAOAlumnos {
 
