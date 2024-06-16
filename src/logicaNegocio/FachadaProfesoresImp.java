@@ -36,7 +36,7 @@ public class FachadaProfesoresImp implements IFachadaProfesores {
 	@Override
 	public boolean modificarProfesor(String[] datos) throws Exception {
 
-		return this.modificarProfesor(datos);
+		return this._saProfesores.modificarProfesor(datos);
 	}
 
 }
