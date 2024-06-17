@@ -58,7 +58,7 @@ public class Grupo {
 	}
 
 	public void elimina_profesor(Profesor p) {
-		if (!_lista_profesores.contains(p))
+		if (_lista_profesores.contains(p))
 			_lista_profesores.remove(p);
 	}
 

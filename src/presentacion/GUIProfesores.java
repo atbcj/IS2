@@ -111,17 +111,22 @@ public class GUIProfesores extends JFrame {
 		_dataTableModel.setRowCount(0);
 
 		for (Profesor profesor : _grupo.get_lista_profesores()) {
+
 			pComboBox.addElement(profesor.getNombre());
+
 			String[] row = { profesor.getNombre(), profesor.get_apellidos(), profesor.get_DNI(), profesor.getCorreo() };
+
 			_dataTableModel.addRow(row);
 		}
 	}
 
 	private void altaProfesor() {
+
 		String[] datos = { nombreField.getText(), apellidosField.getText(), dniField.getText(), correoField.getText() };
 
 		try {
 			boolean result = _fachadaProfesoresImp.altaProfesor(datos);
+
 			if (result) {
 				JOptionPane.showMessageDialog(this, "Profesor dado de alta correctamente.");
 				loadData();
@@ -136,11 +141,9 @@ public class GUIProfesores extends JFrame {
 
 	private void bajaProfesor() {
 
-		int selectedRow = getSelectedRow();
+		String dni = dniField.getText();
 
-		if (selectedRow != -1) {
-
-			String dni = (String) _dataTableModel.getValueAt(selectedRow, 2);
+		if (!dni.isEmpty()) {
 
 			try {
 				boolean result = _fachadaProfesoresImp.bajaProfesor(dni);
@@ -148,7 +151,6 @@ public class GUIProfesores extends JFrame {
 				if (result) {
 					JOptionPane.showMessageDialog(this, "Profesor dado de baja correctamente.");
 					loadData();
-					_dataTableModel.removeRow(selectedRow);
 				} else {
 					JOptionPane.showMessageDialog(this, "Error al dar de baja el profesor.", "Error",
 							JOptionPane.ERROR_MESSAGE);
@@ -156,17 +158,14 @@ public class GUIProfesores extends JFrame {
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			}
-		} else {
-			JOptionPane.showMessageDialog(this, "Por favor, seleccione un profesor para dar de baja.", "Error",
-					JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
 	private void modificarProfesor() {
 
-		int selectedRow = getSelectedRow();
+		String dni = dniField.getText();
 
-		if (selectedRow != -1) {
+		if (!dni.isEmpty()) {
 
 			String[] datos = { nombreField.getText(), apellidosField.getText(), dniField.getText(),
 					correoField.getText() };
@@ -183,13 +182,7 @@ public class GUIProfesores extends JFrame {
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			}
-		} else {
-			JOptionPane.showMessageDialog(this, "Por favor, seleccione un profesor para modificar.", "Error",
-					JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
-	private int getSelectedRow() {
-		return tabla.getSelectedRow();
-	}
 }
