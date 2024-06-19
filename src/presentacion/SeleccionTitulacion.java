@@ -1,17 +1,26 @@
 package presentacion;
 
 import java.awt.Dimension;
-import javax.swing.*;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 import clases.Titulacion;
 
 @SuppressWarnings("serial")
-public class SeleccionCursos extends JFrame {
-
+public class SeleccionTitulacion extends JFrame {
 	private Controller _ctrl;
 	private DefaultComboBoxModel<String> titulacionComboBox;
 	private Titulacion _tit;
 
-	public SeleccionCursos(Controller ctrl) {
+	public SeleccionTitulacion(Controller ctrl) {
 		_ctrl = ctrl;
 		initGUI();
 	}
@@ -49,7 +58,7 @@ public class SeleccionCursos extends JFrame {
 				JOptionPane.showMessageDialog(this, "Por favor, seleccione una titulación.", "Error",
 						JOptionPane.ERROR_MESSAGE);
 			} else {
-				new GUICursos(_tit);
+				new GUITitulacion(_tit);
 				setVisible(false);
 			}
 		});
@@ -66,6 +75,4 @@ public class SeleccionCursos extends JFrame {
 		_tit = _ctrl.getTitulacion(nombreTitulacion);
 
 	}
-
-
 }
