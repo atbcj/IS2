@@ -9,6 +9,7 @@ import org.json.JSONObject;
 public class Titulacion {
 	private List<Curso> _listCursos;
 	private String _nombre;
+	
 
 	public Titulacion(String nombre, List<Curso> lista) {
 		this._listCursos = lista;
