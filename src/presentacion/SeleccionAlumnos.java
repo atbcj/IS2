@@ -109,7 +109,7 @@ public class SeleccionAlumnos extends JFrame {
 	}
 
 	private void actualizarAsignaturas(String nombre) {
-		if (_curso != null) {
+		if (_curso != null && nombre != null) {
 			_asignatura = _curso.getAsignatura(nombre);
 			gruposComboBox.removeAllElements();
 			//Sale error una vez seleccionado una titulacion,
@@ -122,7 +122,7 @@ public class SeleccionAlumnos extends JFrame {
 
 	private void actualizarCursos(String nombre) {
 		_curso = _tit.getCurso(nombre);
-		if(_curso != null) {
+		if(_curso != null && nombre != null) {
 			asignaturasComboBox.removeAllElements();
 			for (Asignatura a : _curso.get_lista_asignaturas()) {
 				asignaturasComboBox.addElement(a.getNombre());
