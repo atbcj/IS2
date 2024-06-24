@@ -1,51 +1,66 @@
 package capaIntegracion;
 
 import clases.Titulacion;
+import presentacion.Controller;
 
 public class SADAOTitulacionImp implements ISADAOTitulacion{
 	
-	private Titulacion _titulacion;
+	private Controller _ctrl;
 
-	public SADAOTitulacionImp(Titulacion titulacion) {
-		_titulacion = titulacion;
+	public SADAOTitulacionImp(Controller control) {
+		_ctrl = control;
 	}
 
 	@Override
 	public boolean crearTitulacion(String nombre) {
-		_titulacion = new Titulacion(nombre, null);
+		_ctrl.getTitulaciones().add(new Titulacion(nombre, null));
 		return true;
 	}
 
 	@Override
 	public boolean eliminarTitulacion(String nombre) {
-		if (_titulacion != null && _titulacion.getNombre().equals(nombre)) {
-			_titulacion = null;
-			return true;
+		Titulacion tit = null;
+		
+		for(Titulacion t :_ctrl.getTitulaciones()) {
+			if(t.getNombre().equals(nombre)) {
+				tit = t;
+			}
 		}
-		return false;
+		if(tit.getListaTitulacionCursos().isEmpty()) {
+			_ctrl.getTitulaciones().remove(tit);
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean existeTitulacion(String nombre) {
-		return _titulacion != null && _titulacion.getNombre().equals(nombre);
-	}
-
-	@Override
-	public boolean modificacionTitulacion(String nombreAntiguo, String nombreNuevo) {
-		if (_titulacion != null && _titulacion.getNombre().equals(nombreAntiguo)) {
-			_titulacion.setNombre(nombreNuevo);
-			return true;
+		for(Titulacion t :_ctrl.getTitulaciones()) {
+			if(t.getNombre().equals(nombre)) {
+				return true;
+			}
 		}
 		return false;
 	}
 
 	@Override
-	public Titulacion getTitulacion(String nombre) {
-		 if (_titulacion != null && _titulacion.getNombre().equals(nombre)) {
-	            return _titulacion;
-	        }
-	        return null;
+	public boolean modificacionTitulacion(String nombreAntiguo, String nombreNuevo) {
+		for(Titulacion t :_ctrl.getTitulaciones()) {
+			if(t.getNombre().equals(nombreAntiguo)) {
+				t.setNombre(nombreNuevo);
+			}
+		}
+		return true;
 	}
 
-	
+	@Override
+	public Titulacion getTitulacion(String nombre) {
+		for(Titulacion t :_ctrl.getTitulaciones()) {
+			if(t.getNombre().equals(nombre)) {
+				return t;
+			}
+		}
+		return null;
+	}
 }

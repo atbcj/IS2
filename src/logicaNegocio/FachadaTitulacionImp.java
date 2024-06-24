@@ -1,13 +1,14 @@
 package logicaNegocio;
 
 import clases.Titulacion;
+import presentacion.Controller;
 
 public class FachadaTitulacionImp implements IFachadaTitulacion{
 	
 	private SATitulacionImp _saTitulacionesImp;
 
-	public FachadaTitulacionImp(Titulacion titulacion) {
-		_saTitulacionesImp = new SATitulacionImp(titulacion);
+	public FachadaTitulacionImp(Controller control) {
+		_saTitulacionesImp = new SATitulacionImp(control);
 	}
 
 	@Override

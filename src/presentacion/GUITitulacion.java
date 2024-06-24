@@ -1,27 +1,25 @@
 package presentacion;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import clases.Titulacion;
-import clases.Curso;
 import logicaNegocio.FachadaTitulacionImp;
 
 @SuppressWarnings("serial")
 public class GUITitulacion extends JFrame {
 
     private FachadaTitulacionImp _fachadaTitulacionImp;
-    private Titulacion _titulacion;
+    private Controller _ctrl;
     
+    private DefaultComboBoxModel<String> titComboBox;
     private DefaultTableModel _dataTableModel;
     private String[] _headers = { "Titulaciones", "Num. Cursos" };
     private JTextField nombreTextField;
 
-    public GUITitulacion(Titulacion titulacion) {
-        _titulacion = titulacion;
-        _fachadaTitulacionImp = new FachadaTitulacionImp(_titulacion);
+    public GUITitulacion(Controller control) {
+
+        _fachadaTitulacionImp = new FachadaTitulacionImp(control);
+        _ctrl = control;
         initGUI();
     }
 
@@ -35,6 +33,12 @@ public class GUITitulacion extends JFrame {
         JPanel datosPanel = new JPanel();
         datosPanel.setLayout(new BoxLayout(datosPanel, BoxLayout.X_AXIS));
 
+        titComboBox = new DefaultComboBoxModel<>();
+        JComboBox<String> ct = new JComboBox<String>(titComboBox);
+        
+        datosPanel.add(new JLabel("Titulaciones: "));
+        datosPanel.add(ct);
+        
         nombreTextField = new JTextField();
 
         datosPanel.add(new JLabel("Nombre: "));
@@ -71,13 +75,12 @@ public class GUITitulacion extends JFrame {
 
     private void loadData() {
         _dataTableModel.setRowCount(0);
-
-        List<Curso> cursos = _titulacion.getCursos();
-        Collections.sort(cursos, Comparator.comparingInt(Curso::get_anio));
-
-        String[] row = { _titulacion.getNombre(),
-                         String.valueOf(_titulacion.getCursos().size()) };
-        _dataTableModel.addRow(row);
+        for (Titulacion t : _ctrl.getTitulaciones()) {
+        	titComboBox.addElement(String.valueOf(t.getNombre()));
+        	 String[] row = { t.getNombre(),
+                         String.valueOf(t.getCursos().size()) };
+        	 _dataTableModel.addRow(row);
+        }
     }
 
     private void crearTitulacion() {
@@ -125,7 +128,7 @@ public class GUITitulacion extends JFrame {
     }
 
     private void modificarTitulacion() {
-        String nombreAntiguo = _titulacion.getNombre();
+        String nombreAntiguo = titComboBox.getSelectedItem().toString();
         String nombreNuevo = nombreTextField.getText();
         if (!nombreNuevo.isEmpty()) {
             try {
@@ -149,7 +152,7 @@ public class GUITitulacion extends JFrame {
 
     private void consultarTitulacion() {
         try {
-            Titulacion titulacion = _fachadaTitulacionImp.consultarTitulacion(_titulacion.getNombre());
+            Titulacion titulacion = _fachadaTitulacionImp.consultarTitulacion(titComboBox.getSelectedItem().toString());
             if (titulacion != null) {
                 new InfoTitulacion(titulacion);
             } else {

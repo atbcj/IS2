@@ -1,13 +1,14 @@
 package capaIntegracion;
 
 import clases.Titulacion;
+import presentacion.Controller;
 
 public class FachadaDAOTitulacionImp implements IFachadaDAOTitulacion {
 	
 	private SADAOTitulacionImp _daoTitulacion;
 
-	public FachadaDAOTitulacionImp(Titulacion titulacion) {
-		_daoTitulacion = new SADAOTitulacionImp(titulacion);
+	public FachadaDAOTitulacionImp(Controller control) {
+		_daoTitulacion = new SADAOTitulacionImp(control);
 	}
 	
 	@Override
