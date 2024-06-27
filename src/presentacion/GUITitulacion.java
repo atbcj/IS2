@@ -1,5 +1,11 @@
 package presentacion;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import clases.Titulacion;
@@ -26,49 +32,71 @@ public class GUITitulacion extends JFrame {
     private void initGUI() {
         setTitle("Gestión de Titulaciones");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(500, 300);
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        setSize(600, 400); // Aumentamos el tamaño de la ventana
+        setLayout(new BorderLayout());
+        
+        JPanel mainPanel = new JPanel(new BorderLayout());
 
-        JPanel datosPanel = new JPanel();
-        datosPanel.setLayout(new BoxLayout(datosPanel, BoxLayout.X_AXIS));
+        JPanel datosPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
 
         titComboBox = new DefaultComboBoxModel<>();
-        JComboBox<String> ct = new JComboBox<String>(titComboBox);
+        JComboBox<String> ct = new JComboBox<>(titComboBox);
+        ct.setPreferredSize(new Dimension(200, 25));
         
-        datosPanel.add(new JLabel("Titulaciones: "));
-        datosPanel.add(ct);
+        datosPanel.add(new JLabel("Titulaciones: "), gbc);
+        gbc.gridx++;
+        datosPanel.add(ct, gbc);
         
-        nombreTextField = new JTextField();
+        gbc.gridx = 0;
+        gbc.gridy++;
+        datosPanel.add(new JLabel("Nombre: "), gbc);
+        gbc.gridx++;
+        nombreTextField = new JTextField(20);
+        datosPanel.add(nombreTextField, gbc);
 
-        datosPanel.add(new JLabel("Nombre: "));
-        datosPanel.add(nombreTextField);
+        gbc.gridx = 0;
+        gbc.gridy++;
+        gbc.gridwidth = 2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
+        JPanel buttonPanel = new JPanel();
         JButton alta = new JButton("Crear");
+        alta.setPreferredSize(new Dimension(100, 30));
         alta.addActionListener((e) -> crearTitulacion());
         JButton baja = new JButton("Eliminar");
+        baja.setPreferredSize(new Dimension(100, 30));
         baja.addActionListener((e) -> eliminarTitulacion());
         JButton modificacion = new JButton("Modificar");
+        modificacion.setPreferredSize(new Dimension(100, 30));
         modificacion.addActionListener((e) -> modificarTitulacion());
         JButton consulta = new JButton("Consultar");
+        consulta.setPreferredSize(new Dimension(100, 30));
         consulta.addActionListener((e) -> consultarTitulacion());
 
-        datosPanel.add(alta);
-        datosPanel.add(baja);
-        datosPanel.add(modificacion);
-        datosPanel.add(consulta);
+        buttonPanel.add(alta);
+        buttonPanel.add(baja);
+        buttonPanel.add(modificacion);
+        buttonPanel.add(consulta);
 
-        mainPanel.add(datosPanel);
+        datosPanel.add(buttonPanel, gbc);
+
+        mainPanel.add(datosPanel, BorderLayout.NORTH);
 
         _dataTableModel = new DefaultTableModel();
         _dataTableModel.setColumnIdentifiers(_headers);
         InfoTable tab = new InfoTable("Titulaciones", _dataTableModel);
+        JScrollPane scrollPane = new JScrollPane(tab);
 
-        mainPanel.add(tab);
+        mainPanel.add(scrollPane, BorderLayout.CENTER);
 
         loadData();
 
-        setContentPane(mainPanel);
+        add(mainPanel);
         setLocationRelativeTo(null);
         setVisible(true);
     }
