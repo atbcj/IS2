@@ -74,6 +74,7 @@ public class GUITitulacion extends JFrame {
     }
 
     private void loadData() {
+    	titComboBox.removeAllElements();
         _dataTableModel.setRowCount(0);
         for (Titulacion t : _ctrl.getTitulaciones()) {
         	titComboBox.addElement(String.valueOf(t.getNombre()));
